@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12A150">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="RE India">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMkExNTAiLz48Y2lyY2xlIGN4PSIxOSIgY3k9IjQyIiByPSI5IiBmaWxsPSIjRkZDOTI4IiBzdHJva2U9IiMwQjJBMjIiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDIiIHI9IjkiIGZpbGw9IiNGRkM5MjgiIHN0cm9rZT0iIzBCMkEyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE5IDQyIEwyOCAyNiBINDAgTDQ1IDQyIE0yOCAyNiBMMjQgMTggSDE4IE00MCAyNiBMNDYgMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMkExNTAiLz48Y2lyY2xlIGN4PSIxOSIgY3k9IjQyIiByPSI5IiBmaWxsPSIjRkZDOTI4IiBzdHJva2U9IiMwQjJBMjIiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDIiIHI9IjkiIGZpbGw9IiNGRkM5MjgiIHN0cm9rZT0iIzBCMkEyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE5IDQyIEwyOCAyNiBINDAgTDQ1IDQyIE0yOCAyNiBMMjQgMTggSDE4IE00MCAyNiBMNDYgMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<script>window.REBD_STANDALONE=true;
+try{const m={name:"RE Bharat Darshan",short_name:"RE India",start_url:".",display:"standalone",background_color:"#ffffff",theme_color:"#12A150",icons:[{src:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMkExNTAiLz48Y2lyY2xlIGN4PSIxOSIgY3k9IjQyIiByPSI5IiBmaWxsPSIjRkZDOTI4IiBzdHJva2U9IiMwQjJBMjIiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDIiIHI9IjkiIGZpbGw9IiNGRkM5MjgiIHN0cm9rZT0iIzBCMkEyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE5IDQyIEwyOCAyNiBINDAgTDQ1IDQyIE0yOCAyNiBMMjQgMTggSDE4IE00MCAyNiBMNDYgMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=",sizes:"any",type:"image/svg+xml"}]};
+const l=document.createElement("link");l.rel="manifest";l.href="data:application/manifest+json,"+encodeURIComponent(JSON.stringify(m));document.head.appendChild(l)}catch(e){}</script>
+<title>RE Bharat Darshan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky header with tab pills, then one view at a time. Bright Yesbook-style palette:
+   white page, pastel cards, a colour per trip, thick ink borders with hard offset shadows. Text is always ink on colour. */
+:root{
+  --bg:#ffffff; --surface:#ffffff; --soft:#f4f8f6; --ink:#0B2A22; --muted:#3d544b; --line:#0B2A22; --hair:#dfe8e3;
+  --green:#12A150; --yellow:#FFC928; --blue:#2EA8FF; --red:#FF5A4E; --orange:#FF9A1F; --pink:#FF5FA2;
+  --yellow-deep:#E0A800; --on-bright:#0B2A22;
+  --best:#12A150; --best-t:#DDF7E8; --ok:#FFC928; --ok-t:#FFF3C4; --no:#eef1ef;
+  --shadow:6px 6px 0;
+  --f-head:"Fredoka","Baloo 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-ui:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1530; --surface:#1A2246; --soft:#141b3b; --ink:#F4F7FF; --muted:#c3cae6; --line:#4b5899; --hair:#2a3463;
+  --no:#222b55; --best-t:rgba(18,161,80,.28); --ok-t:rgba(255,201,40,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1530; --surface:#1A2246; --soft:#141b3b; --ink:#F4F7FF; --muted:#c3cae6; --line:#4b5899; --hair:#2a3463;
+  --no:#222b55; --best-t:rgba(18,161,80,.28); --ok-t:rgba(255,201,40,.25); color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.55}
+h1,h2,h3,h4{font-family:var(--f-head);margin:0;line-height:1.1;text-wrap:balance;font-weight:700}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:8px}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1180px;margin:0 auto}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:2px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px 8px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{flex:none}
+.brand h1{font-size:22px;white-space:nowrap}
+.brand h1 .hl{background:var(--yellow);color:var(--on-bright);border-radius:8px;padding:0 6px}
+.prog{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+nav{display:flex;gap:8px;overflow-x:auto;padding-block:4px 12px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+.tab{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:6px}
+.tab .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.tab[aria-selected="true"]{background:var(--yellow);color:var(--on-bright);border-color:var(--on-bright);box-shadow:0 3px 0 var(--yellow-deep)}
+
+main{padding-block:24px 64px}
+section[hidden]{display:none}
+.view{display:grid;gap:24px}
+.lede{display:grid;gap:8px;max-width:70ch}
+.lede h2{font-size:clamp(26px,4.6vw,40px)}
+.lede p{color:var(--muted);font-size:16px}
+.blob{display:inline-block;border-radius:12px;padding:0 8px;color:var(--on-bright)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border:2px solid var(--line);border-radius:24px;padding:28px 24px;background:
+  radial-gradient(36% 60% at 100% 0%,color-mix(in srgb,var(--yellow) 55%,transparent) 0 60%,transparent 61%),
+  radial-gradient(28% 50% at 0% 100%,color-mix(in srgb,var(--blue) 40%,transparent) 0 60%,transparent 61%),
+  radial-gradient(18% 30% at 70% 110%,color-mix(in srgb,var(--pink) 40%,transparent) 0 60%,transparent 61%),var(--surface);
+  box-shadow:var(--shadow) var(--green);display:grid;gap:16px}
+.hero h2{font-size:clamp(28px,5.4vw,48px);max-width:18ch}
+.hero p{max-width:60ch;color:var(--muted);font-size:16px}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:8px 14px;display:grid}
+.stat b{font-family:var(--f-head);font-size:22px;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* trip cards */
+.trips{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.trip{position:relative;text-align:left;cursor:pointer;border:2px solid var(--line);border-radius:20px;background:var(--surface);
+  box-shadow:var(--shadow) var(--c);padding:0;display:grid;grid-template-rows:auto 1fr;overflow:hidden;transition:transform .15s,box-shadow .15s;min-width:0}
+.trip:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--c)}
+.trip-top{background:var(--t);padding:16px 18px 14px;display:grid;gap:6px;border-bottom:2px solid var(--line)}
+.trip-num{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--c);color:#fff;font-weight:700;font-size:12px;border-radius:999px;padding:3px 10px;letter-spacing:.04em;border:2px solid var(--on-bright)}
+.badge.yl{color:var(--on-bright)}
+.trip h3{font-size:24px;color:var(--on-bright)}
+.trip .tg{font-size:14px;color:var(--on-bright);opacity:.85;font-weight:500}
+.trip-body{padding:14px 18px 18px;display:grid;gap:10px;align-content:start}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;border:1.5px solid var(--hair);border-radius:999px;padding:3px 9px;color:var(--muted);background:var(--soft);white-space:nowrap}
+.trip-body p{font-size:14px;color:var(--muted)}
+.done-pill{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--surface);border:2px solid var(--on-bright);color:var(--on-bright)}
+.trip.is-done .done-pill{background:var(--green);color:#fff}
+.open{font-weight:700;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:6px}
+
+/* modal */
+dialog{border:2px solid var(--line);border-radius:24px;padding:0;width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 24px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));background:var(--surface);color:var(--ink);box-shadow:8px 8px 0 var(--c,var(--green))}
+dialog::backdrop{background:rgba(11,42,34,.55)}
+.m-head{position:sticky;top:0;background:var(--t);border-bottom:2px solid var(--line);padding:18px 20px;display:grid;gap:8px;z-index:1}
+.m-head h3{font-size:28px;color:var(--on-bright)}
+.m-head p{color:var(--on-bright);font-size:14px;opacity:.9}
+.m-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:2px solid var(--on-bright);background:#fff;color:var(--on-bright);font-size:20px;font-weight:700;cursor:pointer;line-height:1}
+.m-body{padding:18px 20px 24px;display:grid;gap:16px}
+.m-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{border:2px solid var(--on-bright);border-radius:999px;padding:9px 16px;font-weight:700;cursor:pointer;background:var(--yellow);color:var(--on-bright);box-shadow:0 4px 0 var(--yellow-deep)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-deep)}
+.btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:none}
+.flyline{font-size:14px;color:var(--muted);background:var(--soft);border:1.5px dashed var(--hair);border-radius:14px;padding:10px 12px}
+.stop{border:2px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.stop>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px}
+.stop>summary::-webkit-details-marker{display:none}
+.sn{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-head);font-weight:700;background:var(--c);color:#fff;border:2px solid var(--on-bright)}
+.sn.yl{color:var(--on-bright)}
+.st{min-width:0;flex:1}
+.st b{display:block;font-family:var(--f-head);font-size:18px;font-weight:600}
+.st small{color:var(--muted);font-size:13px}
+.chev{flex:none;transition:transform .2s;font-weight:700;color:var(--muted)}
+.stop[open] .chev{transform:rotate(180deg)}
+.facts{display:grid;gap:8px;padding:0 14px 14px}
+.fact{border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:86px 1fr;gap:10px;font-size:14px;color:var(--on-bright)}
+.fact b{font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding-top:2px}
+.f-why{background:#E0F2FF}.f-food{background:#DDF7E8}.f-stay{background:#ECE6FF}.f-tip{background:#FFF3C4}.f-gem{background:#FFE1EE}
+@media (max-width:480px){.fact{grid-template-columns:1fr;gap:2px}}
+
+/* all stops */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 240px;min-width:0;border:2px solid var(--line);border-radius:999px;padding:10px 16px;font:inherit;background:var(--surface);color:var(--ink)}
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{font-size:13px;color:var(--muted);font-weight:600}
+.slist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.scard{border:2px solid var(--line);border-radius:18px;background:var(--surface);padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0;box-shadow:4px 4px 0 var(--c)}
+.scard h4{font-size:19px;font-weight:600}
+.scard .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.scard p{font-size:14px;color:var(--muted)}
+.gemline{font-size:13px;background:#FFE1EE;color:var(--on-bright);border-radius:10px;padding:7px 10px}
+.empty{padding:24px;border:2px dashed var(--hair);border-radius:18px;color:var(--muted);text-align:center}
+
+/* food */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.fcard{border:2px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:6px;align-content:start;background:var(--fc);color:var(--on-bright);min-width:0}
+.fcard h4{font-size:19px;font-weight:600}
+.fcard .where{font-size:13px}
+.fcard .tags{display:flex;gap:6px;flex-wrap:wrap}
+.ftag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border:1.5px solid var(--on-bright);border-radius:999px;padding:2px 8px;background:rgba(255,255,255,.6)}
+.ftag.jain{background:var(--green);color:#fff;border-color:var(--on-bright)}
+.note{font-size:13px;color:var(--muted)}
+
+/* season */
+.cal-wrap{overflow-x:auto;border:2px solid var(--line);border-radius:18px;background:var(--surface)}
+table.cal{border-collapse:separate;border-spacing:4px;min-width:720px;width:100%;font-size:13px;padding:8px}
+.cal th{font-weight:700;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:4px}
+.cal td.nm{font-weight:700;white-space:nowrap;padding:4px 8px;font-family:var(--f-head);font-size:15px}
+.cal td.nm i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px;border:1.5px solid var(--on-bright)}
+.cal td.m{height:30px;border-radius:8px;background:var(--no);text-align:center;font-weight:700;font-size:11px}
+.cal td.b{background:var(--best);color:#fff}
+.cal td.o{background:var(--ok);color:var(--on-bright)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);font-weight:600}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:16px;height:16px;border-radius:5px;display:inline-block;border:1.5px solid var(--line)}
+.flights{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.fl{border:2px solid var(--line);border-radius:18px;padding:14px 16px;display:grid;gap:8px;background:var(--surface);box-shadow:4px 4px 0 var(--c);min-width:0}
+.fl h4{font-size:19px;font-weight:600}
+.route{display:flex;align-items:center;gap:6px;font-family:var(--f-head);font-weight:700;font-size:15px;flex-wrap:wrap}
+.code{background:var(--t);color:var(--on-bright);border:2px solid var(--on-bright);border-radius:10px;padding:1px 8px}
+.fl p{font-size:14px;color:var(--muted)}
+.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.tipc{border-radius:18px;padding:14px 16px;border:2px solid var(--on-bright);color:var(--on-bright);display:grid;gap:4px}
+.tipc b{font-family:var(--f-head);font-size:17px;font-weight:600}
+.tipc p{font-size:14px}
+
+/* budget */
+.bgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.bgrid{grid-template-columns:1fr}}
+.panel{border:2px solid var(--line);border-radius:20px;padding:18px;background:var(--surface);display:grid;gap:14px;min-width:0}
+.panel h3{font-size:20px}
+@media (max-width:820px){.panel[style*="sticky"]{position:static!important}}
+.fld{display:grid;grid-template-columns:1fr 130px;gap:10px;align-items:center}
+.fld label{font-size:14px;font-weight:600}
+.fld label small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.fld input,.fld select{width:100%;border:2px solid var(--line);border-radius:12px;padding:8px 10px;font:inherit;background:var(--surface);color:var(--ink);font-variant-numeric:tabular-nums}
+.sel{display:grid;gap:6px}
+.sel select{width:100%;border:2px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-weight:600;background:var(--surface);color:var(--ink)}
+.total{border:2px solid var(--on-bright);border-radius:18px;background:var(--yellow);color:var(--on-bright);padding:16px;box-shadow:0 5px 0 var(--yellow-deep);display:grid;gap:2px}
+.total span{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.total b{font-family:var(--f-head);font-size:clamp(32px,6vw,44px);line-height:1.05;font-variant-numeric:tabular-nums}
+.total small{font-size:14px;font-weight:600}
+.lines{display:grid;gap:10px}
+.ln{display:grid;gap:4px}
+.ln .lt{display:flex;justify-content:space-between;gap:8px;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.ln .lt span:last-child{color:var(--muted);font-weight:500}
+.bar{height:12px;border-radius:999px;background:var(--no);overflow:hidden;border:1.5px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:999px}
+
+footer{padding-block:24px 40px;border-top:2px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:grid;gap:6px}
+.install{border:2px solid var(--line);border-radius:18px;padding:14px 16px;background:var(--soft);display:grid;gap:6px;font-size:14px}
+.install b{font-family:var(--f-head);font-size:17px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head><body>
+
+
+<header class="gut"><div class="wrap">
+  <div class="hrow">
+    <div class="brand">
+      <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#12A150" stroke="#0B2A22" stroke-width="3"/>
+        <circle cx="19" cy="42" r="9" fill="#FFC928" stroke="#0B2A22" stroke-width="3"/>
+        <circle cx="45" cy="42" r="9" fill="#FFC928" stroke="#0B2A22" stroke-width="3"/>
+        <path d="M19 42 L28 26 H40 L45 42 M28 26 L24 18 H18 M40 26 L46 20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h1>RE <span class="hl">Bharat</span> Darshan</h1>
+    </div>
+    <span class="prog" id="prog">0 of 9 trips done</span>
+  </div>
+  <nav role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" data-v="plan" aria-selected="true"><span class="dot" style="background:var(--green)"></span>Annual Plan</button>
+    <button class="tab" role="tab" data-v="stops" aria-selected="false"><span class="dot" style="background:var(--blue)"></span>All Stops</button>
+    <button class="tab" role="tab" data-v="food" aria-selected="false"><span class="dot" style="background:var(--pink)"></span>Veg Food</button>
+    <button class="tab" role="tab" data-v="season" aria-selected="false"><span class="dot" style="background:var(--orange)"></span>Season &amp; Flights</button>
+    <button class="tab" role="tab" data-v="budget" aria-selected="false"><span class="dot" style="background:var(--red)"></span>Budget</button>
+  </nav>
+</div></header>
+
+<main class="gut"><div class="wrap">
+
+<section class="view" id="v-plan">
+  <div class="hero">
+    <h2>All of India on a Royal Enfield, <span class="blob" style="background:var(--yellow)">15 days</span> at a time.</h2>
+    <p>Nine trips from Canada, one per year. Each one starts and ends at an airport that makes sense, fits in 15 days with a spare day, and stands on its own. Every stop has named vegetarian food, a place to stay, a rider tip and a hidden gem.</p>
+    <div class="stats">
+      <div class="stat"><b>9</b><span>Trips</span></div>
+      <div class="stat"><b id="s-stops">0</b><span>Stops</span></div>
+      <div class="stat"><b id="s-km">0</b><span>Km of riding</span></div>
+      <div class="stat"><b id="s-food">0</b><span>Veg dishes</span></div>
+    </div>
+  </div>
+  <div class="lede"><h2>Your 9 trips</h2><p>Tap a trip to see every stop. Mark it done when you're back home.</p></div>
+  <div class="trips" id="trips"></div>
+</section>
+
+<section class="view" id="v-stops" hidden>
+  <div class="lede"><h2>Every stop, <span class="blob" style="background:var(--blue)">all trips</span></h2><p>Search by place, food or anything else. Hidden gems are in pink.</p></div>
+  <div class="tools">
+    <input id="q" aria-label="Search stops" class="search" type="search" placeholder="Search: stepwell, dosa, Ladakh…" autocomplete="off">
+    <span class="count" id="scount"></span>
+  </div>
+  <div class="filters" id="sfilters"></div>
+  <div class="slist" id="slist"></div>
+</section>
+
+<section class="view" id="v-food" hidden>
+  <div class="lede"><h2>Vegetarian <span class="blob" style="background:var(--pink)">food guide</span></h2><p>Pure veg, no egg, no fish. Green tag means it is usually made Jain-friendly, with no onion, garlic or root vegetables. Always confirm when you order.</p></div>
+  <div class="filters" id="ffilters"></div>
+  <div class="fgrid" id="fgrid"></div>
+</section>
+
+<section class="view" id="v-season" hidden>
+  <div class="lede"><h2>When to go, <span class="blob" style="background:var(--orange)">how to fly</span></h2><p>Each trip is set in its best riding window. Most fit the Canadian winter, so you trade snow for sunshine. The Himalaya trip is the summer one.</p></div>
+  <div class="legend"><span><i style="background:var(--best)"></i>Best</span><span><i style="background:var(--ok)"></i>Possible</span><span><i style="background:var(--no)"></i>Avoid (heat, monsoon or snow)</span></div>
+  <div class="cal-wrap"><table class="cal" id="cal"></table></div>
+  <h3 style="font-size:24px">Flights from Canada</h3>
+  <div class="flights" id="flights"></div>
+  <div class="tips">
+    <div class="tipc" style="background:#DDF0FF"><b>Nonstop options</b><p>Air India and Air Canada fly nonstop between Toronto and Delhi, and there are nonstops from Vancouver too. Other airports connect through Delhi, Mumbai, Europe or the Gulf.</p></div>
+    <div class="tipc" style="background:#FFF3C4"><b>Fares</b><p>Expect roughly CAD 1,300 to 2,200 return in economy. Fares jump around Christmas and Diwali. Open-jaw tickets (in one city, out another) usually cost about the same as a return.</p></div>
+    <div class="tipc" style="background:#DDF7E8"><b>Papers to ride</b><p>Get an International Driving Permit from CAA before you fly, and carry your Ontario licence. Rental shops and police will ask for both.</p></div>
+    <div class="tipc" style="background:#FFE1EE"><b>Permits</b><p>On a Canadian passport (OCI included), Arunachal and parts of Ladakh need a Protected Area Permit. Apply online a few weeks before Trip 8 and Trip 9.</p></div>
+  </div>
+  <p class="note">Fares and schedules change often. Treat these as a starting point and check current prices before booking.</p>
+</section>
+
+<section class="view" id="v-budget" hidden>
+  <div class="lede"><h2>Trip <span class="blob" style="background:var(--red)">budget</span></h2><p>Pick a trip and adjust the numbers to match your style. Costs in India are in rupees and the total is shown in Canadian dollars.</p></div>
+  <div class="bgrid">
+    <div class="panel">
+      <div class="sel"><label for="b-trip" style="font-weight:700">Trip</label><select id="b-trip"></select></div>
+      <div class="fld"><label for="b-days">Days<small>Including arrival and departure</small></label><input id="b-days" type="number" min="1" max="30" value="15" inputmode="numeric"></div>
+      <div class="fld"><label for="b-km">Riding distance (km)<small>Set by the trip, change if you like</small></label><input id="b-km" type="number" min="0" step="50" inputmode="numeric"></div>
+      <div class="fld"><label for="b-rent">Bike rental per day (₹)<small>Classic 350 or Himalayan</small></label><input id="b-rent" type="number" min="0" step="100" value="1800" inputmode="numeric"></div>
+      <div class="fld"><label for="b-stay">Stay per night (₹)<small>Mid-range hotel or homestay</small></label><input id="b-stay" type="number" min="0" step="100" value="2500" inputmode="numeric"></div>
+      <div class="fld"><label for="b-food">Food per day (₹)<small>Three veg meals, chai and sweets</small></label><input id="b-food" type="number" min="0" step="100" value="1000" inputmode="numeric"></div>
+      <div class="fld"><label for="b-entry">Entry fees per day (₹)<small>Monuments, safaris, boats</small></label><input id="b-entry" type="number" min="0" step="50" value="500" inputmode="numeric"></div>
+      <div class="fld"><label for="b-fuel">Petrol price (₹ per litre)</label><input id="b-fuel" type="number" min="0" step="1" value="103" inputmode="numeric"></div>
+      <div class="fld"><label for="b-kmpl">Bike mileage (km per litre)</label><input id="b-kmpl" type="number" min="1" step="1" value="32" inputmode="numeric"></div>
+      <div class="fld"><label for="b-misc">Extras (₹)<small>Permits, service, SIM, tips, shopping</small></label><input id="b-misc" type="number" min="0" step="500" value="12000" inputmode="numeric"></div>
+      <div class="fld"><label for="b-flight">Return flight (CAD)</label><input id="b-flight" type="number" min="0" step="50" value="1700" inputmode="numeric"></div>
+      <div class="fld"><label for="b-rate">Rupees per Canadian dollar<small>Check today's rate</small></label><input id="b-rate" type="number" min="1" step="0.5" value="61" inputmode="decimal"></div>
+    </div>
+    <div class="panel" style="position:sticky;top:130px">
+      <div class="total"><span>Total trip cost</span><b id="t-cad">CAD 0</b><small id="t-sub"></small></div>
+      <div class="lines" id="lines"></div>
+      <p class="note">Example figures for a comfortable mid-range trip. Your numbers stay on this device.</p>
+    </div>
+  </div>
+</section>
+
+</div></main>
+
+<footer class="gut"><div class="wrap">
+  <div class="install" id="install" hidden><b>Put this app on your home screen</b><span>iPhone or iPad: open this page in Safari, tap Share, then Add to Home Screen. Android: open in Chrome, tap the ⋮ menu, then Install app or Add to Home screen.</span></div>
+  <span>RE Bharat Darshan · Planned from Canada, ridden one trip a year. Always confirm opening days, permits and road conditions before you ride.</span>
+</div></footer>
+
+<dialog id="dlg" aria-labelledby="m-title"><div id="m-inner"></div></dialog>
+
+<script>
+const TRIPS = [
+{id:1,name:"Gujarat & Diu",tag:"Home turf warm-up",states:"Gujarat · Diu (UT)",months:"Nov to Feb",best:[10,11,0,1],ok:[2,9],km:2300,fly:"Fly into Ahmedabad (AMD) via Delhi, Mumbai, London or Dubai. Loop back to Ahmedabad.",inA:"AMD",outA:"AMD",c:"#12A150",t:"#DDF7E8",
+intro:"A gentle first ride on good roads, starting where you grew up. Salt desert, Harappan ruins, two Jyotirlingas, lions and the most vegetarian food in India.",
+stops:[
+{n:"Ahmedabad",d:"Day 1–2",why:"India's first UNESCO World Heritage City. Walk the old pols with carved wooden houses, Sabarmati Ashram and the Adalaj stepwell.",food:"Gujarati thali at Gopi Dining Hall · Rooftop thali at Agashiye (House of MG) · Late-night pav bhaji and chocolate sandwich at Manek Chowk · Fafda-jalebi at Chandravilas.",stay:"House of MG (heritage, old city) or any hotel near Ashram Road.",tip:"Collect the Royal Enfield on day 1 and do a short shake-down ride to Adalaj before the long days.",gem:"Dada Harir stepwell: as beautiful as Adalaj and almost empty."},
+{n:"Patan & Modhera",d:"Day 3",why:"Rani ki Vav, a UNESCO stepwell with 500+ sculptures, and the 1026 AD Modhera Sun Temple with its stepped tank.",food:"Patan's devda sweet · Highway Gujarati thali dhabas on the Mehsana road.",stay:"Day ride, sleep in Patan or push on toward Radhanpur.",tip:"Smooth state highways, about 130 km from Ahmedabad. Reach Modhera by 9 am for soft light.",gem:"The Salvi family's Patola weaving house in Patan, where one double-ikat saree can take 6 months."},
+{n:"Dholavira & the White Rann",d:"Day 4–5",why:"A 4,500-year-old Harappan city with an ancient water system, then the endless white salt desert under a full moon.",food:"Bajra rotla with ghee and jaggery, kadhi and khichdi at the Rann Utsav tents.",stay:"Tent City at Dhordo (Rann Utsav, Nov to Feb) or Dholavira Tourism Resort.",tip:"Get the White Rann permit at the Bhirandiyara checkpost or online. Fuel stations are far apart, so fill up in Bhachau or Khavda.",gem:"The 'Road to Heaven' causeway to Dholavira: a straight strip of tarmac with salt flats on both sides."},
+{n:"Bhuj & Lakhpat",d:"Day 6",why:"Aina Mahal and Prag Mahal in Bhuj, and the craft villages of Bhujodi and Hodka for weaving, mirror work and bell-making.",food:"Kutchi dabeli (invented in nearby Mandvi) · Kutchi kadhi and khichdi thali · Gulab pak sweet.",stay:"Bhuj town, or a bhunga (round mud hut) homestay in Hodka.",tip:"Lakhpat is 140 km out on a quiet road. Leave by 7 am and return before dark.",gem:"Lakhpat: a walled ghost town with a 7 km fort wall and a gurudwara where Guru Nanak stayed."},
+{n:"Dwarka",d:"Day 7",why:"Dwarkadhish temple, one of the Char Dham, and the boat to Beyt Dwarka.",food:"Temple-town Gujarati thalis around Dwarkadhish · Fresh buttermilk everywhere.",stay:"Hotels near the temple or by Gomti ghat.",tip:"The coastal road from Jamnagar is flat and windy. Hold the bars firmly on gusty stretches.",gem:"Shivrajpur Beach, a Blue Flag beach with clear water and very few people."},
+{n:"Somnath & Gir",d:"Day 8–9",why:"Somnath, the first of the 12 Jyotirlingas, on the Arabian Sea. Then Gir, the only home of the wild Asiatic lion.",food:"Kathiyawadi thali: sev tameta, ringan no olo, bajra rotla, chaas · Sasan Gir resorts serve full veg dinners.",stay:"Sasan Gir jungle lodges.",tip:"Book the Gir jeep safari online weeks ahead; slots sell out Nov to Jan.",gem:"Climb Girnar (about 10,000 steps, or take the ropeway) and see Uparkot fort in Junagadh."},
+{n:"Diu",d:"Day 10",why:"A small Portuguese-era island with a sea fort, white churches and quiet beaches.",food:"Veg is limited here: stick to Gujarati thali restaurants in town and fresh coconut water by the beach.",stay:"Guesthouses near Nagoa beach.",tip:"Diu is a Union Territory: carry your licence, RC and rental papers at the bridge checkpost.",gem:"Naida Caves: sunlight falling through a maze of carved rock."},
+{n:"Palitana & Velavadar",d:"Day 11–12",why:"Shatrunjaya hill holds 863 Jain temples, reached by about 3,500 steps. Palitana is the world's first fully vegetarian city by law.",food:"Pure Jain bhojanshalas at the foot of the hill: no onion, no garlic, served before sunset.",stay:"Dharamshalas or hotels in Palitana town.",tip:"Start the climb at dawn. Leather items are not allowed on the hill, so leave the riding jacket at the hotel.",gem:"Velavadar Blackbuck National Park: herds of blackbuck leaping across golden grassland."},
+{n:"Back to Ahmedabad",d:"Day 13–15",why:"A spare day for weather or rest, a day to return the bike and shop at Law Garden, then fly home.",food:"Final thali at Agashiye · Gujarati farsan and athana from the old city to carry home.",stay:"Near the airport for the early flight.",tip:"Keep one buffer day in every trip. It is what lets 15 days feel relaxed.",gem:"Sunday morning Ravivari market by the river for old brass and textiles."}]},
+
+{id:2,name:"Rajasthan",tag:"Forts, havelis and dunes",states:"Rajasthan",months:"Oct to Mar",best:[10,11,0,1],ok:[9,2],km:2400,fly:"Fly into Udaipur (UDR) via Delhi or Mumbai. Fly home from Jaipur (JAI).",inA:"UDR",outA:"JAI",c:"#FF9A1F",t:"#FFEAD1",
+intro:"The classic royal ride: lake palaces, desert forts and long empty roads with camels for traffic. Rajasthani vegetarian food is rich, spicy and full of ghee.",
+stops:[
+{n:"Udaipur",d:"Day 1–2",why:"City Palace on Lake Pichola, the Jagdish temple and the evening folk dance at Bagore ki Haveli.",food:"Thali at Natraj Dining Hall · Millets of Mewar for lighter millet dishes · Dal baati at lakeside rooftops.",stay:"A haveli near Gangaur Ghat with a lake view.",tip:"The old-city lanes are narrow and steep. Park the bike and walk.",gem:"Juna Mahal in Dungarpur (110 km): an 11-storey palace covered in murals that almost nobody visits."},
+{n:"Kumbhalgarh & Ranakpur",d:"Day 3",why:"Kumbhalgarh's 36 km wall is the second longest in the world. Ranakpur's marble Jain temple has 1,444 carved pillars, no two alike.",food:"Jain lunch at the Ranakpur temple bhojanshala.",stay:"Jungle resorts near Ranakpur.",tip:"The Aravalli ghat road between the two is one of the best riding roads in Rajasthan. Watch for langurs.",gem:"The light-and-sound show at Kumbhalgarh at dusk, with the wall lit up along the hills."},
+{n:"Jodhpur",d:"Day 4–5",why:"Mehrangarh fort towers over the blue city. Walk down through the blue lanes to the Clock Tower market.",food:"Mirchi vada and mawa kachori at Janta Sweet Home · Shahi Samosa · Makhaniya lassi at Mishrilal near the Clock Tower.",stay:"Guesthouses in the blue city below the fort.",tip:"Start at Mehrangarh at 9 am, before tour buses arrive.",gem:"Toorji ka Jhalra stepwell and the Rao Jodha Desert Rock Park trail under the fort."},
+{n:"Jaisalmer",d:"Day 6–7",why:"A living sandstone fort where 3,000 people still live, the carved Patwon ki Haveli and sunset on the dunes.",food:"Ghotua ladoo at Dhanraj Ranmal Bhatia · Ker sangri, gatte ki sabzi and bajre ki roti in the fort.",stay:"A desert camp near Khuri (quieter than Sam) for one night.",tip:"Desert crosswinds are strong. Ride at dawn, rest at noon and carry 3 litres of water.",gem:"Kuldhara: a village abandoned overnight about 200 years ago, every house still standing."},
+{n:"Bikaner",d:"Day 8",why:"Junagarh fort's painted rooms and the Karni Mata temple at Deshnoke, home to thousands of holy rats.",food:"Bikaneri bhujia fresh from the source · Rasgulla and kesar milk at Chhotu Motu Joshi.",stay:"Heritage havelis in the old city.",tip:"The Jaisalmer to Bikaner road is 330 km of straight desert. Fill up whenever you see a pump.",gem:"The National Research Centre on Camel: camel milk ice cream and baby camels."},
+{n:"Pushkar",d:"Day 9–10",why:"One of the few Brahma temples in the world, 52 ghats on a sacred lake. Meat and eggs are banned in town.",food:"Malpua from the sweet shops near Brahma temple · Rooftop cafes with falafel and lassi.",stay:"Lakeside guesthouses.",tip:"Remove shoes on the ghats and avoid the 'priests' offering flowers for money.",gem:"Hike to Savitri temple for sunrise over the lake and the desert."},
+{n:"Bundi",d:"Day 11–12",why:"Blue houses, 50+ stepwells and the Garh Palace murals. Kipling wrote part of Kim here.",food:"Simple Rajasthani thali at family-run guesthouses · Kachori near the Sukh Mahal.",stay:"Haveli guesthouses below Garh Palace.",tip:"Quiet roads, little traffic. A good place to rest your back for a day.",gem:"Raniji ki Baori, a 46 m deep carved stepwell."},
+{n:"Jaipur",d:"Day 13–15",why:"Amer fort, Hawa Mahal, Jantar Mantar and Nahargarh at sunset. Return the bike and fly home.",food:"Thali and ghewar at LMB (Laxmi Misthan Bhandar) · Pyaaz kachori at Rawat Mishthan Bhandar · Masala Chowk food court.",stay:"Old-city havelis near the Pink City.",tip:"Jaipur traffic is heavy. Ride into the city on a Sunday morning if you can.",gem:"Panna Meena ka Kund stepwell and Chand Baori in Abhaneri (95 km), with 3,500 steps in perfect symmetry."}]},
+
+{id:3,name:"Central India",tag:"The heart of India",states:"Madhya Pradesh · Chhattisgarh",months:"Oct to Mar",best:[9,10,11,0,1],ok:[2,8],km:2600,fly:"Fly into Indore (IDR) via Delhi or Mumbai. Fly home from Raipur (RPR).",inA:"IDR",outA:"RPR",c:"#FF5FA2",t:"#FFE1EE",
+intro:"The trip most people skip, and that's why it's special. Night food markets, two Jyotirlingas, Afghan ruins, the Narmada and jungle roads with almost no foreign tourists.",
+stops:[
+{n:"Indore",d:"Day 1–2",why:"India's cleanest city and its best street food. Rajwada palace and the Sarafa night market after the jewellers close.",food:"Poha-jalebi for breakfast at Chappan Dukan · Joshi Dahi Bada at Sarafa · Bhutte ka kees and garadu in winter.",stay:"Near Vijay Nagar or the old city.",tip:"Pick up the bike here and ride to Ujjain (55 km) on day 2.",gem:"Patalpani waterfall and the heritage train track to Kalakund."},
+{n:"Ujjain & Omkareshwar",d:"Day 3",why:"Mahakaleshwar's dawn Bhasma Aarti and the Om-shaped island of Omkareshwar, both Jyotirlingas.",food:"Ujjain poha and kachori near Mahakal · Temple prasad thali at Omkareshwar.",stay:"Omkareshwar guesthouses by the Narmada.",tip:"Book the Bhasma Aarti online on the temple site a few weeks ahead.",gem:"Kaal Bhairav temple, where the offering is, unusually, liquor."},
+{n:"Maheshwar",d:"Day 4",why:"Queen Ahilyabai's fort above the Narmada ghats and the handloom Maheshwari saree weavers.",food:"Simple Malwa thali with dal bafla in the old town.",stay:"Heritage guesthouses in the fort area.",tip:"Evening on the ghats is magical. Light a diya and watch boats on the river.",gem:"Sahastradhara, where the Narmada splits into a thousand streams over rocks."},
+{n:"Mandu",d:"Day 5",why:"A ruined Afghan hill city: Jahaz Mahal 'ship palace', Hindola Mahal and Rani Roopmati's pavilion.",food:"Khurasani imli (baobab fruit) sold by the roadside · Dal bafla and laddoo at local dhabas.",stay:"MP Tourism Malwa Resort.",tip:"The ghat road up to Mandu has sharp hairpins. Low gear, no hurry.",gem:"Sunset from Roopmati's Pavilion over the Nimar plains."},
+{n:"Bhopal, Sanchi & Bhimbetka",d:"Day 6–7",why:"Sanchi's Great Stupa (3rd century BC) and Bhimbetka's 10,000-year-old rock paintings, both UNESCO sites.",food:"Bhopali poha · Manohar Dairy sweets and chaat in Bhopal.",stay:"Bhopal near Upper Lake.",tip:"Sanchi in the morning, Bhimbetka in the afternoon light, about 90 km apart.",gem:"Bhojpur: an unfinished 11th-century Shiva temple with a 7.5 m linga."},
+{n:"Pachmarhi",d:"Day 8–9",why:"Satpura's only hill station: waterfalls, caves and sal forest.",food:"MP Tourism restaurants for clean veg food · Hot jalebi in the market.",stay:"MP Tourism Champak Bungalow or Rock End Manor.",tip:"Jeep tracks are gated. Park the RE and hire a local gypsy for the inner points.",gem:"Dhoopgarh, the highest point in central India, at sunset."},
+{n:"Amarkantak",d:"Day 10–11",why:"The source of the Narmada and Son rivers, with 11th-century Kalachuri temples.",food:"Temple bhojanalay meals and fresh sugarcane juice.",stay:"Simple ashrams and MP Tourism Holiday Homes.",tip:"A long ride through Mandla and Dindori. Lovely forest road but few fuel stops.",gem:"Kapildhara falls and the quiet Sonmuda viewpoint."},
+{n:"Bastar: Chitrakote & Jagdalpur",d:"Day 12–14",why:"Chitrakote, India's widest waterfall, and the weekly tribal haats of Bastar.",food:"Veg options are basic: dal, rice, sabzi at dhabas. Avoid chapda chutney, which is made from red ants.",stay:"Chhattisgarh Tourism cottages at Chitrakote.",tip:"Ride only in daylight and check local advice before going deep into Bastar.",gem:"Tirathgarh falls and Kotumsar cave in Kanger Valley National Park."},
+{n:"Raipur",d:"Day 15",why:"Return the bike and fly home.",food:"Chhattisgarhi chila and fara at local breakfast stalls.",stay:"Near the airport.",tip:"Jagdalpur to Raipur is about 300 km. Ride it the day before your flight.",gem:"Sirpur's 7th-century brick Lakshmana temple, 80 km away."}]},
+
+{id:4,name:"Maharashtra & Goa",tag:"Caves, forts and the Konkan coast",states:"Maharashtra · Goa",months:"Oct to Feb",best:[9,10,11,0,1],ok:[8,2],km:2000,fly:"Fly into Mumbai (BOM), nonstop from Toronto. Fly home from Goa (GOI or GOX).",inA:"BOM",outA:"GOI",c:"#FF5A4E",t:"#FFE4E1",
+intro:"From Mumbai's food lanes to the cave temples of Ajanta and Ellora, Shivaji's forts and a coast road down to Goa.",
+stops:[
+{n:"Mumbai",d:"Day 1–2",why:"Gateway of India, Kala Ghoda's galleries, the Marine Drive sunset and the Elephanta caves.",food:"Panki and sev puri at Swati Snacks · Gujarati thali at Shree Thaker Bhojanalay · Idli and coffee at Cafe Madras, Matunga · Vada pav at Ashok Vada Pav, Dadar.",stay:"Colaba or Matunga.",tip:"Don't ride in the city. Pick up the bike in Thane or Navi Mumbai on day 3.",gem:"Banganga Tank: a 12th-century temple tank hidden among Malabar Hill towers."},
+{n:"Aurangabad: Ajanta & Ellora",d:"Day 3–5",why:"Ajanta's 2,000-year-old paintings and Ellora's Kailasa temple, carved top-down from one rock.",food:"Maharashtrian thali with pithla bhakri · Naan khaliya is mutton, so skip it.",stay:"Aurangabad (now Chhatrapati Sambhajinagar).",tip:"Ajanta is closed Mondays and Ellora is closed Tuesdays. Plan the days around that.",gem:"Lonar crater lake, made by a meteor 50,000 years ago, with temples on the rim."},
+{n:"Pune",d:"Day 6",why:"Shaniwar Wada, the Aga Khan Palace and the student cafes of FC Road.",food:"Misal at Bedekar Misal · Breakfast at Vaishali on FC Road · Bakarwadi from Chitale Bandhu.",stay:"Koregaon Park or Deccan.",tip:"Avoid the old Mumbai–Pune highway at weekends.",gem:"Ride up Sinhagad fort at dawn for pithla bhakri and kanda bhaji at the top."},
+{n:"Mahabaleshwar & Pratapgad",d:"Day 7",why:"Strawberry hills, viewpoints over the Krishna valley and Shivaji's Pratapgad fort.",food:"Strawberries with cream at Mapro Garden · Corn pattice in the market.",stay:"Mahabaleshwar or quieter Panchgani.",tip:"Ghat roads get foggy after 4 pm in winter. Ride in the morning.",gem:"Kaas plateau (Sept to Oct), a UNESCO 'valley of flowers'."},
+{n:"Kolhapur",d:"Day 8",why:"Mahalaxmi temple, the New Palace and Kolhapuri chappal workshops.",food:"Fiery misal at Fadtare Misal · Kolhapuri veg thali with tambda and pandhra rassa (ask for the veg versions).",stay:"Near Mahalaxmi temple.",tip:"Get your Kolhapuri chappals here and ship them home.",gem:"Panhala fort and the jaggery (gul) boiling units in winter."},
+{n:"Tarkarli & Sindhudurg",d:"Day 9–10",why:"Shivaji's sea fort, white sand and some of the clearest water on the west coast.",food:"Malvani veg: kokum sol kadhi, ghavne, usal. The coast is fish-heavy, so say 'shakahari' clearly.",stay:"MTDC beach cottages or homestays at Devbag.",tip:"The coastal road has small ferries and narrow bridges. Ride slow, enjoy the views.",gem:"Devbag sangam, where the Karli river meets the sea."},
+{n:"North Goa & Panaji",d:"Day 11–12",why:"Fontainhas Latin quarter, the churches of Old Goa and the Saturday night markets.",food:"Goan veg thali with khatkhate and tondak at Ponda's temple bhojanalayas · Mangalorean veg in Panaji.",stay:"Fontainhas guesthouses.",tip:"Goa police check helmets and papers often. Carry the rental agreement.",gem:"The ferry to Divar island and its sleepy Portuguese villages."},
+{n:"South Goa",d:"Day 13–15",why:"Palolem and Agonda beaches, Cabo de Rama fort and the spice farms.",food:"Spice-farm veg lunch on banana leaf · Bebinca to carry home (contains egg, so skip it if you avoid egg).",stay:"Agonda beach huts.",tip:"Return the bike in Margao and fly out of Goa.",gem:"Netravali bubbling lake, where bubbles rise when you clap."}]},
+
+{id:5,name:"Karnataka & Kerala",tag:"Temples, coffee and backwaters",states:"Karnataka · Kerala",months:"Nov to Feb",best:[10,11,0,1],ok:[9,2],km:2400,fly:"Fly into Bengaluru (BLR) via Delhi, Europe or the Gulf. Fly home from Kochi (COK).",inA:"BLR",outA:"COK",c:"#2EA8FF",t:"#DDF0FF",
+intro:"Ruined empires in Hampi, the first Chalukyan temples, coffee hills, tea estates and a slow houseboat to finish. South Indian vegetarian food at its best.",
+stops:[
+{n:"Bengaluru",d:"Day 1",why:"Arrive, rest and eat. Lalbagh and Cubbon Park in the morning.",food:"Rava idli at MTR · Masala dosa at Vidyarthi Bhavan · Benne dosa at CTR, Malleshwaram.",stay:"Basavanagudi or Malleshwaram for the food.",tip:"Pick up the bike outside the city to skip traffic.",gem:"Nandi Hills at sunrise, 60 km out."},
+{n:"Hampi",d:"Day 2–4",why:"The Vijayanagara capital: Vittala temple's stone chariot, Virupaksha temple and boulder landscapes.",food:"Mango Tree restaurant · Banana pancakes and thalis across the river.",stay:"Hampi Bazaar or across the river at Virupapur Gaddi.",tip:"Rent a bicycle or walk inside the ruins; the RE stays parked.",gem:"Anegundi village and a coracle ride on the Tungabhadra."},
+{n:"Badami, Aihole & Pattadakal",d:"Day 5",why:"The cradle of temple architecture: cave temples at Badami, 125 temples at Aihole, UNESCO Pattadakal.",food:"Jolada rotti (jowar) meals with ennegai brinjal in North Karnataka style.",stay:"Badami.",tip:"All three are within 35 km of each other. One full day covers them.",gem:"Aihole's apsidal Durga temple."},
+{n:"Gokarna, Murudeshwar & Udupi",d:"Day 6–7",why:"Om Beach, the giant Shiva at Murudeshwar and the Krishna temple at Udupi.",food:"Masala dosa and goli baje at Mitra Samaj, Udupi · Gadbad ice cream at Diana, Udupi · Free lunch prasad at Udupi Krishna Mutt.",stay:"Gokarna beach huts, then Udupi.",tip:"The NH66 coast road is scenic but busy with trucks.",gem:"Yana rocks, black limestone towers in the forest."},
+{n:"Coorg",d:"Day 8",why:"Coffee estates, misty hills and the Tibetan settlement at Bylakuppe.",food:"Akki roti and bamboo shoot curry (veg) · Fresh estate coffee.",stay:"A coffee-estate homestay.",tip:"Estate roads are narrow and slippery after rain.",gem:"Mandalpatti viewpoint by jeep."},
+{n:"Mysuru",d:"Day 9",why:"Mysore Palace, lit with 97,000 bulbs on Sunday evenings, and Chamundi Hill.",food:"Butter dosa at Mylari · Mysore pak at Guru Sweet Mart, where the sweet was born.",stay:"Near the palace.",tip:"Plan your Mysuru night for a Sunday to see the palace lights.",gem:"Somnathpur's Keshava temple, a perfect star-shaped Hoysala gem."},
+{n:"Wayanad",d:"Day 10",why:"Forest roads into Kerala, the Edakkal cave carvings and spice plantations.",food:"Kerala veg meals: rice, sambar, avial, thoran, pappadam.",stay:"Treehouse or plantation stay.",tip:"The Mysuru–Wayanad road crosses Bandipur forest. Night riding is banned; cross by 6 pm.",gem:"Chembra Peak and its heart-shaped lake."},
+{n:"Munnar",d:"Day 11–12",why:"Endless tea estates, Eravikulam National Park and the Nilgiri tahr.",food:"Hot puttu with kadala curry · Tea at the estate factories.",stay:"A tea-estate bungalow.",tip:"Long winding descents. Use engine braking and keep brakes cool.",gem:"Kolukkumalai, among the highest tea estates in the world, at sunrise."},
+{n:"Alleppey & Kochi",d:"Day 13–15",why:"A night on a houseboat in the backwaters, then Fort Kochi's Chinese fishing nets and the Jew Town spice market.",food:"Kerala sadya on a banana leaf · Tell the houseboat crew 'pure veg, no egg' when booking · Kashi Art Cafe, Fort Kochi.",stay:"One night houseboat, then Fort Kochi.",tip:"Return the bike in Kochi before the houseboat.",gem:"Kumbalangi, a model tourism village with no crowds."}]},
+
+{id:6,name:"Tamil Nadu & Puducherry",tag:"The great temple trail",states:"Tamil Nadu · Puducherry (UT)",months:"Dec to Feb",best:[11,0,1],ok:[10,2],km:2100,fly:"Fly into Chennai (MAA) via Delhi, Europe or the Gulf. Fly home from Madurai (IXM) or Chennai.",inA:"MAA",outA:"IXM",c:"#FFC928",t:"#FFF3C4",
+intro:"Dravidian temples taller than anything in the north, French streets in Puducherry, land's end at Dhanushkodi and the best idli and filter coffee in India.",
+stops:[
+{n:"Chennai",d:"Day 1",why:"Kapaleeshwarar temple in Mylapore, Marina Beach and the Government Museum's bronzes.",food:"Idli and chutneys at Murugan Idli Shop · Sambar idli at Ratna Cafe · Filter coffee everywhere.",stay:"Mylapore or T. Nagar.",tip:"Collect the bike and ride out on the East Coast Road early.",gem:"Cholamandal Artists' Village on ECR."},
+{n:"Mahabalipuram",d:"Day 2",why:"The Shore Temple, Arjuna's Penance relief and the five rathas, all UNESCO.",food:"South Indian meals in town · Tender coconut on the beach.",stay:"Beach hotels.",tip:"Only 55 km from Chennai. An easy first riding day.",gem:"Tiger Cave, a quiet rock-cut shrine by the sea."},
+{n:"Puducherry",d:"Day 3–4",why:"The French Quarter, Aurobindo Ashram and Auroville's Matrimandir.",food:"South Indian breakfast at Surguru · Auroville Solar Kitchen lunch · French bakeries with egg-free options.",stay:"White Town heritage guesthouses.",tip:"Puducherry is a Union Territory, and fuel is cheaper here. Fill up.",gem:"Serenity Beach at dawn."},
+{n:"Thanjavur & Darasuram",d:"Day 5–6",why:"The 1,000-year-old Brihadeeswarar temple and the Airavatesvara temple at Darasuram, both UNESCO.",food:"Thanjavur veg thali · Degree coffee in Kumbakonam.",stay:"Thanjavur.",tip:"Temples close 12:30 to 4 pm. Ride in the afternoon gap.",gem:"Gangaikonda Cholapuram, the third great Chola temple, often empty."},
+{n:"Chettinad (Karaikudi)",d:"Day 7",why:"Grand merchant mansions with Burma teak pillars and Italian marble.",food:"Chettinad food is mostly meat. Ask for veg kuzhambu, kuzhi paniyaram and kavuni arisi sweet.",stay:"A heritage mansion hotel in Kanadukathan.",tip:"Many mansions are private. Look for 'visitors welcome' signs.",gem:"Athangudi tile workshops, where tiles are made by hand on glass."},
+{n:"Madurai",d:"Day 8–9",why:"The Meenakshi Amman temple with 14 gopurams and the night ceremony at the shrine.",food:"Jigarthanda at Famous Jigarthanda · Idli at Murugan Idli Shop, which started here · Paruthi paal.",stay:"Near the temple.",tip:"Mobile phones are not allowed inside the Meenakshi temple. Leave them in the cloakroom.",gem:"Thirumalai Nayak Palace sound-and-light show."},
+{n:"Rameswaram & Dhanushkodi",d:"Day 10–11",why:"Ramanathaswamy temple's 1,200 m corridor and the ghost town of Dhanushkodi at the tip of India.",food:"Simple temple-town veg meals · Fresh palm fruit (nungu).",stay:"Rameswaram.",tip:"Riding onto Pamban island over the sea bridge is unforgettable. Ride slowly in crosswinds.",gem:"Arichal Munai, the land's end road where the sea is on both sides."},
+{n:"Kanyakumari",d:"Day 12–13",why:"Where three seas meet. The Vivekananda Rock and the Thiruvalluvar statue.",food:"Banana-leaf meals near the temple · Banana chips fried in coconut oil.",stay:"A sea-facing hotel for sunrise and sunset.",tip:"The ferry to the rock gets long queues after 9 am.",gem:"Padmanabhapuram Palace, the largest wooden palace in Asia, 35 km away."},
+{n:"Kodaikanal",d:"Day 14–15",why:"Cool hills, pine forests and the lake. Ride down to Madurai to fly home.",food:"Homemade chocolates and hot veg soups in the bazaar.",stay:"Near the lake.",tip:"The Palani ghat road has 50+ hairpins. Wonderful, but go slow.",gem:"Poombarai village terraces and the old Kuzhanthai Velappar temple."}]},
+
+{id:7,name:"East India",tag:"Rivers, sweets and Buddhist roots",states:"West Bengal · Odisha · Bihar · Uttar Pradesh",months:"Nov to Feb",best:[10,11,0,1],ok:[9,2],km:2700,fly:"Fly into Kolkata (CCU) via Delhi or the Gulf. Fly home from Varanasi (VNS) via Delhi.",inA:"CCU",outA:"VNS",c:"#13B5A6",t:"#D5F5F1",
+intro:"Kolkata's sweets, terracotta temples, the Sun Temple at Konark, where the Buddha found enlightenment, and an end on the Varanasi ghats.",
+stops:[
+{n:"Kolkata",d:"Day 1–2",why:"Victoria Memorial, Howrah Bridge at dawn, the College Street book market and Kumartuli.",food:"Sandesh and mishti doi at Balaram Mullick & Radharaman · Puchka at Vivekananda Park · Marwari veg thalis in Burrabazar.",stay:"Park Street or near Esplanade.",tip:"Ride out of the city on Sunday morning, when traffic is light.",gem:"Kumartuli, where artisans sculpt the Durga idols from river clay."},
+{n:"Shantiniketan & Bishnupur",d:"Day 3",why:"Tagore's open-air university and Bishnupur's terracotta temples.",food:"Bengali veg: shukto, aloo posto, cholar dal with luchi.",stay:"Bolpur near Shantiniketan.",tip:"Rural roads with cycles and cattle. Keep speed down.",gem:"The Saturday Sonajhuri haat, a forest craft market with Baul singers."},
+{n:"Puri",d:"Day 4–5",why:"The Jagannath temple and its golden beach. Non-Hindus may not enter the temple, but anyone can see it from the Raghunandan library roof.",food:"Mahaprasad at Ananda Bazaar inside the temple, fully veg and cooked in clay pots · Khaja sweet.",stay:"Swargadwar beach area.",tip:"Kolkata to Puri is about 500 km. Split it with a night in Balasore.",gem:"Raghurajpur artist village for pattachitra paintings."},
+{n:"Konark & Chilika",d:"Day 6",why:"The 13th-century Sun Temple shaped like a chariot, then Chilika, Asia's largest brackish lagoon.",food:"Odia veg thali with dalma and saga · Chhena poda.",stay:"Satapada or Barkul on the lake.",tip:"The Marine Drive road from Puri to Konark is a beautiful ride.",gem:"Irrawaddy dolphins at Satapada at sunrise."},
+{n:"Bhubaneswar",d:"Day 7",why:"Lingaraj temple, Mukteswar and the Jain caves of Udayagiri and Khandagiri.",food:"Chhena poda at Pahala sweet stalls on the highway · Dahi bara aloo dum.",stay:"Near the old town.",tip:"A long ride day is next, so service the bike here.",gem:"Dhauli, where Emperor Ashoka gave up war, with his rock edicts."},
+{n:"Bodh Gaya",d:"Day 8–9",why:"The Mahabodhi temple and the descendant of the Bodhi tree where the Buddha attained enlightenment.",food:"Litti chokha · Tibetan veg momos and thukpa from the monastery kitchens.",stay:"Monastery guesthouses or hotels near the temple.",tip:"Bhubaneswar to Bodh Gaya is very long. Take two days through Jharkhand with a stop at Ranchi.",gem:"The Barabar Caves, India's oldest rock-cut caves (3rd century BC), the 'Marabar Caves' of A Passage to India."},
+{n:"Rajgir & Nalanda",d:"Day 10–11",why:"The ruins of Nalanda, the world's first residential university, and Rajgir's hot springs.",food:"Bihari thali with sattu paratha · Khaja from Silao on the way.",stay:"Rajgir.",tip:"Visit Nalanda early in the morning before the heat and the crowds.",gem:"Vulture Peak, where the Buddha preached, by ropeway or a climb."},
+{n:"Varanasi & Sarnath",d:"Day 12–15",why:"Dawn boat on the Ganga, the evening aarti at Dashashwamedh and Sarnath, where the Buddha gave his first sermon.",food:"Tamatar chaat at Kashi Chaat Bhandar · Kachori sabzi for breakfast at Ram Bhandar · Lassi in clay cups at Blue Lassi · Malaiyo in winter.",stay:"A guesthouse on the ghats near Assi.",tip:"Return the bike at the edge of town. The old city lanes are for walking only.",gem:"Ramnagar Fort across the river, and the quiet ghats north of Manikarnika."}]},
+
+{id:8,name:"Northeast",tag:"Seven sisters, living bridges, high passes",states:"Assam · Meghalaya · Arunachal Pradesh",months:"Oct to Apr",best:[9,10,2,3],ok:[11,0,1],km:2200,fly:"Fly into Guwahati (GAU) via Delhi. Fly home from Guwahati.",inA:"GAU",outA:"GAU",c:"#8B6CFF",t:"#ECE6FF",
+intro:"The least-visited corner of India and the greenest. Living root bridges, the cleanest village in Asia, rhinos, a river island and a ride over a 13,700 ft pass to Tawang.",
+stops:[
+{n:"Guwahati",d:"Day 1–2",why:"Kamakhya temple on Nilachal Hill and a Brahmaputra sunset cruise.",food:"Assamese niramish (veg) thali: khar, aloo pitika, lai xaak, masor tenga without fish (ask) · Pitha snacks.",stay:"Near Paltan Bazaar or Pan Bazaar.",tip:"As a Canadian passport holder (including OCI), apply for the Arunachal Protected Area Permit before you leave Canada.",gem:"Umananda, a tiny river island temple with golden langurs."},
+{n:"Shillong",d:"Day 3",why:"The 'Scotland of the East': pine hills, Ward's Lake and a live music scene.",food:"Veg is harder here. Delhi Mistan Bhandar at Police Bazaar is a safe bet. Avoid jadoh, which is cooked with meat.",stay:"Police Bazaar or Laitumkhrah.",tip:"Guwahati to Shillong is 100 km of smooth four-lane highway.",gem:"Laitlum canyons at sunrise."},
+{n:"Sohra (Cherrapunji)",d:"Day 4–5",why:"One of the wettest places on earth: waterfalls, caves and the double-decker living root bridge at Nongriat.",food:"Homestay veg meals: rice, dal, local greens and potatoes.",stay:"A homestay in Nongriat village (bridge side) or Sohra.",tip:"Nongriat means about 3,500 steps down and back up. Do it with a light bag.",gem:"Mawsmai cave and the Seven Sisters falls in the late afternoon."},
+{n:"Mawlynnong & Dawki",d:"Day 6",why:"Asia's cleanest village and the Umngot river, so clear the boats seem to float in air.",food:"Village homestay meals and fresh pineapple.",stay:"Shnongpdeng riverside camps.",tip:"Go in Nov to Mar, when the river is clearest.",gem:"Shnongpdeng village for kayaking and a night by the river."},
+{n:"Kaziranga",d:"Day 7–8",why:"Two-thirds of the world's one-horned rhinos, with elephants and wild water buffalo.",food:"Resort veg buffets · Assam tea straight from the gardens.",stay:"Resorts near Kohora range.",tip:"The park is open Nov to Apr. Book the jeep safari through the official site.",gem:"A tea-estate bungalow stay around Jorhat."},
+{n:"Majuli",d:"Day 9",why:"The world's largest river island, home of the neo-Vaishnavite satras with their dance and mask-making traditions.",food:"Satra prasad and simple Mising tribal veg meals.",stay:"Bamboo cottages.",tip:"Take the ferry from Nimati Ghat; the RE goes on the deck with you.",gem:"Samaguri Satra, where giant masks are made by hand."},
+{n:"Dirang & Bomdila",d:"Day 10–11",why:"Into Arunachal: monasteries, apple orchards and hot springs.",food:"Veg momos and thukpa · Butter tea.",stay:"Dirang homestays.",tip:"Your Protected Area Permit is checked at Bhalukpong. Carry printed copies.",gem:"Sangti valley, where black-necked cranes come in winter."},
+{n:"Tawang",d:"Day 12–13",why:"Over Sela Pass (13,700 ft) to India's largest monastery, 400 years old.",food:"Monastery kitchens and Tibetan veg restaurants in town.",stay:"Guesthouses near the monastery.",tip:"Sela can have snow and ice Nov to Mar. Check conditions in Dirang the evening before.",gem:"Madhuri (Shonga-tser) lake, made by a 1950 earthquake."},
+{n:"Back to Guwahati",d:"Day 14–15",why:"Ride back down to the plains and fly home.",food:"Final Assamese veg thali in Guwahati.",stay:"Near the airport.",tip:"Tawang to Guwahati is about 450 km. Split it with a night in Tezpur.",gem:"The Nameri river camp near Bhalukpong."}]},
+
+{id:9,name:"Himalaya",tag:"The big one: Manali to Leh to Srinagar",states:"Himachal Pradesh · Ladakh · Jammu & Kashmir",months:"Mid June to mid Sept",best:[6,7,8],ok:[5,9],km:1900,fly:"Fly into Delhi (DEL), nonstop from Toronto or Vancouver. Fly home from Srinagar (SXR) via Delhi.",inA:"DEL",outA:"SXR",c:"#0E7C86",t:"#D3EEF0",
+intro:"The dream ride for every Royal Enfield owner. Saved for last, when you have 8 trips of experience. High passes, cold deserts and the lakes of Ladakh.",
+stops:[
+{n:"Delhi to Chandigarh",d:"Day 1–2",why:"Arrive in Delhi and ride north. Le Corbusier's planned city and the Rock Garden.",food:"Paranthas at Amrik Sukhdev Dhaba, Murthal · Chole bhature in Chandigarh Sector 17.",stay:"Chandigarh.",tip:"Pick up the bike in Delhi or Chandigarh. Many riders rent in Manali instead to skip the plains.",gem:"Nek Chand's Rock Garden, built secretly from city scrap."},
+{n:"Manali",d:"Day 3–4",why:"Acclimatize at 2,000 m. Old Manali, Hadimba temple and the Solang valley.",food:"Siddu with ghee · Himachali dham (madra, rajma, sepu vadi) · Cafes in Old Manali.",stay:"Old Manali or Naggar.",tip:"Get the online permit for Rohtang if you plan to go. The Atal Tunnel route needs none.",gem:"Naggar castle and the Roerich art gallery."},
+{n:"Jispa",d:"Day 5",why:"Through the Atal Tunnel into Lahaul, along the Bhaga river.",food:"Dal-chawal and rajma at riverside camps.",stay:"Jispa camps or guesthouses.",tip:"Sleep at Jispa (3,300 m) before going higher. This is the key acclimatization step.",gem:"Gemur monastery and the Keylong views."},
+{n:"Sarchu to Leh",d:"Day 6–7",why:"Baralacha La, the 21 Gata Loops, the More Plains and Tanglang La at 5,328 m.",food:"Maggi and chai at Pang and Sarchu tent dhabas.",stay:"Sarchu tents for one night, then Leh.",tip:"Carry a spare tube, chain lube and 5 litres of extra fuel. There is no fuel between Tandi and Karu, about 365 km.",gem:"The More Plains, 40 km of flat high plateau at 4,700 m."},
+{n:"Leh",d:"Day 8–9",why:"Rest days. Shanti Stupa, Leh Palace, Thiksey and Hemis monasteries.",food:"Veg thukpa, skyu and chutagi (Ladakhi pasta) · Apricot jam and butter tea · Tibetan Kitchen and other veg-friendly cafes on Fort Road.",stay:"A family guesthouse in Changspa.",tip:"Canadian passport holders need a Protected Area Permit for Nubra and Pangong. Get it online or through any Leh travel agent.",gem:"Alchi monastery's 1,000-year-old murals."},
+{n:"Nubra Valley",d:"Day 10",why:"Over Khardung La to sand dunes with double-humped camels and Diskit's giant Buddha.",food:"Homestay veg meals with fresh apricots.",stay:"Hunder camps.",tip:"Don't stay long on top of Khardung La: 15 minutes and down.",gem:"Turtuk, a Balti village of apricot orchards opened to visitors only in 2010."},
+{n:"Pangong Tso",d:"Day 11",why:"The 134 km lake that changes from blue to green to turquoise through the day.",food:"Camp meals, simple dal-rice.",stay:"Homestays at Spangmik, Man or Merak.",tip:"Take the Shyok road from Nubra. It is rough but beautiful; cross streams in the morning when water is lowest.",gem:"Merak village, with almost no tourists."},
+{n:"Lamayuru & Kargil",d:"Day 12–13",why:"The 'moonland' around Lamayuru monastery, then down to Kargil.",food:"Dhaba rajma-chawal and fresh rotis.",stay:"Lamayuru or Kargil.",tip:"From here the roads are smooth all the way to Srinagar.",gem:"The Mulbekh Maitreya, a 9 m Buddha carved into rock, and the Drass war memorial."},
+{n:"Srinagar & Sonamarg",d:"Day 14–15",why:"Over Zoji La to Sonamarg's meadows, then Dal Lake, a shikara ride and the Mughal gardens.",food:"Rajma-chawal at Krishna Vaishno Dhaba · Kashmiri dum aloo and nadru (lotus stem) · Kahwa with almonds.",stay:"A houseboat on Dal or Nigeen Lake.",tip:"Return the bike in Srinagar (rental shops arrange one-way drops) and fly out via Delhi.",gem:"Nigeen Lake, the calmer sister of Dal."}]}
+];
+
+const FOOD = [
+["Fafda & jalebi","Gujarat","Breakfast",1,"Chandravilas, Ahmedabad (since 1900)"],
+["Gujarati thali","Gujarat","Lunch",1,"Gopi Dining Hall · Agashiye, Ahmedabad"],
+["Khaman dhokla","Gujarat","Snack",1,"Das Khaman, Ahmedabad"],
+["Kutchi dabeli","Gujarat","Snack",0,"Mandvi, Kutch, where it was invented"],
+["Undhiyu","Gujarat","Lunch",0,"Any Surat or Ahmedabad home kitchen in winter"],
+["Pyaaz kachori","Rajasthan","Breakfast",0,"Rawat Mishthan Bhandar, Jaipur"],
+["Dal baati churma","Rajasthan","Lunch",0,"Rajasthani thali houses in Jaipur and Udaipur"],
+["Ker sangri","Rajasthan","Dinner",1,"Inside Jaisalmer fort"],
+["Mirchi vada","Rajasthan","Snack",0,"Janta Sweet Home, Jodhpur"],
+["Ghewar","Rajasthan","Sweet",1,"LMB, Jaipur"],
+["Poha & jalebi","Madhya Pradesh","Breakfast",0,"Chappan Dukan, Indore"],
+["Bhutte ka kees","Madhya Pradesh","Snack",1,"Sarafa night market, Indore"],
+["Dal bafla","Madhya Pradesh","Lunch",1,"Malwa thali places in Indore and Mandu"],
+["Vada pav","Maharashtra","Snack",0,"Ashok Vada Pav, Dadar, Mumbai"],
+["Misal pav","Maharashtra","Breakfast",0,"Bedekar, Pune · Fadtare, Kolhapur"],
+["Puran poli","Maharashtra","Sweet",1,"Maharashtrian thali places in Pune"],
+["Sol kadhi","Konkan","Lunch",0,"Malvan and Tarkarli homestays"],
+["Masala dosa","Karnataka","Breakfast",0,"Vidyarthi Bhavan, Bengaluru"],
+["Rava idli","Karnataka","Breakfast",1,"MTR, Bengaluru, where it was invented"],
+["Mysore pak","Karnataka","Sweet",1,"Guru Sweet Mart, Mysuru"],
+["Goli baje","Karnataka","Snack",1,"Mitra Samaj, Udupi"],
+["Kerala sadya","Kerala","Lunch",0,"Temple towns and houseboats (order veg)"],
+["Puttu & kadala curry","Kerala","Breakfast",0,"Small tea shops in Munnar"],
+["Idli & chutneys","Tamil Nadu","Breakfast",0,"Murugan Idli Shop, Madurai and Chennai"],
+["Filter coffee","Tamil Nadu","Breakfast",1,"Ratna Cafe, Chennai · Kumbakonam"],
+["Jigarthanda","Tamil Nadu","Sweet",1,"Famous Jigarthanda, Madurai"],
+["Chhena poda","Odisha","Sweet",1,"Pahala stalls near Bhubaneswar"],
+["Dalma","Odisha","Lunch",0,"Puri and Bhubaneswar thali houses"],
+["Sandesh & mishti doi","West Bengal","Sweet",1,"Balaram Mullick & Radharaman, Kolkata"],
+["Puchka","West Bengal","Snack",0,"Vivekananda Park, Kolkata"],
+["Litti chokha","Bihar","Dinner",0,"Roadside stalls in Bodh Gaya and Patna"],
+["Tamatar chaat","Uttar Pradesh","Snack",0,"Kashi Chaat Bhandar, Varanasi"],
+["Kachori sabzi","Uttar Pradesh","Breakfast",0,"Ram Bhandar, Varanasi"],
+["Aloo pitika & khar","Assam","Lunch",0,"Assamese niramish thalis in Guwahati"],
+["Veg momos & thukpa","Northeast & Ladakh","Dinner",0,"Tawang, Leh and Gangtok cafes"],
+["Siddu","Himachal Pradesh","Breakfast",1,"Manali and Kullu dhabas"],
+["Paranthas","Haryana","Breakfast",0,"Amrik Sukhdev Dhaba, Murthal"],
+["Kashmiri dum aloo","Kashmir","Dinner",0,"Krishna Vaishno Dhaba, Srinagar"],
+["Kahwa","Kashmir","Breakfast",1,"Every houseboat in Srinagar"]
+];
+
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isYl=c=>c==="#FFC928";
+let done=new Set(store.get("rebd-done",[]));
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+// stats
+const allStops=TRIPS.flatMap(t=>t.stops.map(s=>({...s,trip:t})));
+$("#s-stops").textContent=allStops.length;
+$("#s-km").textContent=TRIPS.reduce((a,t)=>a+t.km,0).toLocaleString("en-CA");
+$("#s-food").textContent=FOOD.length;
+
+// tabs
+function show(v){
+  $$(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===v));
+  $$("main section.view").forEach(s=>s.hidden=s.id!=="v-"+v);
+  store.set("rebd-tab",v);
+}
+$$(".tab").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.v);window.scrollTo({top:0})}));
+
+// trip cards
+function renderTrips(){
+  $("#trips").innerHTML=TRIPS.map(t=>`
+  <button class="trip${done.has(t.id)?" is-done":""}" style="--c:${t.c};--t:${t.t}" data-id="${t.id}" aria-label="Open trip ${t.id}, ${esc(t.name)}">
+    <div class="trip-top">
+      <div class="trip-num"><span class="badge${isYl(t.c)?" yl":""}">TRIP ${t.id}</span><span class="done-pill">${done.has(t.id)?"✓ Done":"Planned"}</span></div>
+      <h3>${esc(t.name)}</h3><span class="tg">${esc(t.tag)}</span>
+    </div>
+    <div class="trip-body">
+      <div class="meta"><span class="chip">${esc(t.months)}</span><span class="chip">~${t.km.toLocaleString("en-CA")} km</span><span class="chip">${t.stops.length} stops</span><span class="chip">${t.inA} → ${t.outA}</span></div>
+      <p>${esc(t.intro)}</p>
+      <span class="open">See the route →</span>
+    </div>
+  </button>`).join("");
+  $("#prog").textContent=`${done.size} of 9 trips done`;
+}
+$("#trips").addEventListener("click",e=>{const b=e.target.closest(".trip");if(b)openTrip(+b.dataset.id)});
+
+// modal
+const dlg=$("#dlg");
+function openTrip(id,stopName){
+  const t=TRIPS.find(x=>x.id===id);
+  dlg.style.setProperty("--c",t.c);dlg.style.setProperty("--t",t.t);
+  $("#m-inner").innerHTML=`
+  <div class="m-head">
+    <span class="badge${isYl(t.c)?" yl":""}" style="justify-self:start">TRIP ${t.id} · ${esc(t.months)}</span>
+    <h3 id="m-title">${esc(t.name)}</h3><p>${esc(t.states)} · ~${t.km.toLocaleString("en-CA")} km · 15 days</p>
+    <button class="m-close" aria-label="Close">×</button>
+  </div>
+  <div class="m-body">
+    <p>${esc(t.intro)}</p>
+    <div class="flyline">✈ ${esc(t.fly)}</div>
+    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-budget">Budget this trip</button></div>
+    ${t.stops.map((s,i)=>`
+    <details class="stop" style="--c:${t.c}"${(stopName?s.n===stopName:i===0)?" open":""}>
+      <summary><span class="sn${isYl(t.c)?" yl":""}">${i+1}</span><span class="st"><b>${esc(s.n)}</b><small>${esc(s.d)}</small></span><span class="chev">⌄</span></summary>
+      <div class="facts">
+        <div class="fact f-why"><b>Why go</b><span>${esc(s.why)}</span></div>
+        <div class="fact f-food"><b>Veg food</b><span>${esc(s.food)}</span></div>
+        <div class="fact f-stay"><b>Stay</b><span>${esc(s.stay)}</span></div>
+        <div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>
+        <div class="fact f-gem"><b>Hidden gem</b><span>${esc(s.gem)}</span></div>
+      </div>
+    </details>`).join("")}
+  </div>`;
+  if(typeof dlg.showModal==="function")dlg.showModal();else dlg.setAttribute("open","");
+  $("#m-inner .m-close").onclick=()=>dlg.close();
+  $("#m-done").onclick=()=>{done.has(t.id)?done.delete(t.id):done.add(t.id);store.set("rebd-done",[...done]);renderTrips();$("#m-done").textContent=done.has(t.id)?"✓ Marked done":"Mark this trip done"};
+  $("#m-budget").onclick=()=>{dlg.close();$("#b-trip").value=t.id;applyTrip();show("budget");window.scrollTo({top:0})};
+  if(stopName){const o=$("#m-inner details[open]");o&&setTimeout(()=>o.scrollIntoView({block:"center"}),50)}
+}
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+
+// all stops
+let sTrip=0;
+$("#sfilters").innerHTML=`<button class="fbtn" data-t="0" aria-pressed="true">All trips</button>`+TRIPS.map(t=>`<button class="fbtn" data-t="${t.id}" aria-pressed="false">${t.id} · ${esc(t.name)}</button>`).join("")+`<button class="fbtn" data-t="gem" aria-pressed="false">Hidden gems only</button>`;
+let gemsOnly=false;
+$("#sfilters").addEventListener("click",e=>{const b=e.target.closest(".fbtn");if(!b)return;
+  if(b.dataset.t==="gem"){gemsOnly=!gemsOnly;b.setAttribute("aria-pressed",gemsOnly)}
+  else{sTrip=+b.dataset.t;$$("#sfilters .fbtn").forEach(x=>{if(x.dataset.t!=="gem")x.setAttribute("aria-pressed",x===b)})}
+  renderStops()});
+$("#q").addEventListener("input",renderStops);
+function renderStops(){
+  const q=$("#q").value.trim().toLowerCase();
+  const list=allStops.filter(s=>(!sTrip||s.trip.id===sTrip)&&(!q||[s.n,s.why,s.food,s.gem,s.tip,s.trip.name,s.trip.states].join(" ").toLowerCase().includes(q)));
+  $("#scount").textContent=`${list.length} stop${list.length===1?"":"s"}`;
+  $("#slist").innerHTML=list.length?list.map(s=>`
+  <div class="scard" style="--c:${s.trip.c}">
+    <div class="row"><span class="badge${isYl(s.trip.c)?" yl":""}" style="--c:${s.trip.c};background:${s.trip.c}">TRIP ${s.trip.id}</span><span class="chip">${esc(s.d)}</span></div>
+    <h4>${esc(s.n)}</h4>
+    ${gemsOnly?"":`<p>${esc(s.why)}</p>`}
+    <div class="gemline"><b>Gem:</b> ${esc(s.gem)}</div>
+    <button class="btn ghost" style="justify-self:start;padding:6px 12px;font-size:13px" data-open="${s.trip.id}" data-stop="${esc(s.n)}">Full details</button>
+  </div>`).join(""):`<div class="empty">No stops match "${esc(q)}". Try a state, a dish or a word like "fort".</div>`;
+}
+$("#slist").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openTrip(+b.dataset.open,b.dataset.stop)});
+
+// food
+const MEALS=["All","Breakfast","Lunch","Dinner","Snack","Sweet","Jain-friendly"];
+const MEALC={Breakfast:"#FFF3C4",Lunch:"#DDF7E8",Dinner:"#ECE6FF",Snack:"#FFEAD1",Sweet:"#FFE1EE"};
+let meal="All";
+$("#ffilters").innerHTML=MEALS.map(m=>`<button class="fbtn" data-m="${m}" aria-pressed="${m==="All"}">${m}</button>`).join("");
+$("#ffilters").addEventListener("click",e=>{const b=e.target.closest(".fbtn");if(!b)return;meal=b.dataset.m;$$("#ffilters .fbtn").forEach(x=>x.setAttribute("aria-pressed",x===b));renderFood()});
+function renderFood(){
+  const list=FOOD.filter(f=>meal==="All"||(meal==="Jain-friendly"?f[3]:f[2]===meal));
+  $("#fgrid").innerHTML=list.map(f=>`
+  <div class="fcard" style="--fc:${MEALC[f[2]]}">
+    <div class="tags"><span class="ftag">${f[2]}</span>${f[3]?'<span class="ftag jain">Jain-friendly</span>':""}</div>
+    <h4>${esc(f[0])}</h4><span style="font-size:13px;font-weight:600">${esc(f[1])}</span>
+    <span class="where">📍 ${esc(f[4])}</span>
+  </div>`).join("");
+}
+
+// season
+$("#cal").innerHTML=`<thead><tr><th scope="col" style="text-align:left">Trip</th>${MON.map(m=>`<th scope="col">${m}</th>`).join("")}</tr></thead><tbody>`+
+ TRIPS.map(t=>`<tr><td class="nm"><i style="background:${t.c}"></i>${t.id}. ${esc(t.name)}</td>${MON.map((m,i)=>{const b=t.best.includes(i),o=t.ok.includes(i);return `<td class="m${b?" b":o?" o":""}" title="${m}: ${b?"Best":o?"Possible":"Avoid"}">${b?"★":""}</td>`}).join("")}</tr>`).join("")+`</tbody>`;
+$("#flights").innerHTML=TRIPS.map(t=>`
+ <div class="fl" style="--c:${t.c};--t:${t.t}">
+   <div class="row" style="display:flex;justify-content:space-between;gap:8px;align-items:center"><h4>${t.id}. ${esc(t.name)}</h4><span class="chip">${esc(t.months)}</span></div>
+   <div class="route"><span class="code">YYZ</span>→<span class="code">${t.inA}</span><span style="color:var(--muted);font-size:14px;font-family:var(--f-ui);font-weight:600">ride</span><span class="code">${t.outA}</span>→<span class="code">YYZ</span></div>
+   <p>${esc(t.fly)}</p>
+ </div>`).join("");
+
+// budget
+const B=id=>$("#b-"+id);
+B("trip").innerHTML=TRIPS.map(t=>`<option value="${t.id}">Trip ${t.id} · ${esc(t.name)}</option>`).join("");
+function applyTrip(){const t=TRIPS.find(x=>x.id==B("trip").value);B("km").value=t.km;calc()}
+function n(id){const v=parseFloat(B(id).value);return isFinite(v)&&v>=0?v:0}
+function calc(){
+  const t=TRIPS.find(x=>x.id==B("trip").value);
+  const days=n("days"),nights=Math.max(days-1,0),rate=n("rate")||1;
+  const items=[
+    ["Bike rental",n("rent")*Math.max(days-2,0),"#FF9A1F"],
+    ["Stays",n("stay")*nights,"#8B6CFF"],
+    ["Food",n("food")*days,"#12A150"],
+    ["Petrol",n("kmpl")?n("km")/n("kmpl")*n("fuel"):0,"#FF5A4E"],
+    ["Entry fees",n("entry")*days,"#2EA8FF"],
+    ["Extras",n("misc"),"#FF5FA2"]
+  ];
+  const inr=items.reduce((a,i)=>a+i[1],0), flight=n("flight"), cad=inr/rate+flight;
+  const fmtI=v=>"₹"+Math.round(v).toLocaleString("en-IN"), fmtC=v=>"CAD "+Math.round(v).toLocaleString("en-CA");
+  $("#t-cad").textContent=fmtC(cad);
+  $("#t-sub").textContent=`${fmtI(inr)} in India + ${fmtC(flight)} flight · about ${fmtC(cad/(days||1))} a day`;
+  const all=[...items.map(i=>[i[0],i[1]/rate,i[2],fmtI(i[1])]),["Flight",flight,"#0E7C86",""]];
+  const max=Math.max(...all.map(a=>a[1]),1);
+  $("#lines").innerHTML=all.map(a=>`<div class="ln"><div class="lt"><span>${a[0]}</span><span>${fmtC(a[1])}${a[3]?" · "+a[3]:""}</span></div><div class="bar"><i style="width:${(a[1]/max*100).toFixed(1)}%;background:${a[2]}"></i></div></div>`).join("");
+  store.set("rebd-budget",Object.fromEntries(["trip","days","km","rent","stay","food","entry","fuel","kmpl","misc","flight","rate"].map(k=>[k,B(k).value])));
+}
+const saved=store.get("rebd-budget",null);
+if(saved){Object.entries(saved).forEach(([k,v])=>{if(B(k))B(k).value=v});calc()}else applyTrip();
+B("trip").addEventListener("change",applyTrip);
+$$("#v-budget input").forEach(i=>i.addEventListener("input",calc));
+
+renderTrips();renderStops();renderFood();
+const tab=store.get("rebd-tab","plan");if(["plan","stops","food","season","budget"].includes(tab))show(tab);
+if(window.REBD_STANDALONE)$("#install").hidden=false;
+})();
+</script>
+
+</body></html>
