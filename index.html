@@ -204,6 +204,64 @@ footer{padding-block:24px 40px;border-top:2px solid var(--line);color:var(--mute
 footer .wrap{display:grid;gap:6px}
 .install{border:2px solid var(--line);border-radius:18px;padding:14px 16px;background:var(--soft);display:grid;gap:6px;font-size:14px}
 .install b{font-family:var(--f-head);font-size:17px}
+/* trip tracker: vertical timeline, one card per stop, check-offs saved on device */
+.tk-top{border:2px solid var(--line);border-radius:22px;background:var(--t,var(--best-t));box-shadow:var(--shadow) var(--c,var(--green));padding:18px;display:grid;gap:14px;color:var(--on-bright)}
+.tk-top select{width:100%;border:2px solid var(--on-bright);border-radius:12px;padding:10px;font:inherit;font-weight:700;background:#fff;color:var(--on-bright)}
+.tk-sum{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ring{--p:0;flex:none;width:96px;height:96px;border-radius:50%;background:conic-gradient(var(--green) calc(var(--p)*1%),#fff 0);border:2px solid var(--on-bright);display:grid;place-items:center}
+.ring b{width:70px;height:70px;border-radius:50%;background:#fff;border:2px solid var(--on-bright);display:grid;place-items:center;font-family:var(--f-head);font-size:22px;font-variant-numeric:tabular-nums}
+.tk-sum .tx{display:grid;gap:2px;min-width:0;flex:1}
+.tk-sum h3{font-size:24px}
+.tk-sum span{font-size:14px;font-weight:600}
+.tk-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tk-row label{font-size:14px;font-weight:700}
+.tk-row input[type=date]{border:2px solid var(--on-bright);border-radius:12px;padding:8px 10px;font:inherit;background:#fff;color:var(--on-bright);min-height:44px}
+.tk-row .btn.ghost{background:#fff;color:var(--on-bright);border-color:var(--on-bright)}
+.tk-bar{height:14px;border-radius:999px;background:#fff;border:2px solid var(--on-bright);overflow:hidden}
+.tk-bar i{display:block;height:100%;background:var(--green);transition:width .3s}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:14px;position:relative}
+.tl::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:4px;border-radius:4px;background:var(--hair)}
+.tl>li{position:relative;padding-left:56px;min-width:0}
+.tl>li>*,.tk-top>*,.tbody>*,.grp>*{min-width:0}
+.ck span{min-width:0;overflow-wrap:anywhere}
+.node{position:absolute;left:4px;top:12px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-head);font-weight:700;background:var(--surface);color:var(--ink);border:3px solid var(--line);z-index:1}
+li.is-cur .node{background:var(--yellow);color:var(--on-bright);border-color:var(--on-bright);box-shadow:0 0 0 5px color-mix(in srgb,var(--yellow) 45%,transparent)}
+li.is-done .node{background:var(--green);color:#fff;border-color:var(--on-bright)}
+li.is-done::after{content:"";position:absolute;left:21px;top:30px;height:calc(100% + 14px);width:4px;background:var(--green);border-radius:4px}
+li.is-done:last-child::after{display:none}
+.tcard{border:2px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+li.is-cur .tcard{box-shadow:5px 5px 0 var(--yellow-deep)}
+li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))}
+.tcard>summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;gap:6px}
+.tcard>summary::-webkit-details-marker{display:none}
+.th{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.th b{font-family:var(--f-head);font-size:19px;font-weight:600;line-height:1.2}
+.th small{display:block;color:var(--muted);font-size:13px;font-weight:600}
+.pill{flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;border:2px solid var(--line);white-space:nowrap}
+.pill.cur{background:var(--yellow);color:var(--on-bright);border-color:var(--on-bright)}
+.pill.ok{background:var(--green);color:#fff;border-color:var(--on-bright)}
+.mini{height:8px;border-radius:999px;background:var(--no);overflow:hidden}
+.mini i{display:block;height:100%;background:var(--green)}
+.tbody{padding:0 14px 14px;display:grid;gap:12px}
+.grp{display:grid;gap:6px}
+.grp h5{margin:0;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ck{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:12px;background:var(--soft);cursor:pointer;min-height:44px;font-size:14px;line-height:1.4}
+.ck input{flex:none;width:22px;height:22px;margin:0;accent-color:var(--green)}
+.ck.on{background:var(--best-t)}
+.ck.on span{text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ink) 45%,transparent);color:var(--muted)}
+.ck .x{margin-left:auto;border:0;background:none;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px;line-height:1}
+.addrow{display:flex;gap:8px}
+.addrow input{flex:1;min-width:0;border:2px solid var(--line);border-radius:12px;padding:9px 12px;font:inherit;background:var(--surface);color:var(--ink)}
+.addrow .btn{padding:8px 14px}
+.cmp{width:100%;font-size:16px;padding:12px 16px}
+.cmp.undo{background:var(--green);color:#fff;box-shadow:0 4px 0 #0b7a3b}
+.stamp{font-size:13px;font-weight:600;color:var(--muted);text-align:center}
+.trip .tkb{height:8px;border-radius:999px;background:var(--no);overflow:hidden;border:1.5px solid var(--line)}
+.trip .tkb i{display:block;height:100%;background:var(--green)}
+.trip .tkl{font-size:13px;font-weight:700;color:var(--ink)}
+.cheer{border:2px solid var(--on-bright);border-radius:18px;background:var(--green);color:#fff;padding:16px;font-weight:600;display:grid;gap:4px}
+.cheer b{font-family:var(--f-head);font-size:22px}
+@media (max-width:440px){.prog{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head><body>
@@ -224,6 +282,7 @@ footer .wrap{display:grid;gap:6px}
   </div>
   <nav role="tablist" aria-label="Sections">
     <button class="tab" role="tab" data-v="plan" aria-selected="true"><span class="dot" style="background:var(--green)"></span>Annual Plan</button>
+    <button class="tab" role="tab" data-v="track" aria-selected="false"><span class="dot" style="background:var(--yellow);border:1.5px solid var(--on-bright)"></span>My Trip</button>
     <button class="tab" role="tab" data-v="stops" aria-selected="false"><span class="dot" style="background:var(--blue)"></span>All Stops</button>
     <button class="tab" role="tab" data-v="food" aria-selected="false"><span class="dot" style="background:var(--pink)"></span>Veg Food</button>
     <button class="tab" role="tab" data-v="season" aria-selected="false"><span class="dot" style="background:var(--orange)"></span>Season &amp; Flights</button>
@@ -244,8 +303,14 @@ footer .wrap{display:grid;gap:6px}
       <div class="stat"><b id="s-food">0</b><span>Veg dishes</span></div>
     </div>
   </div>
-  <div class="lede"><h2>Your 9 trips</h2><p>Tap a trip to see every stop. Mark it done when you're back home.</p></div>
+  <div class="lede"><h2>Your 9 trips</h2><p>Tap a trip to see every stop, then start it to get a day-by-day timeline you can tick off as you ride.</p></div>
   <div class="trips" id="trips"></div>
+</section>
+
+<section class="view" id="v-track" hidden>
+  <div class="lede"><h2>My trip <span class="blob" style="background:var(--yellow)">timeline</span></h2><p>Pick the trip you're riding. When you reach a place, tick off the sights, food and gems you did, then mark the place complete. Your progress stays on this phone.</p></div>
+  <div class="tk-top" id="tk-top"></div>
+  <ol class="tl" id="tl"></ol>
 </section>
 
 <section class="view" id="v-stops" hidden>
@@ -505,6 +570,7 @@ function renderTrips(){
     <div class="trip-body">
       <div class="meta"><span class="chip">${esc(t.months)}</span><span class="chip">~${t.km.toLocaleString("en-CA")} km</span><span class="chip">${t.stops.length} stops</span><span class="chip">${t.inA} → ${t.outA}</span></div>
       <p>${esc(t.intro)}</p>
+      ${(()=>{const s=tripStat(t);return s.started?`<span class="tkl">${s.places}/${t.stops.length} places · ${s.pct}% complete</span><div class="tkb" aria-hidden="true"><i style="width:${s.pct}%"></i></div>`:""})()}
       <span class="open">See the route →</span>
     </div>
   </button>`).join("");
@@ -526,7 +592,7 @@ function openTrip(id,stopName){
   <div class="m-body">
     <p>${esc(t.intro)}</p>
     <div class="flyline">✈ ${esc(t.fly)}</div>
-    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-budget">Budget this trip</button></div>
+    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-track">${tripStat(t).started?"Open my timeline":"Start this trip"}</button><button class="btn ghost" id="m-budget">Budget this trip</button></div>
     ${t.stops.map((s,i)=>`
     <details class="stop" style="--c:${t.c}"${(stopName?s.n===stopName:i===0)?" open":""}>
       <summary><span class="sn${isYl(t.c)?" yl":""}">${i+1}</span><span class="st"><b>${esc(s.n)}</b><small>${esc(s.d)}</small></span><span class="chev">⌄</span></summary>
@@ -542,6 +608,7 @@ function openTrip(id,stopName){
   if(typeof dlg.showModal==="function")dlg.showModal();else dlg.setAttribute("open","");
   $("#m-inner .m-close").onclick=()=>dlg.close();
   $("#m-done").onclick=()=>{done.has(t.id)?done.delete(t.id):done.add(t.id);store.set("rebd-done",[...done]);renderTrips();$("#m-done").textContent=done.has(t.id)?"✓ Marked done":"Mark this trip done"};
+  $("#m-track").onclick=()=>{dlg.close();trackTrip(t.id)};
   $("#m-budget").onclick=()=>{dlg.close();$("#b-trip").value=t.id;applyTrip();show("budget");window.scrollTo({top:0})};
   if(stopName){const o=$("#m-inner details[open]");o&&setTimeout(()=>o.scrollIntoView({block:"center"}),50)}
 }
@@ -627,8 +694,131 @@ if(saved){Object.entries(saved).forEach(([k,v])=>{if(B(k))B(k).value=v});calc()}
 B("trip").addEventListener("change",applyTrip);
 $$("#v-budget input").forEach(i=>i.addEventListener("input",calc));
 
-renderTrips();renderStops();renderFood();
-const tab=store.get("rebd-tab","plan");if(["plan","stops","food","season","budget"].includes(tab))show(tab);
+// trip tracker
+// Progress document, shaped so it can later sync to a user account as-is:
+// {schema:1, owner:"local", updatedAt, trips:{"trip-<id>":{start:"YYYY-MM-DD", updatedAt, stops:{"<stop-slug>":{c:completedAt, k:{itemKey:1}, u:["own item"], updatedAt}}}}}
+// Stops are keyed by a slug of their name, not their position, so editing a route later doesn't scramble saved progress.
+const progDoc=store.get("rebd-progress",{schema:1,owner:"local",updatedAt:0,trips:{}});
+const prog=new Proxy(progDoc.trips,{get:(o,k)=>o["trip-"+String(k)],set:(o,k,v)=>(o["trip-"+String(k)]=v,true),deleteProperty:(o,k)=>delete o["trip-"+String(k)]});
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const sk=(id,i)=>slug(TRIPS.find(x=>x.id===id).stops[i].n);
+let tkId=store.get("rebd-active",1);
+let dirty=null;
+const saveProg=()=>{const now=Date.now();progDoc.updatedAt=now;if(dirty&&prog[dirty[0]]){prog[dirty[0]].updatedAt=now;const s=dirty[1]!=null&&prog[dirty[0]].stops[sk(dirty[0],dirty[1])];if(s)s.updatedAt=now}dirty=null;store.set("rebd-progress",progDoc)};
+const tp=id=>(prog[id]=prog[id]||{start:"",stops:{}});
+const sp=(id,i)=>{const p=tp(id),k=sk(id,i);dirty=[id,i];return p.stops[k]=p.stops[k]||{c:0,k:{},u:[]}};
+function stopItems(s){
+  let sights=s.why.split(/(?<=[.!?])\s+/).filter(x=>x.length>12);
+  if(!sights.length)sights=[s.why];
+  return [
+    ["Sights",sights.map((x,j)=>["s"+j,x])],
+    ["Veg food",s.food.split(" · ").map((x,j)=>["f"+j,x])],
+    ["Hidden gem",[["g",s.gem]]],
+    ["Stay",[["st","Checked in: "+s.stay]]]
+  ];
+}
+function stopStat(t,i){
+  const st=(prog[t.id]&&prog[t.id].stops[sk(t.id,i)])||{c:0,k:{},u:[]};
+  const keys=stopItems(t.stops[i]).flatMap(g=>g[1].map(x=>x[0])).concat((st.u||[]).map((_,j)=>"u"+j));
+  const got=keys.filter(k=>st.k&&st.k[k]).length;
+  return {got,tot:keys.length,c:st.c};
+}
+function tripStat(t){
+  let places=0,got=0,tot=0;
+  t.stops.forEach((_,i)=>{const s=stopStat(t,i);if(s.c)places++;got+=s.got;tot+=s.tot});
+  const pct=Math.round(places/t.stops.length*100);
+  return {places,got,tot,pct,started:!!prog[t.id]&&(places>0||got>0||!!prog[t.id].start)};
+}
+function dayRange(d){const m=d.match(/(\d+)(?:\s*[–-]\s*(\d+))?/);return m?[+m[1],+(m[2]||m[1])]:null}
+function dateFor(start,day){if(!start)return "";const x=new Date(start+"T12:00:00");x.setDate(x.getDate()+day-1);return x.toLocaleDateString("en-CA",{weekday:"short",day:"numeric",month:"short"})}
+function fmtStamp(ts){return new Date(ts).toLocaleDateString("en-CA",{day:"numeric",month:"short",year:"numeric"})}
+let tkOpen=null, resetArm=false;
+function renderTrack(){
+  const t=TRIPS.find(x=>x.id===tkId)||TRIPS[0];tkId=t.id;
+  const p=prog[t.id]||{start:""}, ts=tripStat(t);
+  const cur=t.stops.findIndex((_,i)=>!stopStat(t,i).c);
+  if(tkOpen===null)tkOpen=cur;
+  const top=$("#tk-top");top.style.setProperty("--c",t.c);top.style.setProperty("--t",t.t);
+  top.innerHTML=`
+    <select id="tk-trip" aria-label="Choose trip">${TRIPS.map(x=>{const s=tripStat(x);return `<option value="${x.id}"${x.id===t.id?" selected":""}>Trip ${x.id} · ${esc(x.name)}${s.started?` (${s.pct}%)`:""}</option>`}).join("")}</select>
+    <div class="tk-sum">
+      <div class="ring" style="--p:${ts.pct}" role="img" aria-label="${ts.pct}% of places complete"><b>${ts.pct}%</b></div>
+      <div class="tx"><h3>${esc(t.name)}</h3>
+        <span>${ts.places} of ${t.stops.length} places complete</span>
+        <span>${ts.got} of ${ts.tot} sights, dishes and gems ticked</span>
+        <span>${cur<0?"Trip finished 🎉":"Next up: "+esc(t.stops[cur].n)}</span></div>
+    </div>
+    <div class="tk-bar" aria-hidden="true"><i style="width:${ts.tot?ts.got/ts.tot*100:0}%"></i></div>
+    <div class="tk-row"><label for="tk-start">Day 1 date</label><input type="date" id="tk-start" value="${esc(p.start||"")}">
+      <button class="btn ghost" id="tk-reset" style="margin-left:auto">${resetArm?"Tap again to clear":"Reset progress"}</button></div>
+    ${cur<0?`<div class="cheer"><b>Trip ${t.id} complete!</b><span>Every place on this route is done. It's marked done on your Annual Plan too.</span></div>`:""}`;
+  $("#tl").innerHTML=t.stops.map((s,i)=>{
+    const st=(prog[t.id]&&prog[t.id].stops[sk(t.id,i)])||{c:0,k:{},u:[]}, ss=stopStat(t,i), dr=dayRange(s.d);
+    const dateTxt=dr&&p.start?dateFor(p.start,dr[0])+(dr[1]>dr[0]?" – "+dateFor(p.start,dr[1]):""):"";
+    const cls=st.c?"is-done":i===cur?"is-cur":"";
+    const pill=st.c?`<span class="pill ok">✓ Done</span>`:i===cur?`<span class="pill cur">You're here</span>`:`<span class="pill">${ss.got}/${ss.tot}</span>`;
+    const ck=(k,txt,own)=>`<label class="ck${st.k[k]?" on":""}"><input type="checkbox" data-k="${k}"${st.k[k]?" checked":""}><span>${esc(txt)}</span>${own!=null?`<button class="x" data-del="${own}" aria-label="Remove">×</button>`:""}</label>`;
+    return `<li class="${cls}" data-i="${i}"><span class="node" aria-hidden="true">${st.c?"✓":i+1}</span>
+    <details class="tcard"${i===tkOpen?" open":""}>
+      <summary><div class="th"><div><b>${esc(s.n)}</b><small>${esc(s.d)}${dateTxt?" · "+dateTxt:""}</small></div>${pill}</div>
+        <div class="mini" aria-hidden="true"><i style="width:${ss.tot?ss.got/ss.tot*100:0}%"></i></div></summary>
+      <div class="tbody">
+        ${stopItems(s).map(g=>`<div class="grp"><h5>${g[0]}</h5>${g[1].map(x=>ck(x[0],x[1])).join("")}</div>`).join("")}
+        <div class="grp"><h5>Your own</h5>${(st.u||[]).map((x,j)=>ck("u"+j,x,j)).join("")}
+          <form class="addrow" data-add><input name="t" placeholder="Add something you did here" autocomplete="off" aria-label="Add your own item"><button class="btn" type="submit">Add</button></form></div>
+        <div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>
+        <button class="btn cmp${st.c?" undo":""}" data-cmp>${st.c?"✓ Place complete · tap to undo":"Mark "+esc(s.n)+" complete"}</button>
+        ${st.c?`<div class="stamp">Completed ${fmtStamp(st.c)}</div>`:""}
+      </div>
+    </details></li>`}).join("");
+}
+function syncDone(t){
+  const all=t.stops.every((_,i)=>stopStat(t,i).c);
+  if(all&&!done.has(t.id)){done.add(t.id);store.set("rebd-done",[...done])}
+  renderTrips();
+}
+$("#tk-top").addEventListener("change",e=>{
+  const t=TRIPS.find(x=>x.id===tkId);
+  if(e.target.id==="tk-trip"){tkId=+e.target.value;store.set("rebd-active",tkId);tkOpen=null;resetArm=false;renderTrack()}
+  if(e.target.id==="tk-start"){tp(t.id).start=e.target.value;dirty=[t.id,null];saveProg();renderTrack()}
+});
+$("#tk-top").addEventListener("click",e=>{
+  if(e.target.id!=="tk-reset")return;
+  if(!resetArm){resetArm=true;e.target.textContent="Tap again to clear";setTimeout(()=>{resetArm=false;const b=$("#tk-reset");if(b)b.textContent="Reset progress"},4000);return}
+  resetArm=false;const t=TRIPS.find(x=>x.id===tkId);delete prog[t.id];saveProg();
+  done.delete(t.id);store.set("rebd-done",[...done]);tkOpen=null;renderTrack();renderTrips();
+});
+$("#tl").addEventListener("toggle",e=>{const li=e.target.closest("li");if(li&&e.target.open)tkOpen=+li.dataset.i},true);
+$("#tl").addEventListener("change",e=>{
+  const k=e.target.dataset.k;if(!k)return;
+  const t=TRIPS.find(x=>x.id===tkId),i=+e.target.closest("li").dataset.i,st=sp(t.id,i);
+  if(e.target.checked)st.k[k]=1;else delete st.k[k];
+  saveProg();tkOpen=i;renderTrack();syncDone(t);
+});
+$("#tl").addEventListener("click",e=>{
+  const t=TRIPS.find(x=>x.id===tkId),li=e.target.closest("li");if(!li)return;const i=+li.dataset.i,st=sp(t.id,i);
+  const del=e.target.closest("[data-del]");
+  if(del){e.preventDefault();const j=+del.dataset.del;st.u.splice(j,1);
+    const nk={};Object.keys(st.k).forEach(k=>{if(k[0]!=="u")nk[k]=1;else{const n=+k.slice(1);if(n<j)nk[k]=1;else if(n>j)nk["u"+(n-1)]=1}});st.k=nk;
+    saveProg();tkOpen=i;renderTrack();syncDone(t);return}
+  if(e.target.closest("[data-cmp]")){
+    if(st.c){st.c=0;tkOpen=i;if(done.has(t.id)){done.delete(t.id);store.set("rebd-done",[...done])}}
+    else{st.c=Date.now();const nx=t.stops.findIndex((_,j)=>j>i&&!stopStat(t,j).c);tkOpen=nx<0?i:nx}
+    saveProg();renderTrack();syncDone(t);
+    const o=$("#tl li:nth-child("+(tkOpen+1)+")");o&&o.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+});
+$("#tl").addEventListener("submit",e=>{
+  e.preventDefault();const f=e.target.closest("[data-add]");if(!f)return;
+  const v=f.t.value.trim();if(!v)return;
+  const t=TRIPS.find(x=>x.id===tkId),i=+f.closest("li").dataset.i,st=sp(t.id,i);
+  (st.u=st.u||[]).push(v.slice(0,200));saveProg();tkOpen=i;renderTrack();syncDone(t);
+  const inp=$("#tl li:nth-child("+(i+1)+") [data-add] input");inp&&inp.focus();
+});
+function trackTrip(id){tkId=id;store.set("rebd-active",id);tkOpen=null;renderTrack();show("track");window.scrollTo({top:0})}
+
+renderTrips();renderStops();renderFood();renderTrack();
+const tab=store.get("rebd-tab","plan");if(["plan","track","stops","food","season","budget"].includes(tab))show(tab);
 if(window.REBD_STANDALONE)$("#install").hidden=false;
 })();
 </script>
