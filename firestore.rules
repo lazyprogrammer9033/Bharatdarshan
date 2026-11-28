@@ -1,0 +1,25 @@
+rules_version = '2';
+// Paste into Firebase console > Firestore Database > Rules, then Publish.
+// Each rider can only read and write their own data.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      // Trips, progress, budget and Ride Safe settings, one document per saved key.
+      match /state/{key} {
+        allow read, delete: if request.auth != null && request.auth.uid == uid;
+        allow create, update: if request.auth != null && request.auth.uid == uid
+          && key in ['rebd-done', 'rebd-mytrips', 'rebd-progress', 'rebd-active', 'rebd-budget', 'rebd-safety']
+          && request.resource.data.v is string
+          && request.resource.data.v.size() < 500000;
+      }
+
+      // Subscriptions: only your server (store webhooks) writes here, riders can only read their own.
+      match /billing/{doc} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+    }
+  }
+}
