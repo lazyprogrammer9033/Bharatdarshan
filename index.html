@@ -261,6 +261,49 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
 .trip .tkl{font-size:13px;font-weight:700;color:var(--ink)}
 .cheer{border:2px solid var(--on-bright);border-radius:18px;background:var(--green);color:#fff;padding:16px;font-weight:600;display:grid;gap:4px}
 .cheer b{font-family:var(--f-head);font-size:22px}
+/* trip builder: your own route, built from the app's places or your own */
+.trip.new{border-style:dashed;box-shadow:none;background:var(--soft);display:grid;place-items:center;align-content:center;gap:8px;padding:24px;min-height:190px;text-align:center;grid-template-rows:none}
+.trip.new .plus{width:56px;height:56px;border-radius:50%;background:var(--yellow);border:2px solid var(--on-bright);box-shadow:0 4px 0 var(--yellow-deep);display:grid;place-items:center;font-family:var(--f-head);font-size:32px;font-weight:700;color:var(--on-bright);line-height:1}
+.trip.new h3{color:var(--ink);font-size:22px}
+.trip.new p{font-size:14px;color:var(--muted);max-width:30ch}
+.bd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;align-items:start}
+@media (max-width:820px){.bd{grid-template-columns:1fr}}
+.bd .panel{gap:12px}
+.bf{display:grid;gap:6px}
+.bf>label,.bf>span.lb{font-size:14px;font-weight:700}
+.bf input[type=text],.bf input[type=date],.bf input[type=search],.bf select,.bd textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:var(--surface);color:var(--ink);min-height:44px}
+.sws{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:40px;height:40px;border-radius:50%;border:2px solid var(--on-bright);cursor:pointer;display:grid;place-items:center;padding:0}
+.sw[aria-checked="true"]{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--ink)}
+.sw[aria-checked="true"]::after{content:"✓";font-weight:800;color:var(--on-bright)}
+.rt{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rs{border:2px solid var(--line);border-radius:16px;background:var(--surface);padding:10px 12px;display:grid;gap:8px;box-shadow:3px 3px 0 var(--c)}
+.rs .r1{display:flex;align-items:center;gap:10px;min-width:0}
+.rs .r1 .st{min-width:0}
+.rs .r1 .st b{font-size:17px;overflow-wrap:anywhere}
+.rs .r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ib{flex:none;min-width:40px;height:40px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-weight:800;font-size:17px;cursor:pointer;display:grid;place-items:center;padding:0 8px;line-height:1}
+.ib:disabled{opacity:.35;cursor:default}
+.ib.del{margin-left:auto;color:var(--red)}
+.stepper{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.stepper output{min-width:58px;text-align:center}
+.rs details summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--muted)}
+.rs textarea{margin-top:6px;min-height:64px;resize:vertical}
+.res{display:grid;gap:6px}
+.ra{display:flex;align-items:center;gap:10px;text-align:left;border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:8px 12px;cursor:pointer;min-height:44px;width:100%}
+.ra i{flex:none;width:12px;height:12px;border-radius:4px;border:1.5px solid var(--on-bright)}
+.ra span{min-width:0;flex:1}
+.ra b{display:block;font-size:15px}
+.ra small{display:block;font-size:12px;color:var(--muted)}
+.ra .add{flex:none;font-weight:800;font-size:13px;color:var(--ink);background:var(--yellow);border:2px solid var(--on-bright);border-radius:999px;padding:2px 10px;color:var(--on-bright)}
+.ra.own{border-style:dashed;background:var(--soft)}
+.bd-sum{position:sticky;bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:3;border:2px solid var(--on-bright);border-radius:20px;background:var(--yellow);color:var(--on-bright);box-shadow:0 5px 0 var(--yellow-deep);padding:12px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.bd-sum .tx{flex:1 1 200px;display:grid;font-weight:700;font-size:14px;min-width:0}
+.bd-sum .tx b{font-family:var(--f-head);font-size:20px}
+.bd-sum .btn{background:var(--ink);color:var(--bg);border-color:var(--on-bright);box-shadow:none}
+.bd-sum .btn.ghost{background:#fff;color:var(--on-bright)}
+.bd-err{font-size:14px;font-weight:700;color:var(--on-bright);background:#FFE3E0;border:2px solid var(--red);border-radius:12px;padding:8px 12px}
+.mine{display:grid;gap:12px}
 /* ride safe (premium): reminders, fuel range, family updates, SOS. Pastel cards with ink text, red accent for safety. */
 .pro{display:inline-flex;align-items:center;font-family:var(--f-ui);font-size:11px;font-weight:800;letter-spacing:.08em;background:var(--ink);color:var(--bg);border-radius:999px;padding:2px 8px;vertical-align:middle;line-height:1.4}
 .tab .pro{font-size:9px;padding:1px 6px}
@@ -391,8 +434,15 @@ details.more>div{display:grid;gap:10px;padding-top:8px}
       <div class="stat"><b id="s-food">0</b><span>Veg dishes</span></div>
     </div>
   </div>
-  <div class="lede"><h2>Your 9 trips</h2><p>Tap a trip to see every stop, then start it to get a day-by-day timeline you can tick off as you ride.</p></div>
+  <div class="mine"><div class="lede"><h2>Your own <span class="blob" style="background:var(--blue)">trips</span></h2><p>Build a route your way: pick where you start, add places from this app or your own, and set the days at each.</p></div>
+  <div class="trips" id="mytrips"></div></div>
+  <div class="lede"><h2>The 9 planned trips</h2><p>Tap a trip to see every stop, then start it to get a day-by-day timeline you can tick off as you ride.</p></div>
   <div class="trips" id="trips"></div>
+</section>
+
+<section class="view" id="v-build" hidden>
+  <div class="lede"><h2 id="bd-h">Create your own trip</h2><p>Your first place is where the ride starts. Add places in the order you'll ride them, set the days at each, and pick a start date to get dates on your timeline.</p></div>
+  <div id="bd"></div>
 </section>
 
 <section class="view" id="v-track" hidden>
@@ -652,6 +702,40 @@ const isYl=c=>c==="#FFC928";
 let done=new Set(store.get("rebd-done",[]));
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
+// Your own trips. Saved as a versioned per-user document so it can later sync to an account as-is:
+// {schema:1, owner:"local", updatedAt, trips:{"c-<id>":{id, name, color, createdAt, updatedAt, stops:[{sid, ref:"<tripId>/<stop-slug>"|null, n, days, note}]}}}
+// Each stop has its own stable sid, so reordering or editing the route never scrambles timeline progress.
+const CT_COLORS=[["#2EA8FF","#E0F2FF"],["#FF5FA2","#FFE1EE"],["#8B6CFF","#ECE6FF"],["#12A150","#DDF7E8"],["#FF9A1F","#FFEAD1"],["#FF5A4E","#FFE3E0"],["#FFC928","#FFF3C4"]];
+const ctDoc=store.get("rebd-mytrips",{schema:1,owner:"local",updatedAt:0,trips:{}});
+if(!ctDoc.trips||typeof ctDoc.trips!=="object")ctDoc.trips={};
+const slugOf=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const uid=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+let ALL=null;
+const saveCt=()=>{ctDoc.updatedAt=Date.now();store.set("rebd-mytrips",ctDoc);ALL=null};
+function refStop(ref){const [tid,ss]=String(ref).split("/");const t=TRIPS.find(x=>String(x.id)===tid);const s=t&&t.stops.find(x=>slugOf(x.n)===ss);return s?{...s,trip:t}:null}
+function spanDays(d){const m=String(d).match(/(\d+)(?:\s*[–-]\s*(\d+))?/);return m?Math.max(1,(+(m[2]||m[1]))-(+m[1])+1):1}
+function stopKm(src){return src?src.trip.km/src.trip.stops.length:150}
+function ctTrip(r){
+  const [c,t]=CT_COLORS[(r.color|0)%CT_COLORS.length];
+  let day=1,km=0;const states=[];
+  const stops=(r.stops||[]).map(s=>{
+    const src=s.ref?refStop(s.ref):null, d=Math.min(30,Math.max(1,s.days|0||1));
+    const lbl=d>1?`Day ${day}–${day+d-1}`:`Day ${day}`;day+=d;km+=stopKm(src);
+    if(src)src.trip.states.split(" · ").forEach(x=>{if(!states.includes(x))states.push(x)});
+    return {key:s.sid,n:s.n,d:lbl,why:src?src.why:"",food:src?src.food:"",stay:src?src.stay:"",tip:src?src.tip:"",gem:src?src.gem:"",note:s.note||"",from:src?src.trip:null};
+  });
+  const days=day-1, first=stops[0], last=stops[stops.length-1];
+  return {id:r.id,custom:true,name:r.name||"My trip",tag:"Your own route",states:states.slice(0,4).join(" · ")||"Your own places",months:"Your dates",
+    km:Math.round(km/50)*50,days,c,t,stops,
+    intro:first?`${days} day${days===1?"":"s"} from ${first.n}${last!==first?" to "+last.n:""}, ${stops.length} place${stops.length===1?"":"s"} you picked.`:"No places yet."};
+}
+function myTrips(){return Object.values(ctDoc.trips).filter(r=>r&&r.id&&Array.isArray(r.stops)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0)).map(ctTrip)}
+function allTrips(){return ALL||(ALL=[...TRIPS,...myTrips()])}
+const findT=id=>allTrips().find(x=>String(x.id)===String(id));
+const tLabel=t=>t.custom?t.name:`Trip ${t.id} · ${t.name}`;
+const tNm=t=>t.custom?t.name:"Trip "+t.id;
+const tDays=t=>t.custom?t.days:15;
+
 // stats
 const allStops=TRIPS.flatMap(t=>t.stops.map(s=>({...s,trip:t})));
 $("#s-stops").textContent=allStops.length;
@@ -668,48 +752,55 @@ function show(v){
 $$(".tab").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.v);window.scrollTo({top:0})}));
 
 // trip cards
-function renderTrips(){
-  $("#trips").innerHTML=TRIPS.map(t=>`
-  <button class="trip${done.has(t.id)?" is-done":""}" style="--c:${t.c};--t:${t.t}" data-id="${t.id}" aria-label="Open trip ${t.id}, ${esc(t.name)}">
+function tripCard(t){return `
+  <button class="trip${done.has(t.id)?" is-done":""}" style="--c:${t.c};--t:${t.t}" data-id="${t.id}" aria-label="Open ${t.custom?"your trip":"trip "+t.id}, ${esc(t.name)}">
     <div class="trip-top">
-      <div class="trip-num"><span class="badge${isYl(t.c)?" yl":""}">TRIP ${t.id}</span><span class="done-pill">${done.has(t.id)?"✓ Done":"Planned"}</span></div>
+      <div class="trip-num"><span class="badge${isYl(t.c)?" yl":""}">${t.custom?"YOUR TRIP":"TRIP "+t.id}</span><span class="done-pill">${done.has(t.id)?"✓ Done":"Planned"}</span></div>
       <h3>${esc(t.name)}</h3><span class="tg">${esc(t.tag)}</span>
     </div>
     <div class="trip-body">
-      <div class="meta"><span class="chip">${esc(t.months)}</span><span class="chip">~${t.km.toLocaleString("en-CA")} km</span><span class="chip">${t.stops.length} stops</span><span class="chip">${t.inA} → ${t.outA}</span></div>
+      <div class="meta">${t.custom?`<span class="chip">${t.days} day${t.days===1?"":"s"}</span>`:`<span class="chip">${esc(t.months)}</span>`}<span class="chip">~${t.km.toLocaleString("en-CA")} km</span><span class="chip">${t.stops.length} stop${t.stops.length===1?"":"s"}</span>${t.custom?"":`<span class="chip">${t.inA} → ${t.outA}</span>`}</div>
       <p>${esc(t.intro)}</p>
       ${(()=>{const s=tripStat(t);return s.started?`<span class="tkl">${s.places}/${t.stops.length} places · ${s.pct}% complete</span><div class="tkb" aria-hidden="true"><i style="width:${s.pct}%"></i></div>`:""})()}
       <span class="open">See the route →</span>
     </div>
-  </button>`).join("");
-  $("#prog").textContent=`${done.size} of 9 trips done`;
+  </button>`}
+function renderTrips(){
+  const all=allTrips(), mine=all.filter(t=>t.custom);
+  $("#trips").innerHTML=TRIPS.map(tripCard).join("");
+  $("#mytrips").innerHTML=mine.map(tripCard).join("")+`
+  <button class="trip new" data-new><span class="plus" aria-hidden="true">+</span><h3>Create your own trip</h3><p>Choose your start, add stops, set days and a start date.</p></button>`;
+  $("#prog").textContent=`${all.filter(t=>done.has(t.id)).length} of ${all.length} trips done`;
 }
-$("#trips").addEventListener("click",e=>{const b=e.target.closest(".trip");if(b)openTrip(+b.dataset.id)});
+const onCard=e=>{if(e.target.closest("[data-new]"))return openBuilder(null);const b=e.target.closest(".trip");if(b)openTrip(b.dataset.id)};
+$("#trips").addEventListener("click",onCard);$("#mytrips").addEventListener("click",onCard);
 
 // modal
 const dlg=$("#dlg");
 function openTrip(id,stopName){
-  const t=TRIPS.find(x=>x.id===id);
+  const t=findT(id);if(!t)return;
   dlg.style.setProperty("--c",t.c);dlg.style.setProperty("--t",t.t);
   $("#m-inner").innerHTML=`
   <div class="m-head">
-    <span class="badge${isYl(t.c)?" yl":""}" style="justify-self:start">TRIP ${t.id} · ${esc(t.months)}</span>
-    <h3 id="m-title">${esc(t.name)}</h3><p>${esc(t.states)} · ~${t.km.toLocaleString("en-CA")} km · 15 days</p>
+    <span class="badge${isYl(t.c)?" yl":""}" style="justify-self:start">${t.custom?"YOUR TRIP":"TRIP "+t.id+" · "+esc(t.months)}</span>
+    <h3 id="m-title">${esc(t.name)}</h3><p>${esc(t.states)} · ~${t.km.toLocaleString("en-CA")} km · ${tDays(t)} day${tDays(t)===1?"":"s"}</p>
     <button class="m-close" aria-label="Close">×</button>
   </div>
   <div class="m-body">
     <p>${esc(t.intro)}</p>
-    <div class="flyline">✈ ${esc(t.fly)}</div>
-    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-track">${tripStat(t).started?"Open my timeline":"Start this trip"}</button><button class="btn ghost" id="m-budget">Budget this trip</button></div>
+    ${t.custom?(prog[t.id]&&prog[t.id].start?`<div class="flyline">📅 Starts ${esc(dateFor(prog[t.id].start,1))}, ends ${esc(dateFor(prog[t.id].start,t.days))}</div>`:""):`<div class="flyline">✈ ${esc(t.fly)}</div>`}
+    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-track">${tripStat(t).started?"Open my timeline":"Start this trip"}</button><button class="btn ghost" id="m-budget">Budget this trip</button>${t.custom?`<button class="btn ghost" id="m-edit">Edit route</button>`:""}</div>
     ${t.stops.map((s,i)=>`
     <details class="stop" style="--c:${t.c}"${(stopName?s.n===stopName:i===0)?" open":""}>
       <summary><span class="sn${isYl(t.c)?" yl":""}">${i+1}</span><span class="st"><b>${esc(s.n)}</b><small>${esc(s.d)}</small></span><span class="chev">⌄</span></summary>
       <div class="facts">
-        <div class="fact f-why"><b>Why go</b><span>${esc(s.why)}</span></div>
-        <div class="fact f-food"><b>Veg food</b><span>${esc(s.food)}</span></div>
-        <div class="fact f-stay"><b>Stay</b><span>${esc(s.stay)}</span></div>
-        <div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>
-        <div class="fact f-gem"><b>Hidden gem</b><span>${esc(s.gem)}</span></div>
+        ${s.note?`<div class="fact f-tip"><b>Your notes</b><span>${esc(s.note)}</span></div>`:""}
+        ${s.why?`<div class="fact f-why"><b>Why go</b><span>${esc(s.why)}</span></div>`:""}
+        ${s.food?`<div class="fact f-food"><b>Veg food</b><span>${esc(s.food)}</span></div>`:""}
+        ${s.stay?`<div class="fact f-stay"><b>Stay</b><span>${esc(s.stay)}</span></div>`:""}
+        ${s.tip?`<div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>`:""}
+        ${s.gem?`<div class="fact f-gem"><b>Hidden gem</b><span>${esc(s.gem)}</span></div>`:""}
+        ${!s.why&&!s.note?`<div class="fact f-why"><b>Your place</b><span>A place you added. Use Edit route to add notes, or add things you did on your timeline.</span></div>`:""}
       </div>
     </details>`).join("")}
   </div>`;
@@ -718,6 +809,7 @@ function openTrip(id,stopName){
   $("#m-done").onclick=()=>{done.has(t.id)?done.delete(t.id):done.add(t.id);store.set("rebd-done",[...done]);renderTrips();$("#m-done").textContent=done.has(t.id)?"✓ Marked done":"Mark this trip done"};
   $("#m-track").onclick=()=>{dlg.close();trackTrip(t.id)};
   $("#m-budget").onclick=()=>{dlg.close();$("#b-trip").value=t.id;applyTrip();show("budget");window.scrollTo({top:0})};
+  if(t.custom)$("#m-edit").onclick=()=>{dlg.close();openBuilder(t.id)};
   if(stopName){const o=$("#m-inner details[open]");o&&setTimeout(()=>o.scrollIntoView({block:"center"}),50)}
 }
 dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
@@ -774,8 +866,11 @@ $("#flights").innerHTML=TRIPS.map(t=>`
 
 // budget
 const B=id=>$("#b-"+id);
-B("trip").innerHTML=TRIPS.map(t=>`<option value="${t.id}">Trip ${t.id} · ${esc(t.name)}</option>`).join("");
-function applyTrip(){const t=TRIPS.find(x=>x.id==B("trip").value);B("km").value=t.km;calc()}
+function fillBudgetTrips(){const v=B("trip").value,mine=allTrips().filter(t=>t.custom);
+  B("trip").innerHTML=`<optgroup label="Planned trips">${TRIPS.map(t=>`<option value="${t.id}">${esc(tLabel(t))}</option>`).join("")}</optgroup>`+(mine.length?`<optgroup label="Your own trips">${mine.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}</optgroup>`:"");
+  if(v&&findT(v))B("trip").value=v}
+fillBudgetTrips();
+function applyTrip(){const t=findT(B("trip").value)||TRIPS[0];B("trip").value=t.id;B("km").value=t.km;B("days").value=tDays(t);calc()}
 function n(id){const v=parseFloat(B(id).value);return isFinite(v)&&v>=0?v:0}
 function calc(){
   const t=TRIPS.find(x=>x.id==B("trip").value);
@@ -808,22 +903,21 @@ $$("#v-budget input").forEach(i=>i.addEventListener("input",calc));
 // Stops are keyed by a slug of their name, not their position, so editing a route later doesn't scramble saved progress.
 const progDoc=store.get("rebd-progress",{schema:1,owner:"local",updatedAt:0,trips:{}});
 const prog=new Proxy(progDoc.trips,{get:(o,k)=>o["trip-"+String(k)],set:(o,k,v)=>(o["trip-"+String(k)]=v,true),deleteProperty:(o,k)=>delete o["trip-"+String(k)]});
-const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-const sk=(id,i)=>slug(TRIPS.find(x=>x.id===id).stops[i].n);
+const slug=slugOf;
+const sk=(id,i)=>{const s=findT(id).stops[i];return s.key||slugOf(s.n)};
 let tkId=store.get("rebd-active",1);
 let dirty=null;
 const saveProg=()=>{const now=Date.now();progDoc.updatedAt=now;if(dirty&&prog[dirty[0]]){prog[dirty[0]].updatedAt=now;const s=dirty[1]!=null&&prog[dirty[0]].stops[sk(dirty[0],dirty[1])];if(s)s.updatedAt=now}dirty=null;store.set("rebd-progress",progDoc)};
 const tp=id=>(prog[id]=prog[id]||{start:"",stops:{}});
 const sp=(id,i)=>{const p=tp(id),k=sk(id,i);dirty=[id,i];return p.stops[k]=p.stops[k]||{c:0,k:{},u:[]}};
 function stopItems(s){
-  let sights=s.why.split(/(?<=[.!?])\s+/).filter(x=>x.length>12);
-  if(!sights.length)sights=[s.why];
-  return [
-    ["Sights",sights.map((x,j)=>["s"+j,x])],
-    ["Veg food",s.food.split(" · ").map((x,j)=>["f"+j,x])],
-    ["Hidden gem",[["g",s.gem]]],
-    ["Stay",[["st","Checked in: "+s.stay]]]
-  ];
+  const g=[];
+  if(s.note)g.push(["Your plan",[["n",s.note]]]);
+  if(s.why){let sights=s.why.split(/(?<=[.!?])\s+/).filter(x=>x.length>12);if(!sights.length)sights=[s.why];g.push(["Sights",sights.map((x,j)=>["s"+j,x])])}
+  if(s.food)g.push(["Veg food",s.food.split(" · ").map((x,j)=>["f"+j,x])]);
+  if(s.gem)g.push(["Hidden gem",[["g",s.gem]]]);
+  if(s.stay)g.push(["Stay",[["st","Checked in: "+s.stay]]]);
+  return g;
 }
 function stopStat(t,i){
   const st=(prog[t.id]&&prog[t.id].stops[sk(t.id,i)])||{c:0,k:{},u:[]};
@@ -834,7 +928,7 @@ function stopStat(t,i){
 function tripStat(t){
   let places=0,got=0,tot=0;
   t.stops.forEach((_,i)=>{const s=stopStat(t,i);if(s.c)places++;got+=s.got;tot+=s.tot});
-  const pct=Math.round(places/t.stops.length*100);
+  const pct=t.stops.length?Math.round(places/t.stops.length*100):0;
   return {places,got,tot,pct,started:!!prog[t.id]&&(places>0||got>0||!!prog[t.id].start)};
 }
 function dayRange(d){const m=d.match(/(\d+)(?:\s*[–-]\s*(\d+))?/);return m?[+m[1],+(m[2]||m[1])]:null}
@@ -842,13 +936,14 @@ function dateFor(start,day){if(!start)return "";const x=new Date(start+"T12:00:0
 function fmtStamp(ts){return new Date(ts).toLocaleDateString("en-CA",{day:"numeric",month:"short",year:"numeric"})}
 let tkOpen=null, resetArm=false;
 function renderTrack(){
-  const t=TRIPS.find(x=>x.id===tkId)||TRIPS[0];tkId=t.id;
+  const t=findT(tkId)||TRIPS[0];tkId=t.id;
   const p=prog[t.id]||{start:""}, ts=tripStat(t);
   const cur=t.stops.findIndex((_,i)=>!stopStat(t,i).c);
   if(tkOpen===null)tkOpen=cur;
   const top=$("#tk-top");top.style.setProperty("--c",t.c);top.style.setProperty("--t",t.t);
   top.innerHTML=`
-    <select id="tk-trip" aria-label="Choose trip">${TRIPS.map(x=>{const s=tripStat(x);return `<option value="${x.id}"${x.id===t.id?" selected":""}>Trip ${x.id} · ${esc(x.name)}${s.started?` (${s.pct}%)`:""}</option>`}).join("")}</select>
+    <select id="tk-trip" aria-label="Choose trip">${(()=>{const o=x=>{const s=tripStat(x);return `<option value="${esc(x.id)}"${x.id===t.id?" selected":""}>${esc(tLabel(x))}${s.started?` (${s.pct}%)`:""}</option>`},mine=allTrips().filter(x=>x.custom);
+      return `<optgroup label="Planned trips">${TRIPS.map(o).join("")}</optgroup>`+(mine.length?`<optgroup label="Your own trips">${mine.map(o).join("")}</optgroup>`:"")})()}</select>
     <div class="tk-sum">
       <div class="ring" style="--p:${ts.pct}" role="img" aria-label="${ts.pct}% of places complete"><b>${ts.pct}%</b></div>
       <div class="tx"><h3>${esc(t.name)}</h3>
@@ -858,8 +953,8 @@ function renderTrack(){
     </div>
     <div class="tk-bar" aria-hidden="true"><i style="width:${ts.tot?ts.got/ts.tot*100:0}%"></i></div>
     <div class="tk-row"><label for="tk-start">Day 1 date</label><input type="date" id="tk-start" value="${esc(p.start||"")}">
-      <button class="btn ghost" id="tk-reset" style="margin-left:auto">${resetArm?"Tap again to clear":"Reset progress"}</button></div>
-    ${cur<0?`<div class="cheer"><b>Trip ${t.id} complete!</b><span>Every place on this route is done. It's marked done on your Annual Plan too.</span></div>`:""}`;
+      ${t.custom?`<button class="btn ghost" id="tk-edit">Edit route</button>`:""}<button class="btn ghost" id="tk-reset" style="margin-left:auto">${resetArm?"Tap again to clear":"Reset progress"}</button></div>
+    ${cur<0?`<div class="cheer"><b>${t.custom?esc(t.name):"Trip "+t.id} complete!</b><span>Every place on this route is done. It's marked done on your Annual Plan too.</span></div>`:""}`;
   $("#tl").innerHTML=t.stops.map((s,i)=>{
     const st=(prog[t.id]&&prog[t.id].stops[sk(t.id,i)])||{c:0,k:{},u:[]}, ss=stopStat(t,i), dr=dayRange(s.d);
     const dateTxt=dr&&p.start?dateFor(p.start,dr[0])+(dr[1]>dr[0]?" – "+dateFor(p.start,dr[1]):""):"";
@@ -874,7 +969,7 @@ function renderTrack(){
         ${stopItems(s).map(g=>`<div class="grp"><h5>${g[0]}</h5>${g[1].map(x=>ck(x[0],x[1])).join("")}</div>`).join("")}
         <div class="grp"><h5>Your own</h5>${(st.u||[]).map((x,j)=>ck("u"+j,x,j)).join("")}
           <form class="addrow" data-add><input name="t" placeholder="Add something you did here" autocomplete="off" aria-label="Add your own item"><button class="btn" type="submit">Add</button></form></div>
-        <div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>
+        ${s.tip?`<div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>`:""}
         <button class="btn cmp${st.c?" undo":""}" data-cmp>${st.c?"✓ Place complete · tap to undo":"Mark "+esc(s.n)+" complete"}</button>
         ${st.c?`<div class="stamp">Completed ${fmtStamp(st.c)}</div>`:""}
       </div>
@@ -886,25 +981,26 @@ function syncDone(t){
   renderTrips();
 }
 $("#tk-top").addEventListener("change",e=>{
-  const t=TRIPS.find(x=>x.id===tkId);
-  if(e.target.id==="tk-trip"){tkId=+e.target.value;store.set("rebd-active",tkId);tkOpen=null;resetArm=false;renderTrack()}
+  const t=findT(tkId);
+  if(e.target.id==="tk-trip"){tkId=findT(e.target.value).id;store.set("rebd-active",tkId);tkOpen=null;resetArm=false;renderTrack()}
   if(e.target.id==="tk-start"){tp(t.id).start=e.target.value;dirty=[t.id,null];saveProg();renderTrack()}
 });
 $("#tk-top").addEventListener("click",e=>{
+  if(e.target.id==="tk-edit")return openBuilder(tkId);
   if(e.target.id!=="tk-reset")return;
   if(!resetArm){resetArm=true;e.target.textContent="Tap again to clear";setTimeout(()=>{resetArm=false;const b=$("#tk-reset");if(b)b.textContent="Reset progress"},4000);return}
-  resetArm=false;const t=TRIPS.find(x=>x.id===tkId);delete prog[t.id];saveProg();
+  resetArm=false;const t=findT(tkId);delete prog[t.id];saveProg();
   done.delete(t.id);store.set("rebd-done",[...done]);tkOpen=null;renderTrack();renderTrips();
 });
 $("#tl").addEventListener("toggle",e=>{const li=e.target.closest("li");if(li&&e.target.open)tkOpen=+li.dataset.i},true);
 $("#tl").addEventListener("change",e=>{
   const k=e.target.dataset.k;if(!k)return;
-  const t=TRIPS.find(x=>x.id===tkId),i=+e.target.closest("li").dataset.i,st=sp(t.id,i);
+  const t=findT(tkId),i=+e.target.closest("li").dataset.i,st=sp(t.id,i);
   if(e.target.checked)st.k[k]=1;else delete st.k[k];
   saveProg();tkOpen=i;renderTrack();syncDone(t);
 });
 $("#tl").addEventListener("click",e=>{
-  const t=TRIPS.find(x=>x.id===tkId),li=e.target.closest("li");if(!li)return;const i=+li.dataset.i,st=sp(t.id,i);
+  const t=findT(tkId),li=e.target.closest("li");if(!li)return;const i=+li.dataset.i,st=sp(t.id,i);
   const del=e.target.closest("[data-del]");
   if(del){e.preventDefault();const j=+del.dataset.del;st.u.splice(j,1);
     const nk={};Object.keys(st.k).forEach(k=>{if(k[0]!=="u")nk[k]=1;else{const n=+k.slice(1);if(n<j)nk[k]=1;else if(n>j)nk["u"+(n-1)]=1}});st.k=nk;
@@ -919,11 +1015,121 @@ $("#tl").addEventListener("click",e=>{
 $("#tl").addEventListener("submit",e=>{
   e.preventDefault();const f=e.target.closest("[data-add]");if(!f)return;
   const v=f.t.value.trim();if(!v)return;
-  const t=TRIPS.find(x=>x.id===tkId),i=+f.closest("li").dataset.i,st=sp(t.id,i);
+  const t=findT(tkId),i=+f.closest("li").dataset.i,st=sp(t.id,i);
   (st.u=st.u||[]).push(v.slice(0,200));saveProg();tkOpen=i;renderTrack();syncDone(t);
   const inp=$("#tl li:nth-child("+(i+1)+") [data-add] input");inp&&inp.focus();
 });
 function trackTrip(id){tkId=id;store.set("rebd-active",id);tkOpen=null;renderTrack();show("track");window.scrollTo({top:0})}
+
+// trip builder
+let bd=null, bdDelArm=false;
+const MAX_STOPS=40;
+function openBuilder(id){
+  const r=id!=null&&ctDoc.trips[id];
+  bd=r?{id:r.id,name:r.name||"",color:r.color|0,start:(prog[r.id]&&prog[r.id].start)||"",stops:r.stops.map(s=>({...s}))}
+      :{id:null,name:"",color:Object.keys(ctDoc.trips).length%CT_COLORS.length,start:"",stops:[]};
+  bdDelArm=false;
+  $("#bd-h").textContent=r?"Edit your trip":"Create your own trip";
+  $("#bd").innerHTML=`
+  <div class="bd">
+    <div class="panel"><h3>Trip details</h3>
+      <div class="bf"><label for="bd-name">Trip name</label><input type="text" id="bd-name" maxlength="60" placeholder="e.g. Konkan coast in monsoon" value="${esc(bd.name)}" autocomplete="off"></div>
+      <div class="bf"><label for="bd-start">Start date<small style="display:block;font-weight:400;color:var(--muted);font-size:12px">Optional. Puts real dates on every stop.</small></label><input type="date" id="bd-start" value="${esc(bd.start)}"></div>
+      <div class="bf"><span class="lb" id="bd-cl">Colour</span><div class="sws" role="radiogroup" aria-labelledby="bd-cl">${CT_COLORS.map((c,i)=>`<button type="button" class="sw" role="radio" aria-checked="${i===bd.color}" aria-label="Colour ${i+1}" data-sw="${i}" style="background:${c[0]}"></button>`).join("")}</div></div>
+      <h3 style="margin-top:6px">Add a place</h3>
+      <div class="bf"><label for="bd-q">Search the app's places, or type your own</label><input type="search" id="bd-q" placeholder="Try Udaipur, Hampi, Leh…" autocomplete="off" enterkeyhint="done"></div>
+      <div class="bf"><label for="bd-br">Or browse a planned trip</label><select id="bd-br"><option value="">Choose a trip…</option>${TRIPS.map(t=>`<option value="${t.id}">${esc(tLabel(t))}</option>`).join("")}</select></div>
+      <div class="res" id="bd-res" aria-live="polite"></div>
+    </div>
+    <div class="panel"><h3>Your route</h3><ol class="rt" id="bd-route"></ol></div>
+  </div>
+  <div class="bd-sum" id="bd-sum"></div>`;
+  renderRoute();renderRes();
+  show("build");window.scrollTo({top:0});
+}
+function bdStop(s){const src=s.ref?refStop(s.ref):null;return {src,c:src?src.trip.c:CT_COLORS[bd.color][0]}}
+function renderRoute(){
+  const L=bd.stops.length;let day=1;
+  $("#bd-route").innerHTML=L?bd.stops.map((s,i)=>{const {src,c}=bdStop(s),d=s.days,from=day;day+=d;
+    return `<li class="rs" data-i="${i}" style="--c:${c}">
+      <div class="r1"><span class="sn${isYl(c)?" yl":""}" style="--c:${c}">${i+1}</span><span class="st"><b>${esc(s.n)}</b><small>${i===0?"Start · ":""}${src?esc(tLabel(src.trip)):"Your own place"} · Day ${from}${d>1?"–"+(from+d-1):""}</small></span><button type="button" class="ib del" data-act="rm" aria-label="Remove ${esc(s.n)}">×</button></div>
+      <div class="r2"><div class="stepper"><button type="button" class="ib" data-act="dm" aria-label="One day less at ${esc(s.n)}"${d<=1?" disabled":""}>−</button><output>${d} day${d===1?"":"s"}</output><button type="button" class="ib" data-act="dp" aria-label="One day more at ${esc(s.n)}"${d>=30?" disabled":""}>+</button></div>
+        <button type="button" class="ib" data-act="up" aria-label="Move ${esc(s.n)} earlier"${i===0?" disabled":""}>↑</button><button type="button" class="ib" data-act="dn" aria-label="Move ${esc(s.n)} later"${i===L-1?" disabled":""}>↓</button></div>
+      <details${s.note?" open":""}><summary>${s.note?"Your notes":"Add notes"}</summary><textarea data-note maxlength="500" aria-label="Notes for ${esc(s.n)}" placeholder="Where you'll stay, what to eat, who to meet…">${esc(s.note||"")}</textarea></details>
+    </li>`}).join(""):`<li class="empty">No places yet. Your first place is where the trip starts. Search or browse to add it.</li>`;
+  renderSum();
+}
+function renderSum(err){
+  const days=bd.stops.reduce((a,s)=>a+s.days,0), km=Math.round(bd.stops.reduce((a,s)=>a+stopKm(s.ref?refStop(s.ref):null),0)/50)*50;
+  const end=bd.start&&days?dateFor(bd.start,days):"";
+  $("#bd-sum").innerHTML=`<div class="tx"><b>${bd.stops.length} place${bd.stops.length===1?"":"s"} · ${days} day${days===1?"":"s"}</b><span>~${km.toLocaleString("en-CA")} km estimated${end?" · ends "+esc(end):""}</span></div>
+    ${err?`<div class="bd-err" role="alert" style="flex-basis:100%">${esc(err)}</div>`:""}
+    ${bd.id?`<button type="button" class="btn ghost" id="bd-del">${bdDelArm?"Tap again to delete":"Delete trip"}</button>`:""}
+    <button type="button" class="btn ghost" id="bd-cancel">Cancel</button><button type="button" class="btn" id="bd-save">${bd.id?"Save changes":"Save trip"}</button>`;
+}
+function renderRes(){
+  const q=$("#bd-q").value.trim(), ql=q.toLowerCase(), br=$("#bd-br").value;
+  let list=[];
+  if(q)list=allStops.filter(s=>[s.n,s.trip.name,s.trip.states].join(" ").toLowerCase().includes(ql)).sort((a,b)=>(b.n.toLowerCase().includes(ql)?1:0)-(a.n.toLowerCase().includes(ql)?1:0)).slice(0,8);
+  else if(br)list=allStops.filter(s=>String(s.trip.id)===br);
+  const full=bd.stops.length>=MAX_STOPS;
+  $("#bd-res").innerHTML=full?`<div class="empty">That's ${MAX_STOPS} places, the most one trip can hold.</div>`:
+    list.map(s=>`<button type="button" class="ra" data-ref="${esc(s.trip.id+"/"+slugOf(s.n))}"><i style="background:${s.trip.c}"></i><span><b>${esc(s.n)}</b><small>${esc(tLabel(s.trip))} · ${spanDays(s.d)} day${spanDays(s.d)===1?"":"s"}</small></span><span class="add">+ Add</span></button>`).join("")+
+    (q?`<button type="button" class="ra own" data-own><i style="background:${CT_COLORS[bd.color][0]}"></i><span><b>${esc(q.slice(0,60))}</b><small>Add as your own place</small></span><span class="add">+ Add</span></button>`:"")+
+    (q&&!list.length?`<p class="note">None of the app's places match. You can still add it as your own.</p>`:"");
+}
+function addStop(st){if(bd.stops.length>=MAX_STOPS)return;bd.stops.push({sid:uid("s-"),note:"",...st});renderRoute();renderRes();
+  const li=$("#bd-route li:last-child");li&&li.scrollIntoView({behavior:"smooth",block:"nearest"})}
+function saveBuilder(){
+  bd.name=$("#bd-name").value.trim().slice(0,60);bd.start=$("#bd-start").value;
+  if(!bd.stops.length)return renderSum("Add at least one place first. It will be where your trip starts.");
+  const now=Date.now(), isNew=!bd.id, id=bd.id||uid("c-"), old=ctDoc.trips[id];
+  ctDoc.trips[id]={id,name:bd.name||"My trip "+(Object.keys(ctDoc.trips).length+(isNew?1:0)),color:bd.color,createdAt:old?old.createdAt:now,updatedAt:now,
+    stops:bd.stops.map(s=>({sid:s.sid,ref:s.ref||null,n:s.n,days:s.days,note:(s.note||"").slice(0,500)}))};
+  saveCt();
+  if(bd.start||(prog[id]&&prog[id].start)){tp(id).start=bd.start;dirty=[id,null];saveProg()}
+  bd=null;fillBudgetTrips();
+  const t=findT(id),all=t.stops.length&&t.stops.every((_,i)=>stopStat(t,i).c);
+  if(all)done.add(id);else done.delete(id);store.set("rebd-done",[...done]);
+  renderTrips();trackTrip(id);
+}
+function deleteBuilder(){
+  const id=bd.id;delete ctDoc.trips[id];saveCt();delete prog[id];saveProg();
+  if(done.delete(id))store.set("rebd-done",[...done]);
+  if(String(tkId)===String(id)){tkId=TRIPS[0].id;store.set("rebd-active",tkId)}
+  bd=null;fillBudgetTrips();if(!findT(B("trip").value))applyTrip();renderTrips();renderTrack();show("plan");window.scrollTo({top:0});
+}
+$("#bd").addEventListener("input",e=>{
+  if(!bd)return;
+  if(e.target.id==="bd-q")renderRes();
+  else if(e.target.id==="bd-name")bd.name=e.target.value;
+  else if(e.target.id==="bd-start"){bd.start=e.target.value;renderSum()}
+  else if(e.target.matches("[data-note]")){bd.stops[+e.target.closest("li").dataset.i].note=e.target.value}
+});
+$("#bd").addEventListener("change",e=>{if(!bd)return;if(e.target.id==="bd-br"){$("#bd-q").value="";renderRes()}if(e.target.id==="bd-start"){bd.start=e.target.value;renderSum()}});
+$("#bd").addEventListener("keydown",e=>{if(e.target.id==="bd-q"&&e.key==="Enter"){e.preventDefault();e.target.blur()}});
+$("#bd").addEventListener("click",e=>{
+  if(!bd)return;
+  const sw=e.target.closest("[data-sw]");
+  if(sw){bd.color=+sw.dataset.sw;$$("#bd [data-sw]").forEach(x=>x.setAttribute("aria-checked",x===sw));renderRoute();renderRes();return}
+  const ra=e.target.closest(".ra");
+  if(ra){if(ra.dataset.ref){const s=refStop(ra.dataset.ref);addStop({ref:ra.dataset.ref,n:s.n,days:spanDays(s.d)})}
+    else{const q=$("#bd-q").value.trim().slice(0,60);if(q){$("#bd-q").value="";addStop({ref:null,n:q,days:1})}}return}
+  const a=e.target.closest("[data-act]");
+  if(a){const i=+a.closest("li").dataset.i,S=bd.stops,act=a.dataset.act;
+    if(act==="dm")S[i].days=Math.max(1,S[i].days-1);
+    if(act==="dp")S[i].days=Math.min(30,S[i].days+1);
+    if(act==="up"&&i>0)[S[i-1],S[i]]=[S[i],S[i-1]];
+    if(act==="dn"&&i<S.length-1)[S[i+1],S[i]]=[S[i],S[i+1]];
+    if(act==="rm")S.splice(i,1);
+    renderRoute();if(act==="rm")renderRes();
+    const ni=act==="up"?i-1:act==="dn"?i+1:i, b=$(`#bd-route li[data-i="${ni}"] [data-act="${act}"]`);
+    if(b&&!b.disabled)b.focus();
+    return}
+  if(e.target.id==="bd-save")return saveBuilder();
+  if(e.target.id==="bd-cancel"){const id=bd.id;bd=null;show("plan");window.scrollTo({top:0});if(id)openTrip(id);return}
+  if(e.target.id==="bd-del"){if(!bdDelArm){bdDelArm=true;renderSum();setTimeout(()=>{if(bd&&bdDelArm){bdDelArm=false;renderSum()}},4000);return}return deleteBuilder()}
+});
 
 // ===== Ride Safe (premium) =====
 // Premium.active() is the one gate for these features. A native store build sets window.REBD_ENTITLEMENT={pro:true|false}
@@ -1018,7 +1224,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&/github\.io$/.tes
 
 // ---- trip context, shared with My Trip
 function ctx(){
-  const t=TRIPS.find(x=>x.id===tkId)||TRIPS[0],cur=t.stops.findIndex((_,i)=>!stopStat(t,i).c);
+  const t=findT(tkId)||TRIPS[0],cur=t.stops.findIndex((_,i)=>!stopStat(t,i).c);
   const nx=cur<0?-1:cur,here=cur<0?t.stops.length-1:Math.max(cur-1,0);
   const p=prog[t.id]||{};let day=0;if(p.start){day=Math.floor((new Date(today()+"T12:00:00")-new Date(p.start+"T12:00:00"))/864e5)+1;if(day<1||day>40)day=0}
   let last=-1,lt=0;t.stops.forEach((_,i)=>{const s=prog[t.id]&&prog[t.id].stops[sk(t.id,i)];if(s&&s.c>lt){lt=s.c;last=i}});
@@ -1098,7 +1304,7 @@ function addWater(n){if(S.water.day!==today())S.water={day:today(),n:0};S.water.
 function progressText(withLoc){
   const c=ctx(),who=S.profile.name.trim(),L=[];
   L.push((who?who+"'s":"My")+" RE Bharat Darshan update 🏍️");
-  L.push("Trip "+c.t.id+": "+c.t.name+(c.day?" · Day "+c.day:""));
+  L.push((c.t.custom?c.t.name:"Trip "+c.t.id+": "+c.t.name)+(c.day?" · Day "+c.day:""));
   if(c.last>=0)L.push("✓ Reached "+c.t.stops[c.last].n+(geoOf(c.t,c.last)&&geoOf(c.t,c.last)[2]>2500?" ("+geoOf(c.t,c.last)[2].toLocaleString("en-IN")+" m)":""));
   L.push(c.ts.places+" of "+c.t.stops.length+" places done ("+c.ts.pct+"%)");
   L.push(c.cur<0?"Trip complete! 🎉":"Next: "+c.t.stops[c.cur].n);
@@ -1173,7 +1379,7 @@ function renderRideLive(){
   set("#k-fuel","~"+f.r+" km",f.cls==="good"?"":f.cls);
   set("#k-water",on&&S.rem.water.on?mins(S.ride.nextWater-now):"–",on&&S.ride.nextWater-now<120e3?"warn":"");
   set("#k-rest",on&&S.rem.rest.on?mins(S.ride.nextRest-now):"–");
-  const c=ctx();$("#rd-sub").textContent=on?"On the road "+mins(now-S.ride.start)+(S.ride.gps&&watchId!=null?" · GPS":" · estimated at "+S.ride.avg+" km/h"):(c.cur<0?"Trip "+c.t.id+" is complete":"Trip "+c.t.id+" · next stop "+c.t.stops[c.cur].n);
+  const c=ctx();$("#rd-sub").textContent=on?"On the road "+mins(now-S.ride.start)+(S.ride.gps&&watchId!=null?" · GPS":" · estimated at "+S.ride.avg+" km/h"):(c.cur<0?tNm(c.t)+" is complete":tNm(c.t)+" · next stop "+c.t.stops[c.cur].n);
   const g=$("#fu-gauge");if(g){const p=Math.min(100,fuelL()/(+S.bike.tank||13)*100);g.className="gauge "+(f.cls==="good"?"":f.cls);g.firstChild.style.width=p+"%";$("#fu-left").textContent="~"+f.r+" km";$("#fu-l").textContent=fuelL().toFixed(1)+" L of "+S.bike.tank+" L · "+Math.round(S.fuel.since)+" km since fill-up"}
 }
 function renderFuel(){
@@ -1188,7 +1394,7 @@ function renderFuel(){
     <div class="grp"><h5>I just filled up</h5><div class="chips"><button class="fbtn" data-fill="1">Full tank</button><button class="fbtn" data-fill=".75">¾</button><button class="fbtn" data-fill=".5">½</button><button class="fbtn" data-fill=".25">¼</button><button class="fbtn" data-fill="r">On reserve</button></div></div>
     <details class="more"><summary>Correct from your trip meter</summary><div><label class="inl">Km on the trip meter since you filled up<input type="number" id="fu-since" value="${Math.round(S.fuel.since)}" inputmode="numeric" min="0"></label>
       <div class="row2"><label class="inl">Average speed when GPS is off (km/h)${num("ride.avg",'min="10" max="90" step="5"')}</label></div>${chk("rem.fuelAlerts","Warn me when fuel gets low")}</div></details>
-    <div class="grp"><h5>Trip ${c.t.id} fuel plan · full tank ≈ ${tr} km</h5><ul class="legs">${legs.map(l=>`<li class="${l.need>tr-30?"over":l.need>tr*.7?"near":""}"><span>${esc(l.n)}${l.gap?" · pumps rare":""}</span><span>${l.k?"~"+l.k+" km":""}${l.gap?" · gap "+l.gap+" km":""}${l.need>tr-30?" · carry spare fuel":""}</span></li>`).join("")}</ul>
+    <div class="grp"><h5>${c.t.custom?esc(c.t.name):"Trip "+c.t.id} fuel plan · full tank ≈ ${tr} km</h5><ul class="legs">${legs.map(l=>`<li class="${l.need>tr-30?"over":l.need>tr*.7?"near":""}"><span>${esc(l.n)}${l.gap?" · pumps rare":""}</span><span>${l.k?"~"+l.k+" km":""}${l.gap?" · gap "+l.gap+" km":""}${l.need>tr-30?" · carry spare fuel":""}</span></li>`).join("")}</ul>
       <p class="note">Distances are rough estimates from straight-line distance. Fill up whenever you see a pump on remote roads.</p></div>`;
   renderRideLive();
 }
@@ -1259,13 +1465,13 @@ function renderAlt(){
   const c=ctx(),hi=c.t.stops.map((s,i)=>({s,g:geoOf(c.t,i)})).filter(x=>x.g&&(x.g[2]>=2500||(x.g[3]||0)>=2500));
   const top=Math.max(...c.t.stops.map((_,i)=>{const g=geoOf(c.t,i);return g?Math.max(g[2],g[3]||0):0}));
   $("#sf-alt").innerHTML=`<h3><span class="ic">🏔️</span>Altitude safety ${proChip}</h3>
-    ${hi.length?`<p>Trip ${c.t.id} goes high. Climb slowly and know the signs of altitude sickness.</p>
+    ${hi.length?`<p>${c.t.custom?esc(c.t.name):"Trip "+c.t.id} goes high. Climb slowly and know the signs of altitude sickness.</p>
       <ul class="legs">${hi.map(x=>`<li class="${Math.max(x.g[2],x.g[3]||0)>=4500?"over":"near"}"><span>${esc(x.s.n)}</span><span>${x.g[2].toLocaleString("en-IN")} m${x.g[3]?" · pass "+x.g[3].toLocaleString("en-IN")+" m":""}</span></li>`).join("")}</ul>
       <ul class="alerts"><li class="warn">Above 3,000 m, sleep no more than 300 to 500 m higher than the night before, and add a rest day for every 1,000 m.</li>
       <li class="warn">Headache, nausea, dizziness or bad sleep: stop going up. If it gets worse, go down 500 m or more.</li>
       <li class="bad">Confusion, stumbling or breathlessness at rest is an emergency. Descend now and use SOS.</li>
       <li>Drink 4 to 5 litres a day up high, skip alcohol, and don't stay more than 15 minutes at the top of a pass. Ask your doctor about Diamox before you go.</li></ul>`
-     :`<p>No high-altitude stops on Trip ${c.t.id}. The highest point is about ${top.toLocaleString("en-IN")} m, so altitude sickness isn't a worry. Trips 8 and 9 go high.</p>`}`;
+     :`<p>No high-altitude stops on ${c.t.custom?esc(c.t.name):"Trip "+c.t.id}. The highest point is about ${top.toLocaleString("en-IN")} m, so altitude sickness isn't a worry. Trips 8 and 9 go high.</p>`}`;
 }
 function renderSoon(){
   $("#sf-soon").innerHTML=`<h3><span class="ic">🚀</span>Coming in the app ${proChip}</h3>
