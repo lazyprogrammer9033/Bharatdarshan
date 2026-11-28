@@ -346,7 +346,7 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
 </section>
 
 <section class="view" id="v-budget" hidden>
-  <div class="lede"><h2>Trip <span class="blob" style="background:var(--red)">budget</span></h2><p>Pick a trip and adjust the numbers to match your style. Costs in India are in rupees and the total is shown in Canadian dollars.</p></div>
+  <div class="lede"><h2>Trip <span class="blob" style="background:var(--red)">budget</span></h2><p>Pick a trip and adjust the numbers to match your style. This covers the ride itself on the ground in India: bike, stays, food, petrol, entry fees and extras. Getting to your start city is not included.</p></div>
   <div class="bgrid">
     <div class="panel">
       <div class="sel"><label for="b-trip" style="font-weight:700">Trip</label><select id="b-trip"></select></div>
@@ -359,11 +359,10 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
       <div class="fld"><label for="b-fuel">Petrol price (₹ per litre)</label><input id="b-fuel" type="number" min="0" step="1" value="103" inputmode="numeric"></div>
       <div class="fld"><label for="b-kmpl">Bike mileage (km per litre)</label><input id="b-kmpl" type="number" min="1" step="1" value="32" inputmode="numeric"></div>
       <div class="fld"><label for="b-misc">Extras (₹)<small>Permits, service, SIM, tips, shopping</small></label><input id="b-misc" type="number" min="0" step="500" value="12000" inputmode="numeric"></div>
-      <div class="fld"><label for="b-flight">Return flight (CAD)</label><input id="b-flight" type="number" min="0" step="50" value="1700" inputmode="numeric"></div>
-      <div class="fld"><label for="b-rate">Rupees per Canadian dollar<small>Check today's rate</small></label><input id="b-rate" type="number" min="1" step="0.5" value="61" inputmode="decimal"></div>
+      <div class="fld"><label for="b-rate">Rupees per Canadian dollar<small>Only for the conversion shown under the total</small></label><input id="b-rate" type="number" min="1" step="0.5" value="61" inputmode="decimal"></div>
     </div>
     <div class="panel" style="position:sticky;top:130px">
-      <div class="total"><span>Total trip cost</span><b id="t-cad">CAD 0</b><small id="t-sub"></small></div>
+      <div class="total"><span>Local trip cost</span><b id="t-cad">₹0</b><small id="t-sub"></small></div>
       <div class="lines" id="lines"></div>
       <p class="note">Example figures for a comfortable mid-range trip. Your numbers stay on this device.</p>
     </div>
@@ -681,14 +680,14 @@ function calc(){
     ["Entry fees",n("entry")*days,"#2EA8FF"],
     ["Extras",n("misc"),"#FF5FA2"]
   ];
-  const inr=items.reduce((a,i)=>a+i[1],0), flight=n("flight"), cad=inr/rate+flight;
+  const inr=items.reduce((a,i)=>a+i[1],0);
   const fmtI=v=>"₹"+Math.round(v).toLocaleString("en-IN"), fmtC=v=>"CAD "+Math.round(v).toLocaleString("en-CA");
-  $("#t-cad").textContent=fmtC(cad);
-  $("#t-sub").textContent=`${fmtI(inr)} in India + ${fmtC(flight)} flight · about ${fmtC(cad/(days||1))} a day`;
-  const all=[...items.map(i=>[i[0],i[1]/rate,i[2],fmtI(i[1])]),["Flight",flight,"#0E7C86",""]];
+  $("#t-cad").textContent=fmtI(inr);
+  $("#t-sub").textContent=`About ${fmtI(inr/(days||1))} a day · roughly ${fmtC(inr/rate)}`;
+  const all=items;
   const max=Math.max(...all.map(a=>a[1]),1);
-  $("#lines").innerHTML=all.map(a=>`<div class="ln"><div class="lt"><span>${a[0]}</span><span>${fmtC(a[1])}${a[3]?" · "+a[3]:""}</span></div><div class="bar"><i style="width:${(a[1]/max*100).toFixed(1)}%;background:${a[2]}"></i></div></div>`).join("");
-  store.set("rebd-budget",Object.fromEntries(["trip","days","km","rent","stay","food","entry","fuel","kmpl","misc","flight","rate"].map(k=>[k,B(k).value])));
+  $("#lines").innerHTML=all.map(a=>`<div class="ln"><div class="lt"><span>${a[0]}</span><span>${fmtI(a[1])}</span></div><div class="bar"><i style="width:${(a[1]/max*100).toFixed(1)}%;background:${a[2]}"></i></div></div>`).join("");
+  store.set("rebd-budget",Object.fromEntries(["trip","days","km","rent","stay","food","entry","fuel","kmpl","misc","rate"].map(k=>[k,B(k).value])));
 }
 const saved=store.get("rebd-budget",null);
 if(saved){Object.entries(saved).forEach(([k,v])=>{if(B(k))B(k).value=v});calc()}else applyTrip();
