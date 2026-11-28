@@ -18,7 +18,7 @@ const l=document.createElement("link");l.rel="manifest";l.href="data:application
 window.REBD_FIREBASE={apiKey:"",authDomain:"",projectId:"",storageBucket:"",messagingSenderId:"",appId:""};
 window.REBD_AUTH_ON=!!(window.REBD_FIREBASE.apiKey&&window.REBD_FIREBASE.projectId);
 // Every saved setting that belongs to the rider. These sync to their account; anything else stays on this device.
-window.REBD_SYNC={keys:["rebd-done","rebd-mytrips","rebd-progress","rebd-active","rebd-budget","rebd-safety"],
+window.REBD_SYNC={keys:["rebd-done","rebd-mytrips","rebd-progress","rebd-active","rebd-budget","rebd-safety","rebd-kit"],
   meta(){try{const m=JSON.parse(localStorage.getItem("rebd-sync")||"{}");m.t=m.t||{};m.h=m.h||{};return m}catch(e){return{t:{},h:{}}}},
   saveMeta(m){try{localStorage.setItem("rebd-sync",JSON.stringify(m))}catch(e){}},
   touch(k){if(!window.REBD_AUTH_ON||!this.keys.includes(k))return;const m=this.meta();m.t[k]=Date.now();this.saveMeta(m);this.onTouch&&this.onTouch(k)}};
@@ -366,6 +366,19 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
 .legs li.near{background:#FFF3C4;color:var(--on-bright)}
 .legs li span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
 .contacts{display:grid;gap:8px}
+.kt-top{max-width:520px;margin:0 0 18px}
+#kt-group .ct .who small{display:block;font-weight:500;color:var(--muted)}
+#kt-group .ct select{border:2px solid var(--line);border-radius:10px;padding:6px 8px;font:inherit;font-weight:600;background:var(--surface);color:var(--ink);min-height:40px}
+.neargrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.nearbtn{display:grid;justify-items:center;gap:4px;padding:12px 6px;border:2px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;text-align:center;background:var(--surface);min-height:72px}
+.nearbtn span{font-size:24px;line-height:1}
+.nearbtn:active{background:var(--t)}
+.paper{display:grid;gap:4px;padding:6px 0;border-bottom:1.5px solid var(--hair)}
+.paper small{color:var(--muted);font-size:12px;margin:-6px 0 2px 30px}
+.paper .inl{margin-left:30px;max-width:220px}
+.care small input{width:76px;border:1.5px solid currentColor;border-radius:8px;padding:2px 6px;font:inherit;background:var(--surface);color:var(--ink)}
+.care .lk{align-self:center}
+.storycv{width:100%;height:auto;border-radius:16px;border:2px solid var(--line);background:var(--soft)}
 .ct{border:2px solid var(--line);border-radius:14px;padding:10px 12px;display:grid;gap:8px}
 .ct .who{display:flex;justify-content:space-between;gap:8px;align-items:center}
 .ct .who b{font-family:var(--f-head);font-size:17px;font-weight:600;overflow-wrap:anywhere}
@@ -469,6 +482,7 @@ html.gated body{overflow:hidden}
     <button class="tab" role="tab" data-v="plan" aria-selected="true"><span class="dot" style="background:var(--green)"></span>Annual Plan</button>
     <button class="tab" role="tab" data-v="track" aria-selected="false"><span class="dot" style="background:var(--yellow);border:1.5px solid var(--on-bright)"></span>My Trip</button>
     <button class="tab" role="tab" data-v="safe" aria-selected="false"><span class="dot" style="background:var(--red);border:1.5px solid var(--on-bright)"></span>Ride Safe <span class="pro">PRO</span></button>
+    <button class="tab" role="tab" data-v="kit" aria-selected="false"><span class="dot" style="background:#8B6CFF;border:1.5px solid var(--on-bright)"></span>Road Kit</button>
     <button class="tab" role="tab" data-v="stops" aria-selected="false"><span class="dot" style="background:var(--blue)"></span>All Stops</button>
     <button class="tab" role="tab" data-v="food" aria-selected="false"><span class="dot" style="background:var(--pink)"></span>Veg Food</button>
     <button class="tab" role="tab" data-v="season" aria-selected="false"><span class="dot" style="background:var(--orange)"></span>Season &amp; Flights</button>
@@ -519,6 +533,20 @@ html.gated body{overflow:hidden}
     <div class="panel sf" id="sf-wx" style="--c:var(--blue);--t:#E0F2FF"></div>
     <div class="panel sf" id="sf-alt" style="--c:var(--green);--t:#DDF7E8"></div>
     <div class="panel sf" id="sf-soon" style="--c:#8B6CFF;--t:#ECE6FF"></div>
+  </div>
+</section>
+
+<section class="view" id="v-kit" hidden>
+  <div class="lede"><h2>Road <span class="blob" style="background:#8B6CFF;color:#fff">kit</span></h2><p>Everything for the road in India: help nearby, navigation that works offline, permits and papers, bike care, packing, group rides and a story of your trip.</p></div>
+  <div class="kt-top" id="kt-trip"></div>
+  <div class="sfgrid">
+    <div class="panel sf" id="kt-near" style="--c:var(--red);--t:#FFD6D2"></div>
+    <div class="panel sf" id="kt-nav" style="--c:var(--blue);--t:#DDF0FF"></div>
+    <div class="panel sf" id="kt-papers" style="--c:var(--orange);--t:#FFEAD1"></div>
+    <div class="panel sf" id="kt-bike" style="--c:var(--green);--t:#DDF7E8"></div>
+    <div class="panel sf" id="kt-pack" style="--c:var(--yellow);--t:#FFF3C4"></div>
+    <div class="panel sf" id="kt-group" style="--c:var(--pink);--t:#FFE1EE"></div>
+    <div class="panel sf" id="kt-story" style="--c:#8B6CFF;--t:#ECE6FF"></div>
   </div>
 </section>
 
@@ -856,6 +884,7 @@ function show(v){
   $$("main section.view").forEach(s=>s.hidden=s.id!=="v-"+v);
   store.set("rebd-tab",v);
   if(v==="safe")renderSafe();
+  if(v==="kit")renderKit();
 }
 $$(".tab").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.v);window.scrollTo({top:0})}));
 
@@ -1376,7 +1405,7 @@ function startRide(){
   schedNative();renderRide();
 }
 function endRide(){
-  const km=Math.round(S.ride.km),dur=mins(Date.now()-S.ride.start);S.ride.on=false;saveS();gps(false);wake(false);Notify.schedule([]);renderRide();
+  const km=Math.round(S.ride.km),dur=mins(Date.now()-S.ride.start);S.ride.on=false;try{window.kitAddKm&&window.kitAddKm(S.ride.km)}catch(e){}saveS();gps(false);wake(false);Notify.schedule([]);renderRide();
   toast("Ride ended","You rode about "+km+" km in "+dur+".",S.contacts.length?[{label:"Tell family",fn:()=>{show("safe");$("#sf-fam").scrollIntoView({behavior:"smooth"})}}]:[]);
 }
 function schedNative(){if(!S.ride.on)return;const l=[];
@@ -1650,8 +1679,244 @@ if(S.ride.on){gps(S.ride.gps);if(S.ride.wake)wake(true)}
 setInterval(tick,5000);
 
 
+// ===== Road Kit =====
+// Help nearby, navigation + GPX, permits and papers, bike care, packing, group ride and a trip story card.
+// Free panels work for everyone; PRO panels use the same Premium gate as Ride Safe.
+// Data: localStorage "rebd-kit" {schema:1, owner:"local", updatedAt, papers:{<key>:{have,exp}}, pack:{"<tripId>":{<item>:1}},
+//   bike:{odo, svc:{at,every}, lube:{at,every}, adj:{at,every}, check:{day,items:{}}}, group:{name,meet,time,riders:[{id,name,phone,role}],regroup:{<slug>:1}},
+//   warned:"YYYY-MM-DD"}. Synced with the account like the other rebd- keys.
+const KDEF={schema:1,owner:"local",updatedAt:0,papers:{},pack:{},
+  bike:{odo:0,svc:{at:0,every:10000},lube:{at:0,every:500},adj:{at:0,every:1000},check:{day:"",items:{}}},
+  group:{name:"",meet:"",time:"07:00",riders:[],regroup:{}},warned:""};
+const K=(()=>{const v=store.get("rebd-kit",null);if(!v||v.schema!==1)return JSON.parse(JSON.stringify(KDEF));
+  const m=(d,s)=>{Object.keys(d).forEach(k=>{if(s[k]===undefined)s[k]=JSON.parse(JSON.stringify(d[k]));else if(d[k]&&typeof d[k]==="object"&&!Array.isArray(d[k])&&s[k]&&typeof s[k]==="object")m(d[k],s[k])});return s};
+  return m(KDEF,v)})();
+const saveK=()=>{K.updatedAt=Date.now();store.set("rebd-kit",K)};
+const kTrip=()=>ctx().t;
+const kName=t=>t.custom?t.name:"Trip "+t.id+": "+t.name;
+const kSlugs=t=>t.stops.map(s=>s.key||slug(s.n));
+const kmFmt=n=>Math.round(n).toLocaleString("en-IN");
+
+// ---- data: permits and road openings, keyed by stop slug so custom trips that use these places get them too
+const PERMITS={
+ "dholavira-the-white-rann":[["White Rann permit","Needed to enter the salt desert at Dhordo. Get it online or at the Bhirandiyara checkpost, and carry your ID."]],
+ "diu":[["Diu checkpost","Diu is a Union Territory. Keep your licence, RC and rental papers ready at the bridge checkpost."]],
+ "bastar-chitrakote-jagdalpur":[["Local advice","Ask your hotel about current conditions on interior Bastar roads. Stay on main roads and ride in daylight."]],
+ "wayanad":[["Forest roads close at night","The Bandipur and Muthanga forest roads are closed to traffic at night, roughly 9 pm to 6 am. Plan to cross in the day."]],
+ "rameswaram-dhanushkodi":[["Dhanushkodi road hours","The road to the tip at Dhanushkodi is usually closed after sunset. Go in the morning."]],
+ "kaziranga":[["Safari booking","Book jeep safaris on the park's official site. The park closes in the monsoon, roughly May to October."]],
+ "dirang-bomdila":[["Arunachal permit","Indian citizens need an Inner Line Permit (apply online). Foreign passport holders, OCI included, need a Protected Area Permit through a registered tour operator. It's checked at Bhalukpong, so carry printouts."]],
+ "tawang":[["Arunachal permit","Indian citizens need an Inner Line Permit (apply online). Foreign passport holders, OCI included, need a Protected Area Permit through a registered tour operator. It's checked at Bhalukpong, so carry printouts."]],
+ "manali":[["Rohtang Pass permit","Only if you ride over Rohtang instead of the Atal Tunnel. Book it online a day ahead; daily slots are limited."]],
+ "leh":[["Rental bikes from outside Ladakh","In some seasons local unions in Leh have stopped bikes rented outside Ladakh from touring there. Ask your rental company before you go."]],
+ "nubra-valley":[["Ladakh inner-area permit","Nubra, Pangong and other inner areas need a permit and environment fee, applied online on the Ladakh tourism portal. Foreign nationals, OCI included, need a Protected Area Permit through a travel agent. Carry several printouts."]],
+ "pangong-tso":[["Ladakh inner-area permit","Nubra, Pangong and other inner areas need a permit and environment fee, applied online on the Ladakh tourism portal. Foreign nationals, OCI included, need a Protected Area Permit through a travel agent. Carry several printouts."]]};
+// [pass, height m, usual open months (0-11), note]
+const PASSES={
+ "manali":[["Atal Tunnel",3060,null,"Open all year. Cold and wet inside, so use lights and go slow."],["Rohtang La",3980,[4,10],"Usually open May or June to November. Permit needed."]],
+ "jispa":[["Baralacha La",4890,[5,9],"Usually open June to mid October. Water crossings are worst in the afternoon."]],
+ "sarchu-to-leh":[["Tanglang La",5328,[5,9],"Usually open June to mid October. Gata Loops and Pang plains before it."]],
+ "nubra-valley":[["Khardung La",5359,null,"Open most of the year, closes after heavy snow. Mornings are icy."]],
+ "pangong-tso":[["Chang La",5360,null,"Open most of the year. Very cold, short stops only."]],
+ "lamayuru-kargil":[["Fotu La",4108,null,"Open most of the year."]],
+ "srinagar-sonamarg":[["Zojila",3528,[4,10],"Usually open May to November. One-way timings and landslides, so check the day before."]],
+ "tawang":[["Sela Pass",4170,null,"Open all year with the Sela Tunnel. Snow and ice from December to March."]]};
+const PAPERS=[["dl","Driving licence with motorcycle class",1,"From abroad: your home licence plus an International Driving Permit."],["rc","Bike RC, or the rental agreement with an RC copy",0,""],
+ ["ins","Bike insurance",1,""],["puc","Pollution (PUC) certificate",1,""],["id","Photo ID",1,"Passport with visa or OCI card if you're not an Indian citizen."],
+ ["permit","Permit printouts, a few copies of each",0,""],["health","Travel or health insurance details",1,""],["cash","Cash for stretches with no ATM",0,""]];
+
+// ---- packing list that changes with the trip
+function packList(t){
+  const g=t.stops.map((_,i)=>geoOf(t,i)).filter(Boolean),top=Math.max(0,...g.map(x=>Math.max(x[2],x[3]||0))),gaps=g.some(x=>x[4]),
+    rainy=/jun|jul|aug|sept/i.test(t.months||"")||t.id===8;
+  const L=[["Riding gear",[["helmet","Full-face helmet (ISI or DOT marked)"],["jacket","Armoured riding jacket"],["gloves","Riding gloves"],["boots","Riding boots"],["knee","Knee guards"],["rain","Rain suit"]]],
+    ["Bike kit",[["tools","Tool kit and the bike's manual"],["punct","Puncture kit and mini air pump"],["lube","Chain lube"],["cables","Spare clutch and throttle cables"],["fuse","Spare fuses and bulbs"],["straps","Luggage straps and bungee cords"]]],
+    ["Phone and power",[["mount","Phone mount with charging"],["bank","Power bank"],["offline","Offline maps downloaded for the trip"]]],
+    ["Health",[["aid","First-aid kit"],["ors","ORS sachets"],["sun","Sunscreen and lip balm"],["meds","Your own medicines, with spares"]]],
+    ["Food",[["snack","Veg snacks for remote stretches: thepla, khakhra, dry fruit"],["bottle","Water bottle or hydration pack"]]]];
+  if(top>=2500)L.push(["Mountains ("+kmFmt(top)+" m)",[["thermal","Thermal base layers"],["wglove","Winter gloves and balaclava"],["can","5 litre spare fuel can"],["diamox","Ask your doctor about Diamox"],["shades","UV400 sunglasses"],["oxi","Pulse oximeter"]]]);
+  else if(gaps)L.push(["Long empty roads",[["can","5 litre spare fuel can"],["xwater","Extra 2 litres of water"]]]);
+  if(top<1200&&!rainy)L.push(["Heat",[["mesh","Mesh jacket or cooling vest"],["scarf","Cotton buff for neck and face"]]]);
+  if(rainy)L.push(["Rain",[["drybag","Waterproof bags for luggage"],["bootc","Boot covers"],["fog","Anti-fog visor insert"]]]);
+  return L;
+}
+
+// ---- links
+const mapsSearch=(q,p)=>`https://www.google.com/maps/search/${encodeURIComponent(q)}/@${p[0]},${p[1]},13z`;
+const mapsDir=pts=>{const d=pts[pts.length-1],w=pts.slice(0,-1);return `https://www.google.com/maps/dir/?api=1&destination=${d[0]},${d[1]}&travelmode=driving`+(w.length?`&origin=${w[0][0]},${w[0][1]}`+(w.length>1?`&waypoints=${w.slice(1).map(x=>x[0]+","+x[1]).join("%7C")}`:""):"")};
+const waText=tx=>"https://wa.me/?text="+encodeURIComponent(tx);
+
+// ---- panels
+const kchk=(attr,on,label)=>`<label class="tg2"><input type="checkbox" ${attr}${on?" checked":""}><span>${label}</span></label>`;
+const lockPanel=(what)=>`<div class="read"><span>${what} is part of PRO.</span><button class="btn" style="justify-self:start" data-buy>Go PRO</button></div>`;
+const NEAR=[["⛽","Petrol pump","petrol pump"],["🔧","RE service","Royal Enfield service centre"],["🛞","Puncture","puncture repair tyre shop"],["🏥","Hospital","hospital"],
+ ["💊","Pharmacy","pharmacy"],["🥗","Pure veg food","pure veg restaurant"],["🏧","ATM","ATM"],["👮","Police","police station"],["🛏️","Stay","hotel homestay"]];
+function renderNear(){
+  const p=bestPoint();
+  $("#kt-near").innerHTML=`<h3><span class="ic">📍</span>Help nearby</h3>
+    <p>Find the nearest pump, mechanic, hospital or veg meal, wherever you are. Opens in your maps app.</p>
+    <div class="read"><span>Searching near</span><b style="font-size:20px">${p?esc(p[2]):"your next stop"}</b>${fix()?"":`<button class="btn ghost" id="kn-loc" style="justify-self:start">📍 Use my location</button>`}</div>
+    ${p?`<div class="neargrid">${NEAR.map(n=>`<a class="nearbtn" href="${esc(mapsSearch(n[2],p))}" target="_blank" rel="noopener"><span aria-hidden="true">${n[0]}</span>${esc(n[1])}</a>`).join("")}</div>`:`<p class="note">Tap Use my location to start.</p>`}
+    <div class="row2"><a class="lk call" href="tel:112">Emergency 112</a><a class="lk call" href="tel:108">Ambulance 108</a><a class="lk" href="tel:1033">Highway help 1033</a></div>
+    <p class="note">On remote roads, ask at a dhaba or army camp too. They often know the nearest mechanic better than any map.</p>`;
+}
+function renderNav(){
+  const t=kTrip(),pts=t.stops.map((s,i)=>({n:s.n,g:geoOf(t,i)})).filter(x=>x.g),c=ctx(),nx=c.nx<0?-1:c.nx,ng=nx>=0&&geoOf(t,nx);
+  const parts=[];for(let i=0;i<pts.length-1;i+=4)parts.push(pts.slice(i,i+5));
+  $("#kt-nav").innerHTML=`<h3><span class="ic">🧭</span>Navigate &amp; offline route</h3>
+    <p>Start turn-by-turn to your next stop in one tap, and take the whole route offline for places with no signal.</p>
+    ${ng?`<a class="btn" style="justify-self:start;text-decoration:none" href="${esc(mapsDir([[ng[0],ng[1]]]))}" target="_blank" rel="noopener">Navigate to ${esc(t.stops[nx].n)} →</a>`:`<div class="read good"><span>${esc(kName(t))}</span><b style="font-size:20px">All places done 🎉</b></div>`}
+    ${parts.length?`<div class="grp"><h5>Whole route in Google Maps</h5><ul class="legs">${parts.map(p=>`<li><span>${esc(p[0].n)} → ${esc(p[p.length-1].n)}</span><a class="lk" href="${esc(mapsDir(p.map(x=>x.g)))}" target="_blank" rel="noopener">Open</a></li>`).join("")}</ul></div>`:""}
+    <div class="grp"><h5>Offline route file ${proChip}</h5>${Premium.active()?`<p class="note">A GPX file with every stop, its height and the route order. Open it in any offline map app before you lose signal.</p><button class="btn ghost" id="kn-gpx" style="justify-self:start"${pts.length<2?" disabled":""}>Download GPX</button>`:lockPanel("The offline route file")}</div>
+    ${pts.length<t.stops.length?`<p class="note">${t.stops.length-pts.length} of your places have no map point yet, so they're skipped.</p>`:""}`;
+}
+function gpx(t){
+  const x=s=>esc(s).replace(/'/g,"&apos;"),pts=t.stops.map((s,i)=>({n:s.n,d:s.d,g:geoOf(t,i)})).filter(p=>p.g);
+  const pt=(tag,p)=>`<${tag} lat="${p.g[0]}" lon="${p.g[1]}"><ele>${p.g[2]}</ele><name>${x(p.n)}</name>${p.d?`<desc>${x(p.d)}</desc>`:""}</${tag}>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="RE Bharat Darshan" xmlns="http://www.topografix.com/GPX/1/1">\n<metadata><name>${x(kName(t))}</name></metadata>\n${pts.map(p=>pt("wpt",p)).join("\n")}\n<rte><name>${x(kName(t))}</name>\n${pts.map(p=>pt("rtept",p)).join("\n")}\n</rte>\n</gpx>\n`;
+}
+function download(name,data,type){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
+const fileName=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"trip";
+function daysTo(d){if(!d)return null;return Math.round((new Date(d+"T12:00:00")-new Date(today()+"T12:00:00"))/864e5)}
+function paperAlerts(){const t=kTrip(),p=prog[t.id],end=p&&p.start?daysTo(p.start)+tDays(t):null,out=[];
+  PAPERS.forEach(([k,label,exp])=>{const e=K.papers[k]&&K.papers[k].exp;if(!exp||!e)return;const d=daysTo(e);
+    if(d<0)out.push(["bad",label+" expired on "+fmtStamp(new Date(e+"T12:00:00"))+"."]);
+    else if(end!=null&&d<end)out.push(["bad",label+" expires during your trip."]);
+    else if(d<=30)out.push(["warn",label+" expires in "+d+" day"+(d===1?"":"s")+"."])});return out}
+function renderPapers(){
+  const t=kTrip(),sl=kSlugs(t),seen=new Set(),pm=[];sl.forEach((s,i)=>(PERMITS[s]||[]).forEach(x=>{if(seen.has(x[0]))return;seen.add(x[0]);pm.push([t.stops[i].n,...x])}));
+  const ps=[];sl.forEach((s,i)=>(PASSES[s]||[]).forEach(x=>ps.push([t.stops[i].n,...x])));
+  const pp=prog[t.id],sm=pp&&pp.start?new Date(pp.start+"T12:00:00").getMonth():null,al=Premium.active()?paperAlerts():[];
+  const shut=x=>x[3]&&sm!=null&&(sm<x[3][0]||sm>x[3][1]);
+  $("#kt-papers").innerHTML=`<h3><span class="ic">📄</span>Permits, papers &amp; passes</h3>
+    <p>What ${esc(kName(t))} needs before you leave, and when the high passes are open.</p>
+    <div class="grp"><h5>Permits and rules on this route</h5>${pm.length?`<ul class="alerts">${pm.map(x=>`<li class="warn"><b>${esc(x[1])}</b> · ${esc(x[0])}<br>${esc(x[2])}</li>`).join("")}</ul>`:`<p class="note">No special permits on this route. Carry your usual papers.</p>`}</div>
+    ${ps.length?`<div class="grp"><h5>High passes</h5><ul class="legs">${ps.map(x=>`<li class="${shut(x)?"over":x[2]>=4500?"near":""}"><span>${esc(x[1])} · ${kmFmt(x[2])} m<br><small style="font-weight:500">${esc(x[4])}</small></span><span>${x[3]?MON[x[3][0]]+" to "+MON[x[3][1]]:"All year"}${shut(x)?" · likely shut when you start":""}</span></li>`).join("")}</ul><p class="note">Opening months shift every year. Check road status with local police or the BRO the day before you cross.</p></div>`:""}
+    <div class="grp"><h5>Papers to carry</h5>${PAPERS.map(([k,label,exp,hint])=>{const v=K.papers[k]||{};return `<div class="paper">${kchk(`data-pp="${k}"`,v.have,esc(label))}${hint?`<small>${esc(hint)}</small>`:""}${exp?`<label class="inl">Valid until<input type="date" data-pe="${k}" value="${esc(v.exp||"")}"></label>`:""}</div>`}).join("")}</div>
+    <div class="grp"><h5>Expiry warnings ${proChip}</h5>${Premium.active()?(al.length?`<ul class="alerts">${al.map(a=>`<li class="${a[0]}">${esc(a[1])}</li>`).join("")}</ul>`:`<p class="note">Add the dates above. You'll be warned 30 days before anything expires, and if it runs out during your trip.</p>`):lockPanel("Expiry warnings")}</div>
+    <p class="note">DigiLocker or mParivahan copies of your licence and RC are accepted by traffic police in India. Keep paper copies too for checkposts with no signal.</p>`;
+}
+const CARE=[["svc","Service","Full service at a Royal Enfield workshop. Check your manual for the exact interval."],["lube","Chain lube","Lube the chain, and again after every rain or water crossing."],["adj","Chain slack check","Check and adjust chain slack."]];
+const PRE=[["tyre","Tyres: pressure, cuts, nails"],["brake","Front and rear brakes bite firmly"],["chain","Chain slack and lube"],["light","Headlight, brake light, indicators, horn"],["oil","Engine oil in the sight glass"],["fuel","Fuel, and the spare can if you need it"],["load","Mirrors set, luggage straps tight"]];
+function renderBike(){
+  const b=K.bike,ck=b.check.day===today()?b.check.items:{},n=PRE.filter(p=>ck[p[0]]).length;
+  $("#kt-bike").innerHTML=`<h3><span class="ic">🛠️</span>Bike care</h3>
+    <p>Your odometer adds up the km from Ride Mode. Get told when the bike needs a service, lube or check.</p>
+    <div class="row2"><label class="inl">Odometer (km)<input type="number" id="kb-odo" value="${Math.round(b.odo)}" min="0" inputmode="numeric"></label><label class="inl">Add km ridden<input type="number" id="kb-add" placeholder="e.g. 180" min="0" inputmode="numeric"></label><button class="btn ghost" id="kb-addgo" style="align-self:end">Add</button></div>
+    <ul class="legs">${CARE.map(([k,label,hint])=>{const c=b[k],since=Math.max(0,b.odo-c.at),left=c.every-since,cls=!c.on?"":left<=0?"over":left<c.every*.15?"near":"";
+      return `<li class="${cls} care"><span>${label}<br><small style="font-weight:500">${!c.on?"Tap Done next time you do it":left<=0?"Due now, "+kmFmt(-left)+" km over":"Due in "+kmFmt(left)+" km"} · every <input type="number" data-ce="${k}" value="${c.every}" min="100" step="100" inputmode="numeric" aria-label="${label} interval in km"> km</small></span><button class="lk" data-cd="${k}">Done</button></li>`}).join("")}</ul>
+    <div class="grp"><h5>Before you ride today · ${n} of ${PRE.length}</h5>${PRE.map(p=>kchk(`data-pre="${p[0]}"`,ck[p[0]],esc(p[1]))).join("")}</div>
+    ${n===PRE.length?`<div class="read good"><span>All checked. Ride safe 🙏</span></div>`:""}`;
+}
+function renderPack(){
+  const t=kTrip(),L=packList(t),got=K.pack[t.id]||{},all=L.flatMap(g=>g[1]),n=all.filter(x=>got[x[0]]).length;
+  $("#kt-pack").innerHTML=`<h3><span class="ic">🎒</span>Packing list</h3>
+    <p>Made for ${esc(kName(t))}: it adds cold-weather and spare-fuel items for the mountains, and rain gear for wet months.</p>
+    <div class="read ${n===all.length?"good":""}"><span>Packed</span><b>${n} of ${all.length}</b><div class="gauge"><i style="width:${all.length?n/all.length*100:0}%"></i></div></div>
+    ${L.map(g=>`<details class="more"${g[1].some(x=>!got[x[0]])&&L.indexOf(g)<2?" open":""}><summary>${esc(g[0])} · ${g[1].filter(x=>got[x[0]]).length}/${g[1].length}</summary><div>${g[1].map(x=>kchk(`data-pk="${x[0]}"`,got[x[0]],esc(x[1]))).join("")}</div></details>`).join("")}`;
+}
+const ROLES=[["lead","Lead"],["sweep","Sweep"],["rider","Rider"],["pillion","Pillion"],["backup","Back-up vehicle"]];
+function groupText(){const g=K.group,t=kTrip(),r=k=>g.riders.filter(x=>x.role===k).map(x=>x.name).join(", ");
+  const rg=t.stops.filter((s,i)=>g.regroup[kSlugs(t)[i]]).map(s=>s.n),L=["🏍️ Group ride"+(g.name?": "+g.name:""),kName(t)];
+  if(g.meet||g.time)L.push("Meet: "+(g.meet||"TBD")+(g.time?" at "+g.time:""));
+  if(r("lead"))L.push("Lead: "+r("lead"));if(r("sweep"))L.push("Sweep: "+r("sweep"));
+  const rest=g.riders.filter(x=>!["lead","sweep"].includes(x.role)).map(x=>x.name+(x.role==="rider"?"":" ("+ROLES.find(y=>y[0]===x.role)[1].toLowerCase()+")"));if(rest.length)L.push("Riders: "+rest.join(", "));
+  if(rg.length)L.push("Regroup at: "+rg.join(" → "));
+  L.push("Rules: keep the rider behind you in your mirror. Lead waits at every turn. Sweep stays last. Lost the rider behind? Pull over and wait.");
+  return L.join("\n")}
+const QUICK=[["⏸️","Regrouping","Regrouping here, wait for everyone before moving on."],["🛞","Puncture","I've got a puncture. Stopping on the left, please wait."],["⛽","Need fuel","I need fuel. Next pump stop please."],["⏰","Running late","Running about 30 minutes late, carry on to the next regroup."],["🏨","Reached","Reached tonight's stay safely 🙏"]];
+function renderGroup(){
+  const el=$("#kt-group");if(!Premium.active()){el.innerHTML=`<h3><span class="ic">👥</span>Group ride ${proChip}</h3>${lockPanel("Group ride")}`;return}
+  const g=K.group,t=kTrip(),sl=kSlugs(t),p=fix(),loc=p?"\nLocation: https://maps.google.com/?q="+p.lat+","+p.lon:"";
+  el.innerHTML=`<h3><span class="ic">👥</span>Group ride ${proChip}</h3>
+    <p>Plan a ride with friends: who leads, who sweeps, where you regroup. Share it to your group chat, and send quick updates on the road.</p>
+    <div class="row2"><label class="inl">Group name<input data-g="name" value="${esc(g.name)}" placeholder="Sunday Bulleteers" autocomplete="off"></label></div>
+    <div class="row2"><label class="inl">Meeting point<input data-g="meet" value="${esc(g.meet)}" placeholder="Petrol pump at the city exit" autocomplete="off"></label><label class="inl" style="flex:0 1 120px">Time<input type="time" data-g="time" value="${esc(g.time)}"></label></div>
+    <div class="contacts">${g.riders.map((r,j)=>`<div class="ct"><div class="who"><div><b>${esc(r.name)}</b><small>${esc(r.phone||"No phone")}</small></div><select data-gr="${j}" aria-label="Role for ${esc(r.name)}">${ROLES.map(o=>`<option value="${o[0]}"${r.role===o[0]?" selected":""}>${o[1]}</option>`).join("")}</select></div>
+      <div class="acts">${digits(r.phone)?`<a class="lk call" href="tel:${esc(digits(r.phone))}">Call</a>`:""}<button class="lk x" data-grm="${j}">Remove</button></div></div>`).join("")||`<div class="empty" style="padding:14px">Add the riders in your group.</div>`}</div>
+    <form class="grp" id="kg-add"><h5>Add a rider</h5><div class="row2"><label class="inl">Name<input name="n" required autocomplete="off" placeholder="Arjun"></label><label class="inl">Phone (optional)<input name="p" type="tel" autocomplete="off" placeholder="+91 98…"></label><button class="btn" type="submit" style="align-self:end">Add</button></div></form>
+    <details class="more"><summary>Regroup points on ${esc(t.custom?t.name:"Trip "+t.id)}</summary><div>${t.stops.map((s,i)=>kchk(`data-rg="${esc(sl[i])}"`,g.regroup[sl[i]],esc(s.n))).join("")}</div></details>
+    <a class="btn" id="kg-share" style="justify-self:start;text-decoration:none" href="${esc(waText(groupText()))}" target="_blank" rel="noopener">Share plan to group WhatsApp</a>
+    <div class="grp"><h5>Quick messages${p?" · with your location":""}</h5><div class="chips">${QUICK.map(q=>`<a class="fbtn" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center" href="${esc(waText(q[2]+loc))}" target="_blank" rel="noopener">${q[0]} ${esc(q[1])}</a>`).join("")}</div>${p?"":`<button class="btn ghost" id="kg-loc" style="justify-self:start">📍 Add my location to messages</button>`}</div>
+    <details class="more"><summary>Hand signals</summary><div><ul class="soon">
+      <li><b>Fist raised</b><span>Stop</span></li><li><b>Palm down, moving up and down</b><span>Slow down</span></li><li><b>Pointing down at the road</b><span>Pothole or hazard, left or right side</span></li>
+      <li><b>Tapping the tank</b><span>Need fuel</span></li><li><b>Hand on helmet</b><span>Take the lead / follow me</span></li><li><b>Thumbs up</b><span>All good</span></li></ul></div></details>`;
+}
+function renderStory(){
+  const el=$("#kt-story");if(!Premium.active()){el.innerHTML=`<h3><span class="ic">📸</span>Trip story ${proChip}</h3>${lockPanel("Trip story")}`;return}
+  const t=kTrip(),s=tripStat(t);
+  el.innerHTML=`<h3><span class="ic">📸</span>Trip story ${proChip}</h3>
+    <p>A picture of your trip so far: places done, km, highest point and what you ticked off. Post it or send it to family.</p>
+    <canvas id="ks-cv" width="1080" height="1350" class="storycv" aria-label="Trip story picture for ${esc(kName(t))}"></canvas>
+    <div class="row2"><button class="btn" id="ks-share">Share picture</button><button class="btn ghost" id="ks-dl">Download</button></div>
+    ${s.started?"":`<p class="note">Start the trip in My Trip and tick off places to fill in your story.</p>`}`;
+  drawStory(t);
+}
+function wrapLines(c,text,w){const out=[];let line="";String(text).split(" ").forEach(word=>{const tst=line?line+" "+word:word;if(c.measureText(tst).width>w&&line){out.push(line);line=word}else line=tst});if(line)out.push(line);return out}
+function drawStory(t){
+  const cv=$("#ks-cv");if(!cv)return;const c=cv.getContext("2d"),W=1080,H=1350,s=tripStat(t),ink="#0B2A22",head='600 FONT_PX "Fredoka", system-ui, sans-serif',ui='600 FONT_PX "Inter", system-ui, sans-serif';
+  const F=(f,px)=>f.replace("FONT_PX",px+"px");
+  const g=t.stops.map((_,i)=>geoOf(t,i)).filter(Boolean),top=g.length?Math.max(...g.map(x=>Math.max(x[2],x[3]||0))):0;
+  let km=0;t.stops.forEach((_,i)=>{if(i&&stopStat(t,i).c)km+=legKm(t,i)});if(!km&&s.places)km=Math.round(t.km*s.places/t.stops.length);
+  const day=(()=>{const p=prog[t.id];if(!p||!p.start)return 0;const d=daysTo(p.start);return d==null||d>0?0:Math.min(tDays(t),1-d)})();
+  c.fillStyle=t.t||"#DDF7E8";c.fillRect(0,0,W,H);
+  c.fillStyle="#fff";c.strokeStyle=ink;c.lineWidth=8;const rr=(x,y,w,h,r)=>{c.beginPath();c.roundRect?c.roundRect(x,y,w,h,r):c.rect(x,y,w,h)};
+  c.fillStyle=ink;rr(78,78,924,1194,48);c.fill();c.fillStyle="#fff";rr(64,64,924,1194,48);c.fill();c.stroke();
+  c.fillStyle=t.c||"#12A150";rr(64,64,924,260,48);c.fill();c.stroke();
+  const onC=isYl(t.c)?ink:"#fff";c.fillStyle=onC;c.font=F(ui,30);c.fillText((t.custom?"MY TRIP":"TRIP "+t.id).toUpperCase()+"  ·  RE BHARAT DARSHAN",110,140);
+  c.font=F(head,76);wrapLines(c,t.name,840).slice(0,2).forEach((l,i)=>c.fillText(l,110,230+i*80));
+  const stats=[[s.places+"/"+t.stops.length,"places"],[kmFmt(km),"km ridden"],[day?day+"/"+tDays(t):tDays(t),day?"days":"days planned"],[top?kmFmt(top)+" m":"—","highest"]];
+  stats.forEach((x,i)=>{const X=110+i*220;c.fillStyle=ink;c.font=F(head,54);c.fillText(x[0],X,420);c.fillStyle="#3d544b";c.font=F(ui,26);c.fillText(x[1],X,458)});
+  c.fillStyle=ink;c.fillRect(110,500,830,4);
+  const list=t.stops.slice(0,11);list.forEach((st,i)=>{const y=570+i*58,done=!!stopStat(t,i).c;
+    c.beginPath();c.arc(130,y-12,20,0,Math.PI*2);c.fillStyle=done?(t.c||"#12A150"):"#fff";c.fill();c.lineWidth=4;c.strokeStyle=ink;c.stroke();
+    if(done){c.fillStyle=onC;c.font=F(ui,24);c.fillText("✓",120,y-3)}
+    c.fillStyle=done?ink:"#6b7f77";c.font=F(done?head:ui,36);c.fillText(wrapLines(c,st.n,760)[0],172,y)});
+  if(t.stops.length>11){c.fillStyle="#3d544b";c.font=F(ui,28);c.fillText("+ "+(t.stops.length-11)+" more",172,570+11*58)}
+  c.fillStyle="#3d544b";c.font=F(ui,28);c.fillText(s.got+" sights, veg dishes and gems ticked off",110,1210);
+  const who=S.profile.name.trim();if(who){c.textAlign="right";c.fillText(who,940,1210);c.textAlign="left"}
+}
+function storyBlob(){return new Promise(r=>$("#ks-cv").toBlob(r,"image/png"))}
+function renderKitTrip(){const all=allTrips(),t=kTrip();$("#kt-trip").innerHTML=`<label class="inl">Trip<select id="kt-sel">${all.map(x=>`<option value="${esc(x.id)}"${String(x.id)===String(t.id)?" selected":""}>${esc(kName(x))}</option>`).join("")}</select></label>`}
+function renderKit(){renderKitTrip();renderNear();renderNav();renderPapers();renderBike();renderPack();renderGroup();renderStory();kitWarn()}
+// Once a day, on open: expiring papers and bike care due (PRO alerts).
+function kitWarn(){if(!Premium.active()||K.warned===today())return;const a=paperAlerts(),due=CARE.filter(([k])=>K.bike[k].on&&K.bike.odo-K.bike[k].at>=K.bike[k].every).map(x=>x[1]);
+  if(!a.length&&!due.length)return;K.warned=today();saveK();
+  if(a.length)Notify.fire("Check your papers",a.map(x=>x[1]).join(" "),"papers");
+  if(due.length)Notify.fire("Bike care due",due.join(", ")+". Open Road Kit to log it.","bike")}
+window.kitAddKm=km=>{if(!(km>0))return;K.bike.odo=(+K.bike.odo||0)+km;saveK();if(!$("#v-kit").hidden)renderBike()};
+
+const KV=$("#v-kit");
+KV.addEventListener("change",e=>{const el=e.target,d=el.dataset,t=kTrip();
+  if(el.id==="kt-sel"){tkId=findT(el.value).id;store.set("rebd-active",tkId);tkOpen=null;renderTrack();renderKit();return}
+  if(d.pp){(K.papers[d.pp]=K.papers[d.pp]||{}).have=el.checked;saveK();return}
+  if(d.pe){(K.papers[d.pe]=K.papers[d.pe]||{}).exp=el.value;K.warned="";saveK();renderPapers();return}
+  if(d.pk){const m=K.pack[t.id]=K.pack[t.id]||{};if(el.checked)m[d.pk]=1;else delete m[d.pk];saveK();renderPack();return}
+  if(d.pre){if(K.bike.check.day!==today())K.bike.check={day:today(),items:{}};K.bike.check.items[d.pre]=el.checked;saveK();renderBike();return}
+  if(d.ce){const v=parseInt(el.value,10);if(v>=100){K.bike[d.ce].every=v;saveK();renderBike()}return}
+  if(el.id==="kb-odo"){const v=parseFloat(el.value);if(isFinite(v)&&v>=0){K.bike.odo=v;saveK();renderBike()}return}
+  if(d.g){K.group[d.g]=el.value.slice(0,80);saveK();$("#kg-share").href=waText(groupText());return}
+  if(d.gr!=null){K.group.riders[+d.gr].role=el.value;saveK();renderGroup();return}
+  if(d.rg){if(el.checked)K.group.regroup[d.rg]=1;else delete K.group.regroup[d.rg];saveK();$("#kg-share").href=waText(groupText());return}
+});
+KV.addEventListener("click",async e=>{const b=e.target.closest("button");if(!b)return;const t=kTrip();
+  if(b.hasAttribute("data-buy")){window.REBDNative&&window.REBDNative.purchase&&window.REBDNative.purchase("pro");return}
+  if(b.id==="kn-loc"||b.id==="kg-loc")locate(()=>{renderNear();renderGroup()});
+  else if(b.id==="kn-gpx")download(fileName(kName(t))+".gpx",gpx(t),"application/gpx+xml");
+  else if(b.id==="kb-addgo"){const v=parseFloat($("#kb-add").value);if(v>0){window.kitAddKm(v);renderBike()}}
+  else if(b.dataset.cd){K.bike[b.dataset.cd].at=K.bike.odo;K.bike[b.dataset.cd].on=1;saveK();renderBike();toast("Logged",CARE.find(x=>x[0]===b.dataset.cd)[1]+" done at "+kmFmt(K.bike.odo)+" km.",[],4000)}
+  else if(b.dataset.grm!=null){K.group.riders.splice(+b.dataset.grm,1);saveK();renderGroup()}
+  else if(b.id==="ks-dl"){const bl=await storyBlob();if(bl)download(fileName(kName(t))+"-story.png",bl,"image/png")}
+  else if(b.id==="ks-share"){const bl=await storyBlob();if(!bl)return;const f=new File([bl],fileName(kName(t))+"-story.png",{type:"image/png"});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],text:"My "+kName(t)+" ride so far 🏍️"}).catch(()=>{})}else download(f.name,bl,"image/png")}
+});
+KV.addEventListener("submit",e=>{if(e.target.id!=="kg-add")return;e.preventDefault();const f=e.target,n=f.n.value.trim().slice(0,40);if(!n)return;
+  K.group.riders.push({id:"r"+Date.now().toString(36),name:n,phone:f.p.value.trim().slice(0,24),role:K.group.riders.some(r=>r.role==="lead")?"rider":"lead"});saveK();renderGroup()});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(!$("#v-kit").hidden&&$("#ks-cv"))drawStory(kTrip())});
+
+
 renderTrips();renderStops();renderFood();renderTrack();renderSafe();
-const tab=store.get("rebd-tab","plan");if(["plan","track","safe","stops","food","season","budget"].includes(tab))show(tab);
+const tab=store.get("rebd-tab","plan");if(["plan","track","safe","kit","stops","food","season","budget"].includes(tab))show(tab);
 if(window.REBD_STANDALONE)$("#install").hidden=false;
 })();
 </script>
