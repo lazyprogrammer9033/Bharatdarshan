@@ -262,6 +262,136 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
 .trip .tkl{font-size:13px;font-weight:700;color:var(--ink)}
 .cheer{border:2px solid var(--on-bright);border-radius:18px;background:var(--green);color:#fff;padding:16px;font-weight:600;display:grid;gap:4px}
 .cheer b{font-family:var(--f-head);font-size:22px}
+/* trip builder: your own route, built from the app's places or your own */
+.trip.new{border-style:dashed;box-shadow:none;background:var(--soft);display:grid;place-items:center;align-content:center;gap:8px;padding:24px;min-height:190px;text-align:center;grid-template-rows:none}
+.trip.new .plus{width:56px;height:56px;border-radius:50%;background:var(--yellow);border:2px solid var(--on-bright);box-shadow:0 4px 0 var(--yellow-deep);display:grid;place-items:center;font-family:var(--f-head);font-size:32px;font-weight:700;color:var(--on-bright);line-height:1}
+.trip.new h3{color:var(--ink);font-size:22px}
+.trip.new p{font-size:14px;color:var(--muted);max-width:30ch}
+.bd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;align-items:start}
+@media (max-width:820px){.bd{grid-template-columns:1fr}}
+.bd .panel{gap:12px}
+.bf{display:grid;gap:6px}
+.bf>label,.bf>span.lb{font-size:14px;font-weight:700}
+.bf input[type=text],.bf input[type=date],.bf input[type=search],.bf select,.bd textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:var(--surface);color:var(--ink);min-height:44px}
+.sws{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:40px;height:40px;border-radius:50%;border:2px solid var(--on-bright);cursor:pointer;display:grid;place-items:center;padding:0}
+.sw[aria-checked="true"]{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--ink)}
+.sw[aria-checked="true"]::after{content:"✓";font-weight:800;color:var(--on-bright)}
+.rt{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rs{border:2px solid var(--line);border-radius:16px;background:var(--surface);padding:10px 12px;display:grid;gap:8px;box-shadow:3px 3px 0 var(--c)}
+.rs .r1{display:flex;align-items:center;gap:10px;min-width:0}
+.rs .r1 .st{min-width:0}
+.rs .r1 .st b{font-size:17px;overflow-wrap:anywhere}
+.rs .r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ib{flex:none;min-width:40px;height:40px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-weight:800;font-size:17px;cursor:pointer;display:grid;place-items:center;padding:0 8px;line-height:1}
+.ib:disabled{opacity:.35;cursor:default}
+.ib.del{margin-left:auto;color:var(--red)}
+.stepper{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.stepper output{min-width:58px;text-align:center}
+.rs details summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--muted)}
+.rs textarea{margin-top:6px;min-height:64px;resize:vertical}
+.res{display:grid;gap:6px}
+.ra{display:flex;align-items:center;gap:10px;text-align:left;border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:8px 12px;cursor:pointer;min-height:44px;width:100%}
+.ra i{flex:none;width:12px;height:12px;border-radius:4px;border:1.5px solid var(--on-bright)}
+.ra span{min-width:0;flex:1}
+.ra b{display:block;font-size:15px}
+.ra small{display:block;font-size:12px;color:var(--muted)}
+.ra .add{flex:none;font-weight:800;font-size:13px;color:var(--ink);background:var(--yellow);border:2px solid var(--on-bright);border-radius:999px;padding:2px 10px;color:var(--on-bright)}
+.ra.own{border-style:dashed;background:var(--soft)}
+.bd-sum{position:sticky;bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:3;border:2px solid var(--on-bright);border-radius:20px;background:var(--yellow);color:var(--on-bright);box-shadow:0 5px 0 var(--yellow-deep);padding:12px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.bd-sum .tx{flex:1 1 200px;display:grid;font-weight:700;font-size:14px;min-width:0}
+.bd-sum .tx b{font-family:var(--f-head);font-size:20px}
+.bd-sum .btn{background:var(--ink);color:var(--bg);border-color:var(--on-bright);box-shadow:none}
+.bd-sum .btn.ghost{background:#fff;color:var(--on-bright)}
+.bd-err{font-size:14px;font-weight:700;color:var(--on-bright);background:#FFE3E0;border:2px solid var(--red);border-radius:12px;padding:8px 12px}
+.mine{display:grid;gap:12px}
+/* ride safe (premium): reminders, fuel range, family updates, SOS. Pastel cards with ink text, red accent for safety. */
+.pro{display:inline-flex;align-items:center;font-family:var(--f-ui);font-size:11px;font-weight:800;letter-spacing:.08em;background:var(--ink);color:var(--bg);border-radius:999px;padding:2px 8px;vertical-align:middle;line-height:1.4}
+.tab .pro{font-size:9px;padding:1px 6px}
+.pro-note{font-size:13px;font-weight:600;color:var(--muted);border:1.5px dashed var(--hair);border-radius:14px;padding:10px 12px;background:var(--soft)}
+.ride{border:2px solid var(--on-bright);border-radius:22px;background:#FFE3E0;color:var(--on-bright);box-shadow:var(--shadow) var(--red);padding:18px;display:grid;gap:14px}
+.ride.on{background:#DDF7E8;box-shadow:var(--shadow) var(--green)}
+.ride .rh{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ride .rh h3{font-size:24px}
+.ride .rh small{display:block;font-size:14px;font-weight:600}
+.ride .live{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--red);margin-right:6px;border:1.5px solid var(--on-bright)}
+.ride.on .live{background:var(--green);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.ride .btn.big{font-size:17px;padding:12px 22px}
+.ride.on .btn.big{background:#fff;box-shadow:0 4px 0 var(--on-bright)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:560px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:#fff;border:2px solid var(--on-bright);border-radius:14px;padding:8px 10px;display:grid;min-width:0}
+.kpi b{font-family:var(--f-head);font-size:22px;font-variant-numeric:tabular-nums;line-height:1.15;overflow-wrap:anywhere}
+.kpi span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.kpi.warn{background:#FFF3C4}.kpi.bad{background:#FFD6D2}
+.toggles{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.tg2{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;min-height:44px;cursor:pointer}
+.tg2 input{width:22px;height:22px;margin:0;accent-color:var(--green);flex:none}
+.ride .btn.ghost,.sheet .btn.ghost{background:#fff;color:var(--on-bright);border-color:var(--on-bright)}
+.rnote{font-size:13px;font-weight:500}
+.sfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:20px;align-items:start}
+.sf{box-shadow:4px 4px 0 var(--c,var(--line))}
+.sf>h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:21px}
+.sf>h3 .ic{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:var(--t);border:2px solid var(--on-bright);font-size:18px;flex:none}
+.sf>h3 .pro{margin-left:auto}
+.sf>p{font-size:14px;color:var(--muted)}
+.row2{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.inl{display:grid;gap:4px;font-size:13px;font-weight:700;min-width:0;flex:1 1 120px}
+.inl input,.inl select,.inl textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:9px 10px;font:inherit;font-weight:500;background:var(--surface);color:var(--ink);min-height:44px}
+.inl textarea{min-height:120px;resize:vertical;font-size:14px}
+.read{border-radius:14px;padding:12px;background:var(--t);color:var(--on-bright);display:grid;gap:4px;font-size:14px;border:2px solid var(--on-bright)}
+.read b{font-family:var(--f-head);font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
+.read.warn{background:#FFF3C4}.read.bad{background:#FFD6D2}.read.good{background:#DDF7E8}
+.gauge{height:16px;border-radius:999px;background:#fff;border:2px solid var(--on-bright);overflow:hidden}
+.gauge i{display:block;height:100%;background:var(--green);transition:width .3s}
+.gauge.warn i{background:var(--orange)}.gauge.bad i{background:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips .fbtn{min-height:40px}
+.legs{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.legs li{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:8px 10px;border-radius:10px;background:var(--soft);font-weight:600}
+.legs li.over{background:#FFD6D2;color:var(--on-bright)}
+.legs li.near{background:#FFF3C4;color:var(--on-bright)}
+.legs li span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.contacts{display:grid;gap:8px}
+.ct{border:2px solid var(--line);border-radius:14px;padding:10px 12px;display:grid;gap:8px}
+.ct .who{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ct .who b{font-family:var(--f-head);font-size:17px;font-weight:600;overflow-wrap:anywhere}
+.ct .who small{color:var(--muted);font-weight:600;font-size:12px}
+.ct .acts{display:flex;flex-wrap:wrap;gap:6px}
+.lk{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);border-radius:999px;padding:7px 12px;font-weight:700;font-size:13px;color:var(--ink);text-decoration:none;background:var(--surface);min-height:40px;cursor:pointer}
+.lk.wa{background:#DDF7E8;color:var(--on-bright);border-color:var(--on-bright)}
+.lk.call{background:#FFD6D2;color:var(--on-bright);border-color:var(--on-bright)}
+.lk.x{margin-left:auto;border-color:var(--hair);color:var(--muted)}
+.alerts{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.alerts li{font-size:14px;padding:9px 12px;border-radius:12px;background:var(--soft);border-left:6px solid var(--green)}
+.alerts li.warn{border-left-color:var(--orange);background:color-mix(in srgb,#FFF3C4 70%,var(--surface))}
+.alerts li.bad{border-left-color:var(--red);background:color-mix(in srgb,#FFD6D2 70%,var(--surface))}
+.soon{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.soon li{font-size:14px;display:grid;gap:2px;padding:10px 12px;border-radius:12px;background:var(--soft)}
+.soon li b{font-size:14px}
+.sosbtn{width:100%;border:3px solid var(--on-bright);border-radius:20px;background:var(--red);color:var(--on-bright);font-family:var(--f-head);font-size:28px;font-weight:700;padding:16px;cursor:pointer;box-shadow:0 5px 0 #b8322a;letter-spacing:.04em}
+.sosbtn:active{transform:translateY(2px);box-shadow:0 3px 0 #b8322a}
+.sosfab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;width:64px;height:64px;border-radius:50%;border:3px solid var(--on-bright);background:var(--red);color:var(--on-bright);font-family:var(--f-head);font-weight:700;font-size:18px;cursor:pointer;box-shadow:0 4px 0 #b8322a}
+.sheet{border:2px solid var(--line);border-radius:24px;padding:0;width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 24px);background:#FFE3E0;color:var(--on-bright);overflow:auto}
+.sheet::backdrop{background:rgba(11,42,34,.6)}
+.sheet .in{padding:18px;display:grid;gap:12px}
+.sheet h3{font-size:30px}
+.sheet .big{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--on-bright);border-radius:16px;padding:14px 16px;background:#fff;color:var(--on-bright);text-decoration:none;font-weight:700;font-size:17px;min-height:56px}
+.sheet .big.red{background:var(--red)}
+.sheet .big small{font-weight:600;font-size:13px}
+.medcard{border:2px solid var(--on-bright);border-radius:16px;background:#fff;padding:12px 14px;display:grid;gap:4px;font-size:15px}
+.medcard b{font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.loc{font-family:var(--f-head);font-size:20px;font-variant-numeric:tabular-nums}
+.toasts{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:30;display:grid;gap:8px;width:min(480px,calc(100vw - 32px));pointer-events:none}
+.toast{pointer-events:auto;border:2px solid var(--on-bright);border-radius:16px;background:var(--yellow);color:var(--on-bright);padding:10px 12px;display:grid;gap:4px;box-shadow:0 4px 0 var(--yellow-deep);font-size:13px;line-height:1.4}
+.toast b{font-family:var(--f-head);font-size:17px}
+.toast .lk{min-height:34px;padding:5px 12px}
+.toast .ta{display:flex;flex-wrap:wrap;gap:6px}
+.toast .ta .lk{background:#fff;color:var(--on-bright);border-color:var(--on-bright)}
+details.more{border-top:1.5px dashed var(--hair);padding-top:8px}
+details.more>summary{cursor:pointer;font-weight:700;font-size:14px;min-height:36px;display:flex;align-items:center}
+details.more>div{display:grid;gap:10px;padding-top:8px}
 @media (max-width:440px){.prog{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -284,6 +414,7 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
   <nav role="tablist" aria-label="Sections">
     <button class="tab" role="tab" data-v="plan" aria-selected="true"><span class="dot" style="background:var(--green)"></span>Annual Plan</button>
     <button class="tab" role="tab" data-v="track" aria-selected="false"><span class="dot" style="background:var(--yellow);border:1.5px solid var(--on-bright)"></span>My Trip</button>
+    <button class="tab" role="tab" data-v="safe" aria-selected="false"><span class="dot" style="background:var(--red);border:1.5px solid var(--on-bright)"></span>Ride Safe <span class="pro">PRO</span></button>
     <button class="tab" role="tab" data-v="stops" aria-selected="false"><span class="dot" style="background:var(--blue)"></span>All Stops</button>
     <button class="tab" role="tab" data-v="food" aria-selected="false"><span class="dot" style="background:var(--pink)"></span>Veg Food</button>
     <button class="tab" role="tab" data-v="season" aria-selected="false"><span class="dot" style="background:var(--orange)"></span>Season &amp; Flights</button>
@@ -304,14 +435,37 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
       <div class="stat"><b id="s-food">0</b><span>Veg dishes</span></div>
     </div>
   </div>
-  <div class="lede"><h2>Your 9 trips</h2><p>Tap a trip to see every stop, then start it to get a day-by-day timeline you can tick off as you ride.</p></div>
+  <div class="mine"><div class="lede"><h2>Your own <span class="blob" style="background:var(--blue)">trips</span></h2><p>Build a route your way: pick where you start, add places from this app or your own, and set the days at each.</p></div>
+  <div class="trips" id="mytrips"></div></div>
+  <div class="lede"><h2>The 9 planned trips</h2><p>Tap a trip to see every stop, then start it to get a day-by-day timeline you can tick off as you ride.</p></div>
   <div class="trips" id="trips"></div>
+</section>
+
+<section class="view" id="v-build" hidden>
+  <div class="lede"><h2 id="bd-h">Create your own trip</h2><p>Your first place is where the ride starts. Add places in the order you'll ride them, set the days at each, and pick a start date to get dates on your timeline.</p></div>
+  <div id="bd"></div>
 </section>
 
 <section class="view" id="v-track" hidden>
   <div class="lede"><h2>My trip <span class="blob" style="background:var(--yellow)">timeline</span></h2><p>Pick the trip you're riding. When you reach a place, tick off the sights, food and gems you did, then mark the place complete. Your progress stays on this phone.</p></div>
   <div class="tk-top" id="tk-top"></div>
   <ol class="tl" id="tl"></ol>
+</section>
+
+<section class="view" id="v-safe" hidden>
+  <div class="lede"><h2>Ride <span class="blob" style="background:var(--red)">safe</span> <span class="pro">PRO</span></h2><p>Water, fuel and rest reminders while you ride, progress updates for the people waiting at home, and one tap to get help.</p></div>
+  <div class="pro-note" id="sf-plan"></div>
+  <div class="ride" id="sf-ride"></div>
+  <div class="sfgrid">
+    <div class="panel sf" id="sf-fuel" style="--c:var(--orange);--t:#FFEAD1"></div>
+    <div class="panel sf" id="sf-water" style="--c:var(--blue);--t:#DDF0FF"></div>
+    <div class="panel sf" id="sf-rest" style="--c:var(--yellow);--t:#FFF3C4"></div>
+    <div class="panel sf" id="sf-fam" style="--c:var(--pink);--t:#FFE1EE"></div>
+    <div class="panel sf" id="sf-sos" style="--c:var(--red);--t:#FFD6D2"></div>
+    <div class="panel sf" id="sf-wx" style="--c:var(--blue);--t:#E0F2FF"></div>
+    <div class="panel sf" id="sf-alt" style="--c:var(--green);--t:#DDF7E8"></div>
+    <div class="panel sf" id="sf-soon" style="--c:#8B6CFF;--t:#ECE6FF"></div>
+  </div>
 </section>
 
 <section class="view" id="v-stops" hidden>
@@ -377,6 +531,10 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
 </div></footer>
 
 <dialog id="dlg" aria-labelledby="m-title"><div id="m-inner"></div></dialog>
+<dialog class="sheet" id="sos" aria-labelledby="sos-title"><div class="in" id="sos-in"></div></dialog>
+<button class="sosfab" id="sosfab" hidden aria-label="Open SOS emergency screen">SOS</button>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
 
 <script>
 const TRIPS = [
@@ -545,6 +703,40 @@ const isYl=c=>c==="#FFC928";
 let done=new Set(store.get("rebd-done",[]));
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
+// Your own trips. Saved as a versioned per-user document so it can later sync to an account as-is:
+// {schema:1, owner:"local", updatedAt, trips:{"c-<id>":{id, name, color, createdAt, updatedAt, stops:[{sid, ref:"<tripId>/<stop-slug>"|null, n, days, note}]}}}
+// Each stop has its own stable sid, so reordering or editing the route never scrambles timeline progress.
+const CT_COLORS=[["#2EA8FF","#E0F2FF"],["#FF5FA2","#FFE1EE"],["#8B6CFF","#ECE6FF"],["#12A150","#DDF7E8"],["#FF9A1F","#FFEAD1"],["#FF5A4E","#FFE3E0"],["#FFC928","#FFF3C4"]];
+const ctDoc=store.get("rebd-mytrips",{schema:1,owner:"local",updatedAt:0,trips:{}});
+if(!ctDoc.trips||typeof ctDoc.trips!=="object")ctDoc.trips={};
+const slugOf=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const uid=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+let ALL=null;
+const saveCt=()=>{ctDoc.updatedAt=Date.now();store.set("rebd-mytrips",ctDoc);ALL=null};
+function refStop(ref){const [tid,ss]=String(ref).split("/");const t=TRIPS.find(x=>String(x.id)===tid);const s=t&&t.stops.find(x=>slugOf(x.n)===ss);return s?{...s,trip:t}:null}
+function spanDays(d){const m=String(d).match(/(\d+)(?:\s*[–-]\s*(\d+))?/);return m?Math.max(1,(+(m[2]||m[1]))-(+m[1])+1):1}
+function stopKm(src){return src?src.trip.km/src.trip.stops.length:150}
+function ctTrip(r){
+  const [c,t]=CT_COLORS[(r.color|0)%CT_COLORS.length];
+  let day=1,km=0;const states=[];
+  const stops=(r.stops||[]).map(s=>{
+    const src=s.ref?refStop(s.ref):null, d=Math.min(30,Math.max(1,s.days|0||1));
+    const lbl=d>1?`Day ${day}–${day+d-1}`:`Day ${day}`;day+=d;km+=stopKm(src);
+    if(src)src.trip.states.split(" · ").forEach(x=>{if(!states.includes(x))states.push(x)});
+    return {key:s.sid,n:s.n,d:lbl,why:src?src.why:"",food:src?src.food:"",stay:src?src.stay:"",tip:src?src.tip:"",gem:src?src.gem:"",note:s.note||"",from:src?src.trip:null};
+  });
+  const days=day-1, first=stops[0], last=stops[stops.length-1];
+  return {id:r.id,custom:true,name:r.name||"My trip",tag:"Your own route",states:states.slice(0,4).join(" · ")||"Your own places",months:"Your dates",
+    km:Math.round(km/50)*50,days,c,t,stops,
+    intro:first?`${days} day${days===1?"":"s"} from ${first.n}${last!==first?" to "+last.n:""}, ${stops.length} place${stops.length===1?"":"s"} you picked.`:"No places yet."};
+}
+function myTrips(){return Object.values(ctDoc.trips).filter(r=>r&&r.id&&Array.isArray(r.stops)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0)).map(ctTrip)}
+function allTrips(){return ALL||(ALL=[...TRIPS,...myTrips()])}
+const findT=id=>allTrips().find(x=>String(x.id)===String(id));
+const tLabel=t=>t.custom?t.name:`Trip ${t.id} · ${t.name}`;
+const tNm=t=>t.custom?t.name:"Trip "+t.id;
+const tDays=t=>t.custom?t.days:15;
+
 // stats
 const allStops=TRIPS.flatMap(t=>t.stops.map(s=>({...s,trip:t})));
 $("#s-stops").textContent=allStops.length;
@@ -556,52 +748,60 @@ function show(v){
   $$(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===v));
   $$("main section.view").forEach(s=>s.hidden=s.id!=="v-"+v);
   store.set("rebd-tab",v);
+  if(v==="safe")renderSafe();
 }
 $$(".tab").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.v);window.scrollTo({top:0})}));
 
 // trip cards
-function renderTrips(){
-  $("#trips").innerHTML=TRIPS.map(t=>`
-  <button class="trip${done.has(t.id)?" is-done":""}" style="--c:${t.c};--t:${t.t}" data-id="${t.id}" aria-label="Open trip ${t.id}, ${esc(t.name)}">
+function tripCard(t){return `
+  <button class="trip${done.has(t.id)?" is-done":""}" style="--c:${t.c};--t:${t.t}" data-id="${t.id}" aria-label="Open ${t.custom?"your trip":"trip "+t.id}, ${esc(t.name)}">
     <div class="trip-top">
-      <div class="trip-num"><span class="badge${isYl(t.c)?" yl":""}">TRIP ${t.id}</span><span class="done-pill">${done.has(t.id)?"✓ Done":"Planned"}</span></div>
+      <div class="trip-num"><span class="badge${isYl(t.c)?" yl":""}">${t.custom?"YOUR TRIP":"TRIP "+t.id}</span><span class="done-pill">${done.has(t.id)?"✓ Done":"Planned"}</span></div>
       <h3>${esc(t.name)}</h3><span class="tg">${esc(t.tag)}</span>
     </div>
     <div class="trip-body">
-      <div class="meta"><span class="chip">${esc(t.months)}</span><span class="chip">~${t.km.toLocaleString("en-CA")} km</span><span class="chip">${t.stops.length} stops</span><span class="chip">${t.inA} → ${t.outA}</span></div>
+      <div class="meta">${t.custom?`<span class="chip">${t.days} day${t.days===1?"":"s"}</span>`:`<span class="chip">${esc(t.months)}</span>`}<span class="chip">~${t.km.toLocaleString("en-CA")} km</span><span class="chip">${t.stops.length} stop${t.stops.length===1?"":"s"}</span>${t.custom?"":`<span class="chip">${t.inA} → ${t.outA}</span>`}</div>
       <p>${esc(t.intro)}</p>
       ${(()=>{const s=tripStat(t);return s.started?`<span class="tkl">${s.places}/${t.stops.length} places · ${s.pct}% complete</span><div class="tkb" aria-hidden="true"><i style="width:${s.pct}%"></i></div>`:""})()}
       <span class="open">See the route →</span>
     </div>
-  </button>`).join("");
-  $("#prog").textContent=`${done.size} of 9 trips done`;
+  </button>`}
+function renderTrips(){
+  const all=allTrips(), mine=all.filter(t=>t.custom);
+  $("#trips").innerHTML=TRIPS.map(tripCard).join("");
+  $("#mytrips").innerHTML=mine.map(tripCard).join("")+`
+  <button class="trip new" data-new><span class="plus" aria-hidden="true">+</span><h3>Create your own trip</h3><p>Choose your start, add stops, set days and a start date.</p></button>`;
+  $("#prog").textContent=`${all.filter(t=>done.has(t.id)).length} of ${all.length} trips done`;
 }
-$("#trips").addEventListener("click",e=>{const b=e.target.closest(".trip");if(b)openTrip(+b.dataset.id)});
+const onCard=e=>{if(e.target.closest("[data-new]"))return openBuilder(null);const b=e.target.closest(".trip");if(b)openTrip(b.dataset.id)};
+$("#trips").addEventListener("click",onCard);$("#mytrips").addEventListener("click",onCard);
 
 // modal
 const dlg=$("#dlg");
 function openTrip(id,stopName){
-  const t=TRIPS.find(x=>x.id===id);
+  const t=findT(id);if(!t)return;
   dlg.style.setProperty("--c",t.c);dlg.style.setProperty("--t",t.t);
   $("#m-inner").innerHTML=`
   <div class="m-head">
-    <span class="badge${isYl(t.c)?" yl":""}" style="justify-self:start">TRIP ${t.id} · ${esc(t.months)}</span>
-    <h3 id="m-title">${esc(t.name)}</h3><p>${esc(t.states)} · ~${t.km.toLocaleString("en-CA")} km · 15 days</p>
+    <span class="badge${isYl(t.c)?" yl":""}" style="justify-self:start">${t.custom?"YOUR TRIP":"TRIP "+t.id+" · "+esc(t.months)}</span>
+    <h3 id="m-title">${esc(t.name)}</h3><p>${esc(t.states)} · ~${t.km.toLocaleString("en-CA")} km · ${tDays(t)} day${tDays(t)===1?"":"s"}</p>
     <button class="m-close" aria-label="Close">×</button>
   </div>
   <div class="m-body">
     <p>${esc(t.intro)}</p>
-    <div class="flyline">✈ ${esc(t.fly)}</div>
-    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-track">${tripStat(t).started?"Open my timeline":"Start this trip"}</button><button class="btn ghost" id="m-budget">Budget this trip</button></div>
+    ${t.custom?(prog[t.id]&&prog[t.id].start?`<div class="flyline">📅 Starts ${esc(dateFor(prog[t.id].start,1))}, ends ${esc(dateFor(prog[t.id].start,t.days))}</div>`:""):`<div class="flyline">✈ ${esc(t.fly)}</div>`}
+    <div class="m-actions"><button class="btn" id="m-done">${done.has(t.id)?"✓ Marked done":"Mark this trip done"}</button><button class="btn ghost" id="m-track">${tripStat(t).started?"Open my timeline":"Start this trip"}</button><button class="btn ghost" id="m-budget">Budget this trip</button>${t.custom?`<button class="btn ghost" id="m-edit">Edit route</button>`:""}</div>
     ${t.stops.map((s,i)=>`
     <details class="stop" style="--c:${t.c}"${(stopName?s.n===stopName:i===0)?" open":""}>
       <summary><span class="sn${isYl(t.c)?" yl":""}">${i+1}</span><span class="st"><b>${esc(s.n)}</b><small>${esc(s.d)}</small></span><span class="chev">⌄</span></summary>
       <div class="facts">
-        <div class="fact f-why"><b>Why go</b><span>${esc(s.why)}</span></div>
-        <div class="fact f-food"><b>Veg food</b><span>${esc(s.food)}</span></div>
-        <div class="fact f-stay"><b>Stay</b><span>${esc(s.stay)}</span></div>
-        <div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>
-        <div class="fact f-gem"><b>Hidden gem</b><span>${esc(s.gem)}</span></div>
+        ${s.note?`<div class="fact f-tip"><b>Your notes</b><span>${esc(s.note)}</span></div>`:""}
+        ${s.why?`<div class="fact f-why"><b>Why go</b><span>${esc(s.why)}</span></div>`:""}
+        ${s.food?`<div class="fact f-food"><b>Veg food</b><span>${esc(s.food)}</span></div>`:""}
+        ${s.stay?`<div class="fact f-stay"><b>Stay</b><span>${esc(s.stay)}</span></div>`:""}
+        ${s.tip?`<div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>`:""}
+        ${s.gem?`<div class="fact f-gem"><b>Hidden gem</b><span>${esc(s.gem)}</span></div>`:""}
+        ${!s.why&&!s.note?`<div class="fact f-why"><b>Your place</b><span>A place you added. Use Edit route to add notes, or add things you did on your timeline.</span></div>`:""}
       </div>
     </details>`).join("")}
   </div>`;
@@ -610,6 +810,7 @@ function openTrip(id,stopName){
   $("#m-done").onclick=()=>{done.has(t.id)?done.delete(t.id):done.add(t.id);store.set("rebd-done",[...done]);renderTrips();$("#m-done").textContent=done.has(t.id)?"✓ Marked done":"Mark this trip done"};
   $("#m-track").onclick=()=>{dlg.close();trackTrip(t.id)};
   $("#m-budget").onclick=()=>{dlg.close();$("#b-trip").value=t.id;applyTrip();show("budget");window.scrollTo({top:0})};
+  if(t.custom)$("#m-edit").onclick=()=>{dlg.close();openBuilder(t.id)};
   if(stopName){const o=$("#m-inner details[open]");o&&setTimeout(()=>o.scrollIntoView({block:"center"}),50)}
 }
 dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
@@ -666,8 +867,11 @@ $("#flights").innerHTML=TRIPS.map(t=>`
 
 // budget
 const B=id=>$("#b-"+id);
-B("trip").innerHTML=TRIPS.map(t=>`<option value="${t.id}">Trip ${t.id} · ${esc(t.name)}</option>`).join("");
-function applyTrip(){const t=TRIPS.find(x=>x.id==B("trip").value);B("km").value=t.km;calc()}
+function fillBudgetTrips(){const v=B("trip").value,mine=allTrips().filter(t=>t.custom);
+  B("trip").innerHTML=`<optgroup label="Planned trips">${TRIPS.map(t=>`<option value="${t.id}">${esc(tLabel(t))}</option>`).join("")}</optgroup>`+(mine.length?`<optgroup label="Your own trips">${mine.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}</optgroup>`:"");
+  if(v&&findT(v))B("trip").value=v}
+fillBudgetTrips();
+function applyTrip(){const t=findT(B("trip").value)||TRIPS[0];B("trip").value=t.id;B("km").value=t.km;B("days").value=tDays(t);calc()}
 function n(id){const v=parseFloat(B(id).value);return isFinite(v)&&v>=0?v:0}
 function calc(){
   const t=TRIPS.find(x=>x.id==B("trip").value);
@@ -700,22 +904,21 @@ $$("#v-budget input").forEach(i=>i.addEventListener("input",calc));
 // Stops are keyed by a slug of their name, not their position, so editing a route later doesn't scramble saved progress.
 const progDoc=store.get("rebd-progress",{schema:1,owner:"local",updatedAt:0,trips:{}});
 const prog=new Proxy(progDoc.trips,{get:(o,k)=>o["trip-"+String(k)],set:(o,k,v)=>(o["trip-"+String(k)]=v,true),deleteProperty:(o,k)=>delete o["trip-"+String(k)]});
-const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-const sk=(id,i)=>slug(TRIPS.find(x=>x.id===id).stops[i].n);
+const slug=slugOf;
+const sk=(id,i)=>{const s=findT(id).stops[i];return s.key||slugOf(s.n)};
 let tkId=store.get("rebd-active",1);
 let dirty=null;
 const saveProg=()=>{const now=Date.now();progDoc.updatedAt=now;if(dirty&&prog[dirty[0]]){prog[dirty[0]].updatedAt=now;const s=dirty[1]!=null&&prog[dirty[0]].stops[sk(dirty[0],dirty[1])];if(s)s.updatedAt=now}dirty=null;store.set("rebd-progress",progDoc)};
 const tp=id=>(prog[id]=prog[id]||{start:"",stops:{}});
 const sp=(id,i)=>{const p=tp(id),k=sk(id,i);dirty=[id,i];return p.stops[k]=p.stops[k]||{c:0,k:{},u:[]}};
 function stopItems(s){
-  let sights=s.why.split(/(?<=[.!?])\s+/).filter(x=>x.length>12);
-  if(!sights.length)sights=[s.why];
-  return [
-    ["Sights",sights.map((x,j)=>["s"+j,x])],
-    ["Veg food",s.food.split(" · ").map((x,j)=>["f"+j,x])],
-    ["Hidden gem",[["g",s.gem]]],
-    ["Stay",[["st","Checked in: "+s.stay]]]
-  ];
+  const g=[];
+  if(s.note)g.push(["Your plan",[["n",s.note]]]);
+  if(s.why){let sights=s.why.split(/(?<=[.!?])\s+/).filter(x=>x.length>12);if(!sights.length)sights=[s.why];g.push(["Sights",sights.map((x,j)=>["s"+j,x])])}
+  if(s.food)g.push(["Veg food",s.food.split(" · ").map((x,j)=>["f"+j,x])]);
+  if(s.gem)g.push(["Hidden gem",[["g",s.gem]]]);
+  if(s.stay)g.push(["Stay",[["st","Checked in: "+s.stay]]]);
+  return g;
 }
 function stopStat(t,i){
   const st=(prog[t.id]&&prog[t.id].stops[sk(t.id,i)])||{c:0,k:{},u:[]};
@@ -726,7 +929,7 @@ function stopStat(t,i){
 function tripStat(t){
   let places=0,got=0,tot=0;
   t.stops.forEach((_,i)=>{const s=stopStat(t,i);if(s.c)places++;got+=s.got;tot+=s.tot});
-  const pct=Math.round(places/t.stops.length*100);
+  const pct=t.stops.length?Math.round(places/t.stops.length*100):0;
   return {places,got,tot,pct,started:!!prog[t.id]&&(places>0||got>0||!!prog[t.id].start)};
 }
 function dayRange(d){const m=d.match(/(\d+)(?:\s*[–-]\s*(\d+))?/);return m?[+m[1],+(m[2]||m[1])]:null}
@@ -734,13 +937,14 @@ function dateFor(start,day){if(!start)return "";const x=new Date(start+"T12:00:0
 function fmtStamp(ts){return new Date(ts).toLocaleDateString("en-CA",{day:"numeric",month:"short",year:"numeric"})}
 let tkOpen=null, resetArm=false;
 function renderTrack(){
-  const t=TRIPS.find(x=>x.id===tkId)||TRIPS[0];tkId=t.id;
+  const t=findT(tkId)||TRIPS[0];tkId=t.id;
   const p=prog[t.id]||{start:""}, ts=tripStat(t);
   const cur=t.stops.findIndex((_,i)=>!stopStat(t,i).c);
   if(tkOpen===null)tkOpen=cur;
   const top=$("#tk-top");top.style.setProperty("--c",t.c);top.style.setProperty("--t",t.t);
   top.innerHTML=`
-    <select id="tk-trip" aria-label="Choose trip">${TRIPS.map(x=>{const s=tripStat(x);return `<option value="${x.id}"${x.id===t.id?" selected":""}>Trip ${x.id} · ${esc(x.name)}${s.started?` (${s.pct}%)`:""}</option>`}).join("")}</select>
+    <select id="tk-trip" aria-label="Choose trip">${(()=>{const o=x=>{const s=tripStat(x);return `<option value="${esc(x.id)}"${x.id===t.id?" selected":""}>${esc(tLabel(x))}${s.started?` (${s.pct}%)`:""}</option>`},mine=allTrips().filter(x=>x.custom);
+      return `<optgroup label="Planned trips">${TRIPS.map(o).join("")}</optgroup>`+(mine.length?`<optgroup label="Your own trips">${mine.map(o).join("")}</optgroup>`:"")})()}</select>
     <div class="tk-sum">
       <div class="ring" style="--p:${ts.pct}" role="img" aria-label="${ts.pct}% of places complete"><b>${ts.pct}%</b></div>
       <div class="tx"><h3>${esc(t.name)}</h3>
@@ -750,8 +954,8 @@ function renderTrack(){
     </div>
     <div class="tk-bar" aria-hidden="true"><i style="width:${ts.tot?ts.got/ts.tot*100:0}%"></i></div>
     <div class="tk-row"><label for="tk-start">Day 1 date</label><input type="date" id="tk-start" value="${esc(p.start||"")}">
-      <button class="btn ghost" id="tk-reset" style="margin-left:auto">${resetArm?"Tap again to clear":"Reset progress"}</button></div>
-    ${cur<0?`<div class="cheer"><b>Trip ${t.id} complete!</b><span>Every place on this route is done. It's marked done on your Annual Plan too.</span></div>`:""}`;
+      ${t.custom?`<button class="btn ghost" id="tk-edit">Edit route</button>`:""}<button class="btn ghost" id="tk-reset" style="margin-left:auto">${resetArm?"Tap again to clear":"Reset progress"}</button></div>
+    ${cur<0?`<div class="cheer"><b>${t.custom?esc(t.name):"Trip "+t.id} complete!</b><span>Every place on this route is done. It's marked done on your Annual Plan too.</span></div>`:""}`;
   $("#tl").innerHTML=t.stops.map((s,i)=>{
     const st=(prog[t.id]&&prog[t.id].stops[sk(t.id,i)])||{c:0,k:{},u:[]}, ss=stopStat(t,i), dr=dayRange(s.d);
     const dateTxt=dr&&p.start?dateFor(p.start,dr[0])+(dr[1]>dr[0]?" – "+dateFor(p.start,dr[1]):""):"";
@@ -766,7 +970,7 @@ function renderTrack(){
         ${stopItems(s).map(g=>`<div class="grp"><h5>${g[0]}</h5>${g[1].map(x=>ck(x[0],x[1])).join("")}</div>`).join("")}
         <div class="grp"><h5>Your own</h5>${(st.u||[]).map((x,j)=>ck("u"+j,x,j)).join("")}
           <form class="addrow" data-add><input name="t" placeholder="Add something you did here" autocomplete="off" aria-label="Add your own item"><button class="btn" type="submit">Add</button></form></div>
-        <div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>
+        ${s.tip?`<div class="fact f-tip"><b>Rider tip</b><span>${esc(s.tip)}</span></div>`:""}
         <button class="btn cmp${st.c?" undo":""}" data-cmp>${st.c?"✓ Place complete · tap to undo":"Mark "+esc(s.n)+" complete"}</button>
         ${st.c?`<div class="stamp">Completed ${fmtStamp(st.c)}</div>`:""}
       </div>
@@ -778,32 +982,33 @@ function syncDone(t){
   renderTrips();
 }
 $("#tk-top").addEventListener("change",e=>{
-  const t=TRIPS.find(x=>x.id===tkId);
-  if(e.target.id==="tk-trip"){tkId=+e.target.value;store.set("rebd-active",tkId);tkOpen=null;resetArm=false;renderTrack()}
+  const t=findT(tkId);
+  if(e.target.id==="tk-trip"){tkId=findT(e.target.value).id;store.set("rebd-active",tkId);tkOpen=null;resetArm=false;renderTrack()}
   if(e.target.id==="tk-start"){tp(t.id).start=e.target.value;dirty=[t.id,null];saveProg();renderTrack()}
 });
 $("#tk-top").addEventListener("click",e=>{
+  if(e.target.id==="tk-edit")return openBuilder(tkId);
   if(e.target.id!=="tk-reset")return;
   if(!resetArm){resetArm=true;e.target.textContent="Tap again to clear";setTimeout(()=>{resetArm=false;const b=$("#tk-reset");if(b)b.textContent="Reset progress"},4000);return}
-  resetArm=false;const t=TRIPS.find(x=>x.id===tkId);delete prog[t.id];saveProg();
+  resetArm=false;const t=findT(tkId);delete prog[t.id];saveProg();
   done.delete(t.id);store.set("rebd-done",[...done]);tkOpen=null;renderTrack();renderTrips();
 });
 $("#tl").addEventListener("toggle",e=>{const li=e.target.closest("li");if(li&&e.target.open)tkOpen=+li.dataset.i},true);
 $("#tl").addEventListener("change",e=>{
   const k=e.target.dataset.k;if(!k)return;
-  const t=TRIPS.find(x=>x.id===tkId),i=+e.target.closest("li").dataset.i,st=sp(t.id,i);
+  const t=findT(tkId),i=+e.target.closest("li").dataset.i,st=sp(t.id,i);
   if(e.target.checked)st.k[k]=1;else delete st.k[k];
   saveProg();tkOpen=i;renderTrack();syncDone(t);
 });
 $("#tl").addEventListener("click",e=>{
-  const t=TRIPS.find(x=>x.id===tkId),li=e.target.closest("li");if(!li)return;const i=+li.dataset.i,st=sp(t.id,i);
+  const t=findT(tkId),li=e.target.closest("li");if(!li)return;const i=+li.dataset.i,st=sp(t.id,i);
   const del=e.target.closest("[data-del]");
   if(del){e.preventDefault();const j=+del.dataset.del;st.u.splice(j,1);
     const nk={};Object.keys(st.k).forEach(k=>{if(k[0]!=="u")nk[k]=1;else{const n=+k.slice(1);if(n<j)nk[k]=1;else if(n>j)nk["u"+(n-1)]=1}});st.k=nk;
     saveProg();tkOpen=i;renderTrack();syncDone(t);return}
   if(e.target.closest("[data-cmp]")){
     if(st.c){st.c=0;tkOpen=i;if(done.has(t.id)){done.delete(t.id);store.set("rebd-done",[...done])}}
-    else{st.c=Date.now();const nx=t.stops.findIndex((_,j)=>j>i&&!stopStat(t,j).c);tkOpen=nx<0?i:nx}
+    else{st.c=Date.now();const nx=t.stops.findIndex((_,j)=>j>i&&!stopStat(t,j).c);tkOpen=nx<0?i:nx;setTimeout(()=>onPlaceComplete(t,i),0)}
     saveProg();renderTrack();syncDone(t);
     const o=$("#tl li:nth-child("+(tkOpen+1)+")");o&&o.scrollIntoView({behavior:"smooth",block:"start"});
   }
@@ -811,14 +1016,535 @@ $("#tl").addEventListener("click",e=>{
 $("#tl").addEventListener("submit",e=>{
   e.preventDefault();const f=e.target.closest("[data-add]");if(!f)return;
   const v=f.t.value.trim();if(!v)return;
-  const t=TRIPS.find(x=>x.id===tkId),i=+f.closest("li").dataset.i,st=sp(t.id,i);
+  const t=findT(tkId),i=+f.closest("li").dataset.i,st=sp(t.id,i);
   (st.u=st.u||[]).push(v.slice(0,200));saveProg();tkOpen=i;renderTrack();syncDone(t);
   const inp=$("#tl li:nth-child("+(i+1)+") [data-add] input");inp&&inp.focus();
 });
 function trackTrip(id){tkId=id;store.set("rebd-active",id);tkOpen=null;renderTrack();show("track");window.scrollTo({top:0})}
 
-renderTrips();renderStops();renderFood();renderTrack();
-const tab=store.get("rebd-tab","plan");if(["plan","track","stops","food","season","budget"].includes(tab))show(tab);
+// trip builder
+let bd=null, bdDelArm=false;
+const MAX_STOPS=40;
+function openBuilder(id){
+  const r=id!=null&&ctDoc.trips[id];
+  bd=r?{id:r.id,name:r.name||"",color:r.color|0,start:(prog[r.id]&&prog[r.id].start)||"",stops:r.stops.map(s=>({...s}))}
+      :{id:null,name:"",color:Object.keys(ctDoc.trips).length%CT_COLORS.length,start:"",stops:[]};
+  bdDelArm=false;
+  $("#bd-h").textContent=r?"Edit your trip":"Create your own trip";
+  $("#bd").innerHTML=`
+  <div class="bd">
+    <div class="panel"><h3>Trip details</h3>
+      <div class="bf"><label for="bd-name">Trip name</label><input type="text" id="bd-name" maxlength="60" placeholder="e.g. Konkan coast in monsoon" value="${esc(bd.name)}" autocomplete="off"></div>
+      <div class="bf"><label for="bd-start">Start date<small style="display:block;font-weight:400;color:var(--muted);font-size:12px">Optional. Puts real dates on every stop.</small></label><input type="date" id="bd-start" value="${esc(bd.start)}"></div>
+      <div class="bf"><span class="lb" id="bd-cl">Colour</span><div class="sws" role="radiogroup" aria-labelledby="bd-cl">${CT_COLORS.map((c,i)=>`<button type="button" class="sw" role="radio" aria-checked="${i===bd.color}" aria-label="Colour ${i+1}" data-sw="${i}" style="background:${c[0]}"></button>`).join("")}</div></div>
+      <h3 style="margin-top:6px">Add a place</h3>
+      <div class="bf"><label for="bd-q">Search the app's places, or type your own</label><input type="search" id="bd-q" placeholder="Try Udaipur, Hampi, Leh…" autocomplete="off" enterkeyhint="done"></div>
+      <div class="bf"><label for="bd-br">Or browse a planned trip</label><select id="bd-br"><option value="">Choose a trip…</option>${TRIPS.map(t=>`<option value="${t.id}">${esc(tLabel(t))}</option>`).join("")}</select></div>
+      <div class="res" id="bd-res" aria-live="polite"></div>
+    </div>
+    <div class="panel"><h3>Your route</h3><ol class="rt" id="bd-route"></ol></div>
+  </div>
+  <div class="bd-sum" id="bd-sum"></div>`;
+  renderRoute();renderRes();
+  show("build");window.scrollTo({top:0});
+}
+function bdStop(s){const src=s.ref?refStop(s.ref):null;return {src,c:src?src.trip.c:CT_COLORS[bd.color][0]}}
+function renderRoute(){
+  const L=bd.stops.length;let day=1;
+  $("#bd-route").innerHTML=L?bd.stops.map((s,i)=>{const {src,c}=bdStop(s),d=s.days,from=day;day+=d;
+    return `<li class="rs" data-i="${i}" style="--c:${c}">
+      <div class="r1"><span class="sn${isYl(c)?" yl":""}" style="--c:${c}">${i+1}</span><span class="st"><b>${esc(s.n)}</b><small>${i===0?"Start · ":""}${src?esc(tLabel(src.trip)):"Your own place"} · Day ${from}${d>1?"–"+(from+d-1):""}</small></span><button type="button" class="ib del" data-act="rm" aria-label="Remove ${esc(s.n)}">×</button></div>
+      <div class="r2"><div class="stepper"><button type="button" class="ib" data-act="dm" aria-label="One day less at ${esc(s.n)}"${d<=1?" disabled":""}>−</button><output>${d} day${d===1?"":"s"}</output><button type="button" class="ib" data-act="dp" aria-label="One day more at ${esc(s.n)}"${d>=30?" disabled":""}>+</button></div>
+        <button type="button" class="ib" data-act="up" aria-label="Move ${esc(s.n)} earlier"${i===0?" disabled":""}>↑</button><button type="button" class="ib" data-act="dn" aria-label="Move ${esc(s.n)} later"${i===L-1?" disabled":""}>↓</button></div>
+      <details${s.note?" open":""}><summary>${s.note?"Your notes":"Add notes"}</summary><textarea data-note maxlength="500" aria-label="Notes for ${esc(s.n)}" placeholder="Where you'll stay, what to eat, who to meet…">${esc(s.note||"")}</textarea></details>
+    </li>`}).join(""):`<li class="empty">No places yet. Your first place is where the trip starts. Search or browse to add it.</li>`;
+  renderSum();
+}
+function renderSum(err){
+  const days=bd.stops.reduce((a,s)=>a+s.days,0), km=Math.round(bd.stops.reduce((a,s)=>a+stopKm(s.ref?refStop(s.ref):null),0)/50)*50;
+  const end=bd.start&&days?dateFor(bd.start,days):"";
+  $("#bd-sum").innerHTML=`<div class="tx"><b>${bd.stops.length} place${bd.stops.length===1?"":"s"} · ${days} day${days===1?"":"s"}</b><span>~${km.toLocaleString("en-CA")} km estimated${end?" · ends "+esc(end):""}</span></div>
+    ${err?`<div class="bd-err" role="alert" style="flex-basis:100%">${esc(err)}</div>`:""}
+    ${bd.id?`<button type="button" class="btn ghost" id="bd-del">${bdDelArm?"Tap again to delete":"Delete trip"}</button>`:""}
+    <button type="button" class="btn ghost" id="bd-cancel">Cancel</button><button type="button" class="btn" id="bd-save">${bd.id?"Save changes":"Save trip"}</button>`;
+}
+function renderRes(){
+  const q=$("#bd-q").value.trim(), ql=q.toLowerCase(), br=$("#bd-br").value;
+  let list=[];
+  if(q)list=allStops.filter(s=>[s.n,s.trip.name,s.trip.states].join(" ").toLowerCase().includes(ql)).sort((a,b)=>(b.n.toLowerCase().includes(ql)?1:0)-(a.n.toLowerCase().includes(ql)?1:0)).slice(0,8);
+  else if(br)list=allStops.filter(s=>String(s.trip.id)===br);
+  const full=bd.stops.length>=MAX_STOPS;
+  $("#bd-res").innerHTML=full?`<div class="empty">That's ${MAX_STOPS} places, the most one trip can hold.</div>`:
+    list.map(s=>`<button type="button" class="ra" data-ref="${esc(s.trip.id+"/"+slugOf(s.n))}"><i style="background:${s.trip.c}"></i><span><b>${esc(s.n)}</b><small>${esc(tLabel(s.trip))} · ${spanDays(s.d)} day${spanDays(s.d)===1?"":"s"}</small></span><span class="add">+ Add</span></button>`).join("")+
+    (q?`<button type="button" class="ra own" data-own><i style="background:${CT_COLORS[bd.color][0]}"></i><span><b>${esc(q.slice(0,60))}</b><small>Add as your own place</small></span><span class="add">+ Add</span></button>`:"")+
+    (q&&!list.length?`<p class="note">None of the app's places match. You can still add it as your own.</p>`:"");
+}
+function addStop(st){if(bd.stops.length>=MAX_STOPS)return;bd.stops.push({sid:uid("s-"),note:"",...st});renderRoute();renderRes();
+  const li=$("#bd-route li:last-child");li&&li.scrollIntoView({behavior:"smooth",block:"nearest"})}
+function saveBuilder(){
+  bd.name=$("#bd-name").value.trim().slice(0,60);bd.start=$("#bd-start").value;
+  if(!bd.stops.length)return renderSum("Add at least one place first. It will be where your trip starts.");
+  const now=Date.now(), isNew=!bd.id, id=bd.id||uid("c-"), old=ctDoc.trips[id];
+  ctDoc.trips[id]={id,name:bd.name||"My trip "+(Object.keys(ctDoc.trips).length+(isNew?1:0)),color:bd.color,createdAt:old?old.createdAt:now,updatedAt:now,
+    stops:bd.stops.map(s=>({sid:s.sid,ref:s.ref||null,n:s.n,days:s.days,note:(s.note||"").slice(0,500)}))};
+  saveCt();
+  if(bd.start||(prog[id]&&prog[id].start)){tp(id).start=bd.start;dirty=[id,null];saveProg()}
+  bd=null;fillBudgetTrips();
+  const t=findT(id),all=t.stops.length&&t.stops.every((_,i)=>stopStat(t,i).c);
+  if(all)done.add(id);else done.delete(id);store.set("rebd-done",[...done]);
+  renderTrips();trackTrip(id);
+}
+function deleteBuilder(){
+  const id=bd.id;delete ctDoc.trips[id];saveCt();delete prog[id];saveProg();
+  if(done.delete(id))store.set("rebd-done",[...done]);
+  if(String(tkId)===String(id)){tkId=TRIPS[0].id;store.set("rebd-active",tkId)}
+  bd=null;fillBudgetTrips();if(!findT(B("trip").value))applyTrip();renderTrips();renderTrack();show("plan");window.scrollTo({top:0});
+}
+$("#bd").addEventListener("input",e=>{
+  if(!bd)return;
+  if(e.target.id==="bd-q")renderRes();
+  else if(e.target.id==="bd-name")bd.name=e.target.value;
+  else if(e.target.id==="bd-start"){bd.start=e.target.value;renderSum()}
+  else if(e.target.matches("[data-note]")){bd.stops[+e.target.closest("li").dataset.i].note=e.target.value}
+});
+$("#bd").addEventListener("change",e=>{if(!bd)return;if(e.target.id==="bd-br"){$("#bd-q").value="";renderRes()}if(e.target.id==="bd-start"){bd.start=e.target.value;renderSum()}});
+$("#bd").addEventListener("keydown",e=>{if(e.target.id==="bd-q"&&e.key==="Enter"){e.preventDefault();e.target.blur()}});
+$("#bd").addEventListener("click",e=>{
+  if(!bd)return;
+  const sw=e.target.closest("[data-sw]");
+  if(sw){bd.color=+sw.dataset.sw;$$("#bd [data-sw]").forEach(x=>x.setAttribute("aria-checked",x===sw));renderRoute();renderRes();return}
+  const ra=e.target.closest(".ra");
+  if(ra){if(ra.dataset.ref){const s=refStop(ra.dataset.ref);addStop({ref:ra.dataset.ref,n:s.n,days:spanDays(s.d)})}
+    else{const q=$("#bd-q").value.trim().slice(0,60);if(q){$("#bd-q").value="";addStop({ref:null,n:q,days:1})}}return}
+  const a=e.target.closest("[data-act]");
+  if(a){const i=+a.closest("li").dataset.i,S=bd.stops,act=a.dataset.act;
+    if(act==="dm")S[i].days=Math.max(1,S[i].days-1);
+    if(act==="dp")S[i].days=Math.min(30,S[i].days+1);
+    if(act==="up"&&i>0)[S[i-1],S[i]]=[S[i],S[i-1]];
+    if(act==="dn"&&i<S.length-1)[S[i+1],S[i]]=[S[i],S[i+1]];
+    if(act==="rm")S.splice(i,1);
+    renderRoute();if(act==="rm")renderRes();
+    const ni=act==="up"?i-1:act==="dn"?i+1:i, b=$(`#bd-route li[data-i="${ni}"] [data-act="${act}"]`);
+    if(b&&!b.disabled)b.focus();
+    return}
+  if(e.target.id==="bd-save")return saveBuilder();
+  if(e.target.id==="bd-cancel"){const id=bd.id;bd=null;show("plan");window.scrollTo({top:0});if(id)openTrip(id);return}
+  if(e.target.id==="bd-del"){if(!bdDelArm){bdDelArm=true;renderSum();setTimeout(()=>{if(bd&&bdDelArm){bdDelArm=false;renderSum()}},4000);return}return deleteBuilder()}
+});
+
+// ===== Ride Safe (premium) =====
+// Premium.active() is the one gate for these features. A native store build sets window.REBD_ENTITLEMENT={pro:true|false}
+// after checking the subscription; without it (web preview) everything is unlocked.
+// Notify prefers a native bridge, window.REBDNative = {notify({title,body,tag}), schedule([{id,at,title,body}]), cancel(ids),
+// requestPermission(), sendFamilyUpdate({contacts,text,lat,lon})}, so the store app can deliver reminders with the screen off
+// and send family updates by SMS/push from a backend. In a plain browser reminders only fire while the app is open.
+const Premium={active:()=>!window.REBD_ENTITLEMENT||window.REBD_ENTITLEMENT.pro!==false,preview:()=>!window.REBD_ENTITLEMENT};
+// Approximate coordinates and altitude (m) per stop, plus the highest pass on the way in and the longest stretch
+// without a petrol pump on that leg (km, approximate). Keyed by stop slug like the progress doc.
+const GEO={
+"ahmedabad":[23.03,72.58,53],"patan-modhera":[23.85,72.12,76],"dholavira-the-white-rann":[23.89,70.21,15,0,120],"bhuj-lakhpat":[23.25,69.67,110,0,110],
+"dwarka":[22.24,68.97,5],"somnath-gir":[21.17,70.60,150],"diu":[20.71,70.98,10],"palitana-velavadar":[21.52,71.82,70],"back-to-ahmedabad":[23.03,72.58,53],
+"udaipur":[24.58,73.71,598],"kumbhalgarh-ranakpur":[25.15,73.58,1100],"jodhpur":[26.24,73.02,230],"jaisalmer":[26.91,70.92,225,0,110],"bikaner":[28.02,73.31,240,0,120],
+"pushkar":[26.49,74.55,510],"bundi":[25.44,75.64,268],"jaipur":[26.91,75.79,431],
+"indore":[22.72,75.86,550],"ujjain-omkareshwar":[23.18,75.78,490],"maheshwar":[22.18,75.59,160],"mandu":[22.34,75.40,630],"bhopal-sanchi-bhimbetka":[23.26,77.41,527],
+"pachmarhi":[22.47,78.43,1067],"amarkantak":[22.67,81.75,1048,0,120],"bastar-chitrakote-jagdalpur":[19.08,82.02,552,0,100],"raipur":[21.25,81.63,298],
+"mumbai":[19.08,72.88,14],"aurangabad-ajanta-ellora":[19.88,75.34,568],"pune":[18.52,73.86,560],"mahabaleshwar-pratapgad":[17.92,73.66,1353],"kolhapur":[16.70,74.24,545],
+"tarkarli-sindhudurg":[16.04,73.47,5],"north-goa-panaji":[15.50,73.83,7],"south-goa":[15.27,73.96,10],
+"bengaluru":[12.97,77.59,920],"hampi":[15.33,76.46,467],"badami-aihole-pattadakal":[15.92,75.68,586],"gokarna-murudeshwar-udupi":[14.09,74.48,5],"coorg":[12.42,75.74,1170],
+"mysuru":[12.30,76.64,770],"wayanad":[11.69,76.13,780,0,70],"munnar":[10.09,77.06,1532],"alleppey-kochi":[9.95,76.27,3],
+"chennai":[13.08,80.27,6],"mahabalipuram":[12.62,80.19,10],"puducherry":[11.93,79.83,3],"thanjavur-darasuram":[10.79,79.14,60],"chettinad-karaikudi":[10.07,78.78,90],
+"madurai":[9.93,78.12,135],"rameswaram-dhanushkodi":[9.29,79.31,5,0,60],"kanyakumari":[8.08,77.54,30],"kodaikanal":[10.24,77.49,2133],
+"kolkata":[22.57,88.36,9],"shantiniketan-bishnupur":[23.68,87.68,50],"puri":[19.81,85.83,5],"konark-chilika":[19.89,86.09,5],"bhubaneswar":[20.30,85.82,45],
+"bodh-gaya":[24.70,84.99,111],"rajgir-nalanda":[25.03,85.42,73],"varanasi-sarnath":[25.32,83.01,80],
+"guwahati":[26.14,91.74,55],"shillong":[25.58,91.89,1496],"sohra-cherrapunji":[25.27,91.73,1430],"mawlynnong-dawki":[25.20,91.92,600,0,70],"kaziranga":[26.58,93.17,80],
+"majuli":[26.95,94.17,85,0,60],"dirang-bomdila":[27.36,92.24,1500,2415,90],"tawang":[27.59,91.86,3048,4170,140],"back-to-guwahati":[26.14,91.74,55],
+"delhi-to-chandigarh":[30.73,76.78,321],"manali":[32.24,77.19,2050],"jispa":[32.64,77.19,3300,3980,90],"sarchu-to-leh":[34.15,77.58,3500,5328,365],
+"leh":[34.15,77.58,3500],"nubra-valley":[34.55,77.56,3144,5359,120],"pangong-tso":[33.92,78.59,4225,0,160],"lamayuru-kargil":[34.56,76.13,2680,5360,200],
+"srinagar-sonamarg":[34.08,74.80,1585,3528,130]};
+// Typical real-world figures; riders can change them.
+const BIKES=[["classic350","Classic 350",13,35],["bullet350","Bullet 350",13,35],["hunter350","Hunter 350",11,36],["meteor350","Meteor 350",15,33],
+ ["himalayan450","Himalayan 450",17,30],["scram440","Scram 440",15,30],["interceptor650","Interceptor 650",13.7,23],["gt650","Continental GT 650",12.5,24],
+ ["supermeteor650","Super Meteor 650",15.7,22],["custom","Other bike",13,30]];
+const hav=(a,b)=>{const r=Math.PI/180,dLa=(b[0]-a[0])*r,dLo=(b[1]-a[1])*r,x=Math.sin(dLa/2)**2+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dLo/2)**2;return 2*6371*Math.asin(Math.sqrt(x))};
+const geoOf=(t,i)=>GEO[slug(t.stops[i].n)]||null;
+// Road distance estimate between consecutive stops: straight line times a winding factor (more in the hills).
+function legKm(t,i){if(i<=0)return 0;const a=geoOf(t,i-1),b=geoOf(t,i);if(!a||!b)return 0;const f=Math.max(a[2],b[2])>1000?1.6:1.3;return Math.round(hav(a,b)*f/10)*10}
+// Sunset from the standard sunrise equation (no network needed). Returns a Date, or null in polar cases.
+function sunsetAt(lat,lon,d){
+  const r=Math.PI/180,noon=new Date(d.getFullYear(),d.getMonth(),d.getDate(),12),jd=noon.getTime()/864e5+2440587.5;
+  const n=Math.round(jd-2451545+0.0008),js=n-lon/360,M=(357.5291+0.98560028*js)%360,Mr=M*r;
+  const C=1.9148*Math.sin(Mr)+0.02*Math.sin(2*Mr)+0.0003*Math.sin(3*Mr),L=((M+C+180+102.9372)%360)*r;
+  const jt=2451545+js+0.0053*Math.sin(Mr)-0.0069*Math.sin(2*L),sd=Math.sin(L)*Math.sin(23.4397*r);
+  const cw=(Math.sin(-0.833*r)-Math.sin(lat*r)*sd)/(Math.cos(lat*r)*Math.cos(Math.asin(sd)));
+  if(cw<-1||cw>1)return null;return new Date((jt+Math.acos(cw)/r/360-2440587.5)*864e5);
+}
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const hhmm=d=>d.toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"});
+const mins=ms=>{const m=Math.max(0,Math.round(ms/60000));return m>=60?Math.floor(m/60)+"h "+String(m%60).padStart(2,"0")+"m":m+" min"};
+const digits=p=>String(p||"").replace(/[^\d+]/g,"");
+
+// Safety document, same shape rules as the progress doc so it can sync to an account later.
+const SDEF={schema:1,owner:"local",updatedAt:0,profile:{name:""},
+  bike:{model:"classic350",tank:13,kmpl:35,reserve:2},fuel:{litres:13,since:0,filledAt:0,warn:{}},
+  rem:{water:{on:true,every:30},rest:{on:true,every:120},sunset:{on:true,before:60},checkin:{on:false,time:"20:00",last:""},fuelAlerts:true},
+  ride:{on:false,start:0,km:0,gps:true,wake:true,avg:40,nextWater:0,nextRest:0,sunWarned:""},
+  water:{day:"",n:0},contacts:[],medical:{blood:"",allergies:"",meds:"",insurance:"",notes:""},
+  share:{onComplete:true,withLoc:true},lastFix:null,wx:null};
+const S=(()=>{const v=store.get("rebd-safety",null);if(!v||v.schema!==1)return JSON.parse(JSON.stringify(SDEF));
+  const m=(d,s)=>{Object.keys(d).forEach(k=>{if(s[k]===undefined)s[k]=JSON.parse(JSON.stringify(d[k]));else if(d[k]&&typeof d[k]==="object"&&!Array.isArray(d[k])&&s[k]&&typeof s[k]==="object")m(d[k],s[k])});return s};
+  return m(SDEF,v)})();
+const saveS=()=>{S.updatedAt=Date.now();store.set("rebd-safety",S)};
+const getP=(o,p)=>p.split(".").reduce((a,k)=>a&&a[k],o);
+const setP=(o,p,v)=>{const ks=p.split("."),l=ks.pop();ks.reduce((a,k)=>a[k],o)[l]=v};
+
+// ---- notifications, sound, toasts
+let actx=null;
+function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.25,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.6);o.start();o.stop(actx.currentTime+.6)}catch(e){}}
+function toast(title,body,acts,ms){
+  const el=document.createElement("div");el.className="toast";el.setAttribute("role","status");
+  el.innerHTML=`<b>${esc(title)}</b>${body?`<span>${esc(body)}</span>`:""}<div class="ta">${(acts||[]).map((a,j)=>a.href?`<a class="lk" href="${esc(a.href)}" target="_blank" rel="noopener">${esc(a.label)}</a>`:`<button class="lk" data-j="${j}">${esc(a.label)}</button>`).join("")}<button class="lk" data-x>OK</button></div>`;
+  el.addEventListener("click",e=>{const b=e.target.closest("[data-j]");if(b){acts[+b.dataset.j].fn();el.remove()}if(e.target.closest("[data-x]")||e.target.closest("a"))el.remove()});
+  $("#toasts").appendChild(el);while($("#toasts").children.length>2)$("#toasts").firstChild.remove();
+  setTimeout(()=>el.remove(),ms||20000);
+}
+const Notify={
+  get native(){return window.REBDNative||null},
+  state(){if(this.native)return "granted";if(!("Notification" in window))return "unsupported";return Notification.permission},
+  async ask(){if(this.native&&this.native.requestPermission)return this.native.requestPermission();if(!("Notification" in window))return "unsupported";try{return await Notification.requestPermission()}catch(e){return Notification.permission}},
+  async fire(title,body,tag,acts){
+    toast(title,body,acts);beep();try{navigator.vibrate&&navigator.vibrate([250,120,250])}catch(e){}
+    if(this.native&&this.native.notify){this.native.notify({title,body,tag});return}
+    if(document.visibilityState==="visible"||this.state()!=="granted")return;
+    try{const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();if(reg){reg.showNotification(title,{body,tag,renotify:true});return}}catch(e){}
+    try{new Notification(title,{body,tag})}catch(e){}
+  },
+  // Hand upcoming reminders to the native app so they arrive with the screen off. No-op in a browser.
+  schedule(list){try{this.native&&this.native.schedule&&this.native.schedule(list)}catch(e){}}
+};
+if("serviceWorker" in navigator&&location.protocol==="https:"&&/github\.io$/.test(location.hostname)){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+
+// ---- trip context, shared with My Trip
+function ctx(){
+  const t=findT(tkId)||TRIPS[0],cur=t.stops.findIndex((_,i)=>!stopStat(t,i).c);
+  const nx=cur<0?-1:cur,here=cur<0?t.stops.length-1:Math.max(cur-1,0);
+  const p=prog[t.id]||{};let day=0;if(p.start){day=Math.floor((new Date(today()+"T12:00:00")-new Date(p.start+"T12:00:00"))/864e5)+1;if(day<1||day>40)day=0}
+  let last=-1,lt=0;t.stops.forEach((_,i)=>{const s=prog[t.id]&&prog[t.id].stops[sk(t.id,i)];if(s&&s.c>lt){lt=s.c;last=i}});
+  return {t,cur,nx,here,day,last,ts:tripStat(t)};
+}
+const fix=()=>S.lastFix&&Date.now()-S.lastFix.at<30*60e3?S.lastFix:null;
+function bestPoint(){const f=fix();if(f)return [f.lat,f.lon,"your location"];const c=ctx(),g=geoOf(c.t,c.nx<0?c.here:c.nx);return g?[g[0],g[1],c.t.stops[c.nx<0?c.here:c.nx].n]:null}
+
+// ---- fuel
+const kmpl=()=>Math.max(1,+S.bike.kmpl||30);
+const fuelL=()=>Math.max(0,(+S.fuel.litres||0)-(+S.fuel.since||0)/kmpl());
+const rangeKm=()=>Math.round(fuelL()*kmpl());
+const tankRange=()=>Math.round((+S.bike.tank||13)*kmpl());
+function fuelLevel(){const r=rangeKm(),c=ctx(),need=c.nx>0?Math.max(legKm(c.t,c.nx),(geoOf(c.t,c.nx)||[])[4]||0):0;
+  const res=fuelL()<=(+S.bike.reserve||0);return {r,need,cls:res||r<50?"bad":(need&&r<need+40)||r<100?"warn":"good",res}}
+function fuelCheck(){
+  if(!S.rem.fuelAlerts)return;const f=fuelLevel(),w=S.fuel.warn;
+  if(f.res&&!w.res){w.res=1;saveS();Notify.fire("You're on reserve","About "+f.r+" km left. Fill up at the next pump.","fuel")}
+  else if(!f.res&&f.r<100&&!w.low){w.low=1;saveS();Notify.fire("Fuel getting low","About "+f.r+" km of range left.","fuel")}
+  else if(f.need&&f.r<f.need+40&&!w.leg){w.leg=1;saveS();Notify.fire("Not enough fuel for the next leg","Next leg needs about "+f.need+" km. You have about "+f.r+" km. Fill up before you leave.","fuel")}
+}
+function setFuel(l){S.fuel.litres=Math.round(l*10)/10;S.fuel.since=0;S.fuel.filledAt=Date.now();S.fuel.warn={};saveS();renderFuel();renderRide()}
+
+// ---- ride mode: GPS distance, wake lock, reminder timers
+let watchId=null,wl=null,lastPt=null,lastTick=Date.now();
+async function wake(on){try{if(on&&"wakeLock" in navigator){wl=await navigator.wakeLock.request("screen")}else if(wl){wl.release();wl=null}}catch(e){}}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){if(S.ride.on&&S.ride.wake)wake(true);tick()}});
+function gps(on){
+  if(watchId!=null){navigator.geolocation.clearWatch(watchId);watchId=null}lastPt=null;
+  if(!on||!("geolocation" in navigator))return;
+  watchId=navigator.geolocation.watchPosition(p=>{
+    const c=p.coords,pt=[c.latitude,c.longitude];S.lastFix={lat:+c.latitude.toFixed(5),lon:+c.longitude.toFixed(5),acc:Math.round(c.accuracy),at:Date.now()};
+    if(c.accuracy<=60){if(lastPt){const d=hav(lastPt,pt);if(d>0.02&&d<5){S.ride.km+=d;S.fuel.since=(+S.fuel.since||0)+d}if(d>0.02)lastPt=pt}else lastPt=pt}
+  },e=>{if(e.code===1){S.ride.gps=false;saveS();renderRide();toast("Location is off","Distance will be estimated from your average speed instead.")}},{enableHighAccuracy:true,maximumAge:5000,timeout:20000});
+}
+const waterEvery=()=>{const e=+S.rem.water.every||30;return S.wx&&S.wx.temp>=35&&Date.now()-S.wx.at<6*3600e3?Math.max(15,Math.round(e*.66)):e};
+function startRide(){
+  beep();const now=Date.now();Object.assign(S.ride,{on:true,start:now,km:0,nextWater:now+waterEvery()*60e3,nextRest:now+(+S.rem.rest.every||120)*60e3});
+  saveS();gps(S.ride.gps);if(S.ride.wake)wake(true);
+  if(Notify.state()==="default")Notify.ask().then(renderRide);
+  schedNative();renderRide();
+}
+function endRide(){
+  const km=Math.round(S.ride.km),dur=mins(Date.now()-S.ride.start);S.ride.on=false;saveS();gps(false);wake(false);Notify.schedule([]);renderRide();
+  toast("Ride ended","You rode about "+km+" km in "+dur+".",S.contacts.length?[{label:"Tell family",fn:()=>{show("safe");$("#sf-fam").scrollIntoView({behavior:"smooth"})}}]:[]);
+}
+function schedNative(){if(!S.ride.on)return;const l=[];
+  if(S.rem.water.on)for(let k=0;k<16;k++)l.push({id:"water-"+k,at:S.ride.nextWater+k*waterEvery()*60e3,title:"Drink water",body:"Take a few sips now, even if you're not thirsty."});
+  if(S.rem.rest.on)for(let k=0;k<6;k++)l.push({id:"rest-"+k,at:S.ride.nextRest+k*S.rem.rest.every*60e3,title:"Time for a break",body:"Stop for 15 minutes: stretch, eat something, check the bike."});
+  Notify.schedule(l)}
+let saveAt=0;
+function tick(){
+  const now=Date.now(),dt=Math.min(now-lastTick,60e3);lastTick=now;
+  if(S.ride.on){
+    if(!S.ride.gps||watchId==null){const d=(+S.ride.avg||40)*dt/3600e3;S.ride.km+=d;S.fuel.since=(+S.fuel.since||0)+d}
+    if(S.rem.water.on&&now>=S.ride.nextWater){S.ride.nextWater=now+waterEvery()*60e3;
+      Notify.fire("Drink water 💧",S.wx&&S.wx.temp>=35?"It's hot out. Take a few big sips now.":"Take a few sips now, even if you're not thirsty.","water",[{label:"I drank",fn:()=>addWater(1)}])}
+    if(S.rem.rest.on&&now>=S.ride.nextRest){S.ride.nextRest=now+(+S.rem.rest.every||120)*60e3;
+      Notify.fire("Time for a break","You've been riding "+mins(now-S.ride.start)+". Stop 15 minutes: stretch, eat, check tyres and chain.","rest")}
+    if(S.rem.sunset.on&&S.ride.sunWarned!==today()){const b=bestPoint(),ss=b&&sunsetAt(b[0],b[1],new Date());
+      if(ss&&now>=ss-(+S.rem.sunset.before||60)*60e3&&now<ss+3*3600e3){S.ride.sunWarned=today();
+        Notify.fire("Sunset at "+hhmm(ss),"Plan to reach your stay before dark. Highways get risky after sunset (trucks, cattle, no lights).","sunset")}}
+    fuelCheck();
+  }
+  if(S.rem.checkin.on&&S.rem.checkin.last!==today()){const [h,m]=(S.rem.checkin.time||"20:00").split(":").map(Number),at=new Date();at.setHours(h,m,0,0);
+    if(now>=at.getTime()){S.rem.checkin.last=today();saveS();const l=familyLinks()[0];
+      Notify.fire("Send today's update home","Let your family know how today went.","checkin",l?[{label:"Send to "+l.name,href:l.wa||l.sms}]:[])}}
+  if(now-saveAt>20e3){saveAt=now;saveS()}
+  if(!$("#v-safe").hidden||S.ride.on)renderRideLive();
+}
+
+// ---- water
+function addWater(n){if(S.water.day!==today())S.water={day:today(),n:0};S.water.n=Math.max(0,S.water.n+n);
+  if(S.ride.on&&n>0)S.ride.nextWater=Date.now()+waterEvery()*60e3;saveS();renderWater();renderRideLive()}
+
+// ---- family updates
+function progressText(withLoc){
+  const c=ctx(),who=S.profile.name.trim(),L=[];
+  L.push((who?who+"'s":"My")+" RE Bharat Darshan update 🏍️");
+  L.push((c.t.custom?c.t.name:"Trip "+c.t.id+": "+c.t.name)+(c.day?" · Day "+c.day:""));
+  if(c.last>=0)L.push("✓ Reached "+c.t.stops[c.last].n+(geoOf(c.t,c.last)&&geoOf(c.t,c.last)[2]>2500?" ("+geoOf(c.t,c.last)[2].toLocaleString("en-IN")+" m)":""));
+  L.push(c.ts.places+" of "+c.t.stops.length+" places done ("+c.ts.pct+"%)");
+  L.push(c.cur<0?"Trip complete! 🎉":"Next: "+c.t.stops[c.cur].n);
+  const f=fix();if(withLoc&&f)L.push("Where I am: https://maps.google.com/?q="+f.lat+","+f.lon);
+  L.push("All good 🙏");return L.join("\n");
+}
+const linkFor=(c,tx)=>({name:c.name||c.phone,wa:"https://wa.me/"+digits(c.phone).replace(/^\+/,"")+"?text="+encodeURIComponent(tx),sms:"sms:"+digits(c.phone)+"?&body="+encodeURIComponent(tx)});
+function familyLinks(text){const tx=text||progressText(S.share.withLoc);return S.contacts.filter(c=>c.updates!==false&&digits(c.phone)).map(c=>linkFor(c,tx))}
+function sosText(){const f=fix(),m=S.medical,who=S.profile.name.trim();
+  return ["SOS 🚨 "+(who||"I")+" need"+(who?"s":"")+" help on a motorcycle trip.",f?"Location: https://maps.google.com/?q="+f.lat+","+f.lon+" (±"+f.acc+" m)":"Location unknown, please call me.",
+    m.blood?"Blood group: "+m.blood:"",m.allergies?"Allergies: "+m.allergies:"","Sent from RE Bharat Darshan"].filter(Boolean).join("\n")}
+function locate(cb){if(!("geolocation" in navigator)){toast("No location on this device","");return}
+  navigator.geolocation.getCurrentPosition(p=>{const c=p.coords;S.lastFix={lat:+c.latitude.toFixed(5),lon:+c.longitude.toFixed(5),acc:Math.round(c.accuracy),at:Date.now()};saveS();cb&&cb()},
+    ()=>toast("Couldn't get your location","Check that location is allowed for this app in your phone settings."),{enableHighAccuracy:true,timeout:15000,maximumAge:60000})}
+function onPlaceComplete(t,i){
+  if(!Premium.active()||!S.share.onComplete)return;const l=familyLinks();
+  const acts=l.slice(0,2).map(x=>({label:"WhatsApp "+x.name,href:x.wa}));
+  if(navigator.share)acts.push({label:"Share…",fn:()=>navigator.share({text:progressText(S.share.withLoc)}).catch(()=>{})});
+  if(!l.length)acts.push({label:"Add family",fn:()=>{show("safe");$("#sf-fam").scrollIntoView({behavior:"smooth"})}});
+  toast("Reached "+t.stops[i].n+" ✓","Let your family know you made it.",acts,60000);
+  if(window.REBDNative&&window.REBDNative.sendFamilyUpdate){const f=fix();window.REBDNative.sendFamilyUpdate({contacts:S.contacts.filter(c=>c.updates!==false),text:progressText(true),lat:f&&f.lat,lon:f&&f.lon})}
+}
+
+// ---- weather (Open-Meteo, free, no key; only called when the rider taps)
+const WMO={0:"Clear",1:"Mostly clear",2:"Partly cloudy",3:"Cloudy",45:"Fog",48:"Freezing fog",51:"Drizzle",53:"Drizzle",55:"Heavy drizzle",61:"Light rain",63:"Rain",65:"Heavy rain",66:"Freezing rain",67:"Freezing rain",71:"Light snow",73:"Snow",75:"Heavy snow",77:"Snow grains",80:"Showers",81:"Showers",82:"Heavy showers",85:"Snow showers",86:"Heavy snow showers",95:"Thunderstorm",96:"Thunderstorm, hail",99:"Thunderstorm, hail"};
+async function getWx(lat,lon,label){
+  $("#wx-out").innerHTML=`<p class="note">Checking weather for ${esc(label)}…</p>`;
+  try{const u="https://api.open-meteo.com/v1/forecast?latitude="+lat+"&longitude="+lon+"&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_gusts_10m&hourly=precipitation_probability,temperature_2m&daily=sunset,uv_index_max,temperature_2m_min&forecast_days=2&timezone=auto";
+    const r=await fetch(u);if(!r.ok)throw 0;const j=await r.json(),c=j.current,h=j.hourly,i0=Math.max(0,h.time.findIndex(x=>x>=c.time.slice(0,13)));
+    const rain=Math.max(...h.precipitation_probability.slice(i0,i0+4)),minT=Math.min(...h.temperature_2m.slice(i0,i0+12));
+    S.wx={at:Date.now(),label,temp:Math.round(c.temperature_2m),feels:Math.round(c.apparent_temperature),code:c.weather_code,wind:Math.round(c.wind_speed_10m),gust:Math.round(c.wind_gusts_10m),rain,minT:Math.round(minT),uv:Math.round(j.daily.uv_index_max[0]),sunset:j.daily.sunset[0],elev:Math.round(j.elevation)};
+    if(S.ride.on)S.ride.nextWater=Math.min(S.ride.nextWater,Date.now()+waterEvery()*60e3);saveS();renderWx();renderWater();schedNative();
+    const a=wxAlerts().filter(x=>x[0]!=="");if(a.some(x=>x[0]==="bad"))Notify.fire("Weather alert for "+label,a.filter(x=>x[0]==="bad").map(x=>x[1]).join(" "),"wx");
+  }catch(e){$("#wx-out").innerHTML=`<p class="note">Couldn't reach the weather service. Check your signal and try again.</p>`}
+}
+function wxAlerts(){const w=S.wx;if(!w)return [];const a=[];
+  if(w.feels>=40)a.push(["bad","Extreme heat ("+w.feels+"°C feels like). Ride early, rest 12 to 4, drink every 15 to 20 minutes."]);
+  else if(w.temp>=35)a.push(["warn","Hot ("+w.temp+"°C). Water reminders are now more frequent."]);
+  if(w.code>=95)a.push(["bad","Thunderstorms. Wait it out under solid cover, not under trees."]);
+  if(w.rain>=60)a.push(["warn","Rain likely in the next few hours ("+w.rain+"%). Slow down, roads and paint get slippery."]);
+  if(w.gust>=45)a.push(["bad","Strong gusts up to "+w.gust+" km/h. Grip the tank with your knees and slow down on open stretches."]);
+  else if(w.wind>=30)a.push(["warn","Windy ("+w.wind+" km/h). Expect crosswinds near trucks and on bridges."]);
+  if(w.minT<=2)a.push(["bad","Near freezing ("+w.minT+"°C) in the next 12 hours. Watch for ice on shaded bends and passes in the morning."]);
+  else if(w.minT<=8)a.push(["warn","Cold ("+w.minT+"°C). Layer up and carry gloves for the passes."]);
+  if(w.code===45||w.code===48)a.push(["warn","Fog. Use low beam and hazards, and keep your distance."]);
+  if(w.uv>=8)a.push(["warn","Very high UV ("+w.uv+"). Sunscreen on the neck and face, tinted visor."]);
+  if(w.elev>=2500)a.push(["warn","You're at "+w.elev.toLocaleString("en-IN")+" m. Watch for altitude sickness: headache, nausea, breathlessness."]);
+  if(!a.length)a.push(["","Good riding weather. Enjoy it."]);return a}
+
+// ---- rendering
+const proChip=`<span class="pro">PRO</span>`;
+const sel=(path,opts)=>`<select data-f="${path}">${opts.map(o=>`<option value="${o[0]}"${String(getP(S,path))===String(o[0])?" selected":""}>${esc(o[1])}</option>`).join("")}</select>`;
+const chk=(path,label)=>`<label class="tg2"><input type="checkbox" data-f="${path}"${getP(S,path)?" checked":""}><span>${label}</span></label>`;
+const num=(path,attrs)=>`<input type="number" data-f="${path}" value="${esc(getP(S,path))}" inputmode="decimal" ${attrs||""}>`;
+const txt=(path,ph,type)=>`<input type="${type||"text"}" data-f="${path}" value="${esc(getP(S,path)||"")}" placeholder="${esc(ph||"")}" autocomplete="off">`;
+function renderPlan(){$("#sf-plan").textContent=Premium.preview()?"PRO features are unlocked while the app is in testing. In the app store version they will be part of the subscription.":"";$("#sf-plan").hidden=!Premium.preview()}
+function renderRide(){
+  const n=Notify.state(),on=S.ride.on,el=$("#sf-ride");el.classList.toggle("on",on);
+  el.innerHTML=`<div class="rh"><div><h3><span class="live"></span>${on?"Riding":"Ride mode"} ${proChip}</h3><small id="rd-sub"></small></div>
+    <button class="btn big" id="rd-go">${on?"End ride":"Start ride"}</button></div>
+    <div class="kpis"><div class="kpi" id="k-km"><span>This ride</span><b>–</b></div><div class="kpi" id="k-fuel"><span>Fuel range</span><b>–</b></div>
+      <div class="kpi" id="k-water"><span>Water in</span><b>–</b></div><div class="kpi" id="k-rest"><span>Break in</span><b>–</b></div></div>
+    <div class="toggles">${chk("ride.gps","Use GPS for distance")}${chk("ride.wake","Keep screen on")}
+      ${n==="granted"?`<span class="rnote">🔔 Alerts on</span>`:n==="unsupported"?`<span class="rnote">This browser can't show system alerts. You'll get sound, vibration and on-screen alerts.</span>`:n==="denied"?`<span class="rnote">Alerts are blocked in your browser settings. You'll still get on-screen alerts.</span>`:`<button class="btn ghost" id="rd-perm">Turn on alerts</button>`}</div>
+    <p class="rnote">Reminders work while this app is open. Mount your phone with the screen on for the ride. The app store version will remind you with the screen off too.</p>`;
+  renderRideLive();$("#sosfab").hidden=!on||!Premium.active();
+}
+function renderRideLive(){
+  if(!$("#k-km"))return;const now=Date.now(),on=S.ride.on,f=fuelLevel();
+  const set=(id,v,cls)=>{const k=$(id);k.querySelector("b").textContent=v;k.className="kpi"+(cls?" "+cls:"")};
+  set("#k-km",on?Math.round(S.ride.km)+" km":"–");
+  set("#k-fuel","~"+f.r+" km",f.cls==="good"?"":f.cls);
+  set("#k-water",on&&S.rem.water.on?mins(S.ride.nextWater-now):"–",on&&S.ride.nextWater-now<120e3?"warn":"");
+  set("#k-rest",on&&S.rem.rest.on?mins(S.ride.nextRest-now):"–");
+  const c=ctx();$("#rd-sub").textContent=on?"On the road "+mins(now-S.ride.start)+(S.ride.gps&&watchId!=null?" · GPS":" · estimated at "+S.ride.avg+" km/h"):(c.cur<0?tNm(c.t)+" is complete":tNm(c.t)+" · next stop "+c.t.stops[c.cur].n);
+  const g=$("#fu-gauge");if(g){const p=Math.min(100,fuelL()/(+S.bike.tank||13)*100);g.className="gauge "+(f.cls==="good"?"":f.cls);g.firstChild.style.width=p+"%";$("#fu-left").textContent="~"+f.r+" km";$("#fu-l").textContent=fuelL().toFixed(1)+" L of "+S.bike.tank+" L · "+Math.round(S.fuel.since)+" km since fill-up"}
+}
+function renderFuel(){
+  const c=ctx(),f=fuelLevel(),tr=tankRange();
+  const legs=c.t.stops.map((s,i)=>{const k=legKm(c.t,i),g=geoOf(c.t,i)||[],gap=g[4]||0,need=Math.max(k,gap);return {i,n:s.n,k,gap,need}}).filter(x=>x.i>0);
+  $("#sf-fuel").innerHTML=`<h3><span class="ic">⛽</span>Fuel range ${proChip}</h3>
+    <p>Know how far your tank takes you, and get a warning before a long stretch with no pumps.</p>
+    <div class="row2"><label class="inl">Your bike${sel("bike.model",BIKES.map(b=>[b[0],b[1]]))}</label></div>
+    <div class="row2"><label class="inl">Tank (L)${num("bike.tank",'min="5" max="30" step="0.1"')}</label><label class="inl">Km per litre${num("bike.kmpl",'min="10" max="60" step="1"')}</label><label class="inl">Reserve (L)${num("bike.reserve",'min="0" max="5" step="0.5"')}</label></div>
+    <div class="read ${f.cls}"><span>Range left now</span><b id="fu-left">~${f.r} km</b><div class="gauge" id="fu-gauge"><i></i></div><span id="fu-l"></span>
+      ${f.need?`<span><b style="font-size:15px">${f.r>=f.need+40?"✓ Enough":"⚠ Fill up"}</b> for the next leg to ${esc(c.t.stops[c.nx].n)}: about ${f.need} km${(geoOf(c.t,c.nx)||[])[4]?" with few or no pumps":""}.</span>`:""}</div>
+    <div class="grp"><h5>I just filled up</h5><div class="chips"><button class="fbtn" data-fill="1">Full tank</button><button class="fbtn" data-fill=".75">¾</button><button class="fbtn" data-fill=".5">½</button><button class="fbtn" data-fill=".25">¼</button><button class="fbtn" data-fill="r">On reserve</button></div></div>
+    <details class="more"><summary>Correct from your trip meter</summary><div><label class="inl">Km on the trip meter since you filled up<input type="number" id="fu-since" value="${Math.round(S.fuel.since)}" inputmode="numeric" min="0"></label>
+      <div class="row2"><label class="inl">Average speed when GPS is off (km/h)${num("ride.avg",'min="10" max="90" step="5"')}</label></div>${chk("rem.fuelAlerts","Warn me when fuel gets low")}</div></details>
+    <div class="grp"><h5>${c.t.custom?esc(c.t.name):"Trip "+c.t.id} fuel plan · full tank ≈ ${tr} km</h5><ul class="legs">${legs.map(l=>`<li class="${l.need>tr-30?"over":l.need>tr*.7?"near":""}"><span>${esc(l.n)}${l.gap?" · pumps rare":""}</span><span>${l.k?"~"+l.k+" km":""}${l.gap?" · gap "+l.gap+" km":""}${l.need>tr-30?" · carry spare fuel":""}</span></li>`).join("")}</ul>
+      <p class="note">Distances are rough estimates from straight-line distance. Fill up whenever you see a pump on remote roads.</p></div>`;
+  renderRideLive();
+}
+function renderWater(){
+  if(S.water.day!==today())S.water={day:today(),n:0};const goal=S.wx&&S.wx.temp>=32?14:10,boost=waterEvery()!==(+S.rem.water.every||30);
+  $("#sf-water").innerHTML=`<h3><span class="ic">💧</span>Drink water ${proChip}</h3>
+    <p>Riders dehydrate fast in wind and sun, and you don't feel thirsty with a helmet on. Get a nudge to sip on a schedule.</p>
+    ${chk("rem.water.on","Remind me while I ride")}
+    <label class="inl">Every${sel("rem.water.every",[[15,"15 minutes"],[20,"20 minutes"],[30,"30 minutes"],[45,"45 minutes"],[60,"1 hour"]])}</label>
+    ${boost?`<div class="read warn"><span>Heat boost on: reminding every ${waterEvery()} minutes because it's ${S.wx.temp}°C.</span></div>`:""}
+    <div class="read good"><span>Today</span><b>${S.water.n} of ${goal} glasses</b><div class="gauge"><i style="width:${Math.min(100,S.water.n/goal*100)}%"></i></div><span>About ${(S.water.n*.25).toFixed(1)} L. Aim for ${(goal*.25).toFixed(1)} L on a riding day${goal>10?" in this heat":""}.</span></div>
+    <div class="row2"><button class="btn" data-water="1">+ I drank a glass</button><button class="btn ghost" data-water="-1">Undo</button></div>
+    <p class="note">Add ORS or nimbu pani with salt on hot days. Water alone isn't enough when you sweat a lot.</p>`;
+}
+function renderRest(){
+  const b=bestPoint(),ss=b&&sunsetAt(b[0],b[1],new Date());
+  $("#sf-rest").innerHTML=`<h3><span class="ic">☕</span>Breaks &amp; daylight ${proChip}</h3>
+    <p>Tired riders crash. Take a proper break every two hours, and be at your stay before dark.</p>
+    ${chk("rem.rest.on","Remind me to take breaks")}
+    <label class="inl">Break every${sel("rem.rest.every",[[60,"1 hour"],[90,"1 hour 30 min"],[120,"2 hours"],[150,"2 hours 30 min"],[180,"3 hours"]])}</label>
+    ${chk("rem.sunset.on","Warn me before sunset")}
+    <label class="inl">How early${sel("rem.sunset.before",[[30,"30 minutes before"],[60,"1 hour before"],[90,"1 hour 30 min before"],[120,"2 hours before"]])}</label>
+    ${ss?`<div class="read"><span>Sunset today near ${esc(b[2])}</span><b>${hhmm(ss)}</b></div>`:""}
+    <p class="note">Avoid riding at night in India: unlit trucks, cattle and potholes are hard to see. Forest roads like Bandipur close at night.</p>`;
+}
+function renderFam(){
+  const tx=progressText(S.share.withLoc),f=fix();
+  $("#sf-fam").innerHTML=`<h3><span class="ic">💌</span>Family updates ${proChip}</h3>
+    <p>Keep the people at home in the loop. Send your progress, with a map link, in one tap.</p>
+    <label class="inl">Your name (shown in updates)${txt("profile.name","e.g. Kuldip")}</label>
+    <div class="contacts">${S.contacts.map((c,j)=>{const l=digits(c.phone)?linkFor(c,tx):null;return `<div class="ct"><div class="who"><div><b>${esc(c.name||c.phone)}</b><small>${esc(c.rel||"")}${c.rel?" · ":""}${esc(c.phone)}${c.sos!==false?" · SOS contact":""}</small></div></div>
+      <div class="acts">${l?`<a class="lk wa" href="${esc(l.wa)}" target="_blank" rel="noopener">WhatsApp</a><a class="lk" href="${esc(l.sms)}">SMS</a>`:""}<a class="lk call" href="tel:${esc(digits(c.phone))}">Call</a><button class="lk x" data-rmc="${j}" aria-label="Remove ${esc(c.name||c.phone)}">Remove</button></div></div>`}).join("")||`<div class="empty" style="padding:14px">No one added yet. Add a family member or friend below.</div>`}</div>
+    <form class="grp" id="fam-add"><h5>Add someone</h5><div class="row2"><label class="inl">Name<input name="n" required autocomplete="off" placeholder="Mum"></label><label class="inl">Phone with country code<input name="p" type="tel" required placeholder="+91 98…" autocomplete="off"></label></div>
+      <div class="row2"><label class="inl">Relation<input name="r" autocomplete="off" placeholder="Mother, wife, friend…"></label><button class="btn" type="submit" style="align-self:end">Add</button></div></form>
+    <details class="more"${S.contacts.length?" open":""}><summary>Message preview</summary><div>
+      <label class="inl">This is what they'll get<textarea id="fam-tx" readonly>${esc(tx)}</textarea></label>
+      ${chk("share.withLoc","Include my location")}${S.share.withLoc&&!f?`<button class="btn ghost" id="fam-loc" style="justify-self:start">📍 Add my current location</button>`:""}
+      ${navigator.share?`<button class="btn ghost" id="fam-share" style="justify-self:start">Share with any app…</button>`:""}</div></details>
+    ${chk("share.onComplete","When I mark a place complete, offer to tell family")}
+    ${chk("rem.checkin.on","Remind me to send a daily update")}
+    <label class="inl">Daily update time<input type="time" data-f="rem.checkin.time" value="${esc(S.rem.checkin.time)}"></label>
+    <p class="note">On the web, you send each update yourself. The app store version will send updates automatically and give your family a live tracking link.</p>`;
+}
+function renderSos(){
+  const m=S.medical;
+  $("#sf-sos").innerHTML=`<h3><span class="ic">🚨</span>SOS &amp; medical ID ${proChip}</h3>
+    <p>One tap to call for help and send your location to your emergency contacts.</p>
+    <button class="sosbtn" data-sos>SOS</button>
+    <p class="note">Your family contacts are your SOS contacts unless you turn it off for someone.</p>
+    <details class="more"><summary>Medical ID for first responders</summary><div>
+      <div class="row2"><label class="inl">Blood group${sel("medical.blood",[["","Not set"],["A+","A+"],["A-","A−"],["B+","B+"],["B-","B−"],["AB+","AB+"],["AB-","AB−"],["O+","O+"],["O-","O−"]])}</label></div>
+      <label class="inl">Allergies${txt("medical.allergies","e.g. penicillin, none")}</label>
+      <label class="inl">Medical conditions and medicines${txt("medical.meds","e.g. asthma, inhaler in tank bag")}</label>
+      <label class="inl">Travel insurance and policy number${txt("medical.insurance","Insurer, policy no., helpline")}</label>
+      <label class="inl">Other notes${txt("medical.notes","Rental shop number, hotel tonight…")}</label></div></details>
+    <details class="more"><summary>Who gets the SOS</summary><div>${S.contacts.length?S.contacts.map((c,j)=>`<label class="tg2"><input type="checkbox" data-sosc="${j}"${c.sos!==false?" checked":""}><span>${esc(c.name||c.phone)}</span></label>`).join(""):`<p class="note">Add people under Family updates first.</p>`}</div></details>`;
+}
+function renderWx(){
+  const w=S.wx,a=wxAlerts();
+  $("#sf-wx").innerHTML=`<h3><span class="ic">🌦️</span>Weather alerts ${proChip}</h3>
+    <p>Heat, rain, wind, fog and cold for where you are or where you're heading. Hot weather also speeds up your water reminders.</p>
+    <div class="row2"><button class="btn" id="wx-here">Weather here</button><button class="btn ghost" id="wx-next">At my next stop</button></div>
+    <div id="wx-out">${w?`<div class="read"><span>${esc(w.label)} · ${new Date(w.at).toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"})}</span><b>${w.temp}°C · ${esc(WMO[w.code]||"")}</b>
+      <span>Feels ${w.feels}°C · wind ${w.wind} km/h (gusts ${w.gust}) · rain ${w.rain}% · sunset ${esc((w.sunset||"").slice(11,16))}${w.elev?" · "+w.elev.toLocaleString("en-IN")+" m":""}</span></div>
+      <ul class="alerts" style="margin-top:8px">${a.map(x=>`<li class="${x[0]}">${esc(x[1])}</li>`).join("")}</ul>`:`<p class="note">Tap a button to check. Your location is sent to the free Open-Meteo weather service only when you tap.</p>`}</div>`;
+}
+function renderAlt(){
+  const c=ctx(),hi=c.t.stops.map((s,i)=>({s,g:geoOf(c.t,i)})).filter(x=>x.g&&(x.g[2]>=2500||(x.g[3]||0)>=2500));
+  const top=Math.max(...c.t.stops.map((_,i)=>{const g=geoOf(c.t,i);return g?Math.max(g[2],g[3]||0):0}));
+  $("#sf-alt").innerHTML=`<h3><span class="ic">🏔️</span>Altitude safety ${proChip}</h3>
+    ${hi.length?`<p>${c.t.custom?esc(c.t.name):"Trip "+c.t.id} goes high. Climb slowly and know the signs of altitude sickness.</p>
+      <ul class="legs">${hi.map(x=>`<li class="${Math.max(x.g[2],x.g[3]||0)>=4500?"over":"near"}"><span>${esc(x.s.n)}</span><span>${x.g[2].toLocaleString("en-IN")} m${x.g[3]?" · pass "+x.g[3].toLocaleString("en-IN")+" m":""}</span></li>`).join("")}</ul>
+      <ul class="alerts"><li class="warn">Above 3,000 m, sleep no more than 300 to 500 m higher than the night before, and add a rest day for every 1,000 m.</li>
+      <li class="warn">Headache, nausea, dizziness or bad sleep: stop going up. If it gets worse, go down 500 m or more.</li>
+      <li class="bad">Confusion, stumbling or breathlessness at rest is an emergency. Descend now and use SOS.</li>
+      <li>Drink 4 to 5 litres a day up high, skip alcohol, and don't stay more than 15 minutes at the top of a pass. Ask your doctor about Diamox before you go.</li></ul>`
+     :`<p>No high-altitude stops on ${c.t.custom?esc(c.t.name):"Trip "+c.t.id}. The highest point is about ${top.toLocaleString("en-IN")} m, so altitude sickness isn't a worry. Trips 8 and 9 go high.</p>`}`;
+}
+function renderSoon(){
+  $("#sf-soon").innerHTML=`<h3><span class="ic">🚀</span>Coming in the app ${proChip}</h3>
+    <p>These need the iPhone and Android app, because a web page can't run in the background.</p>
+    <ul class="soon"><li><b>Live tracking link for family</b><span>They watch your ride on a map, with no app needed.</span></li>
+      <li><b>Automatic updates and missed check-in alerts</b><span>If you don't reach your stop or check in by a set time, your family gets told.</span></li>
+      <li><b>Reminders with the screen off</b><span>Water, break and fuel alerts in your helmet earphones while the phone is locked.</span></li>
+      <li><b>Crash detection</b><span>A hard fall with no movement after starts a countdown, then sends SOS automatically.</span></li>
+      <li><b>Offline maps and nearest petrol pump</b><span>For Ladakh, Spiti and Kutch where there's no signal.</span></li></ul>`;
+}
+function renderSafe(){if(!Premium.active()){$("#v-safe .sfgrid").innerHTML=`<div class="panel"><h3>Ride Safe is a PRO feature</h3><p>Subscribe to get water, fuel and break reminders, family updates and SOS.</p><button class="btn" onclick="window.REBDNative&&window.REBDNative.purchase&&window.REBDNative.purchase('pro')">Go PRO</button></div>`;$("#sf-ride").hidden=true;return}
+  renderPlan();renderRide();renderFuel();renderWater();renderRest();renderFam();renderSos();renderWx();renderAlt();renderSoon()}
+
+// ---- SOS sheet
+const sosDlg=$("#sos");
+function openSos(){
+  const go=()=>{const f=fix(),tx=sosText(),cs=S.contacts.filter(c=>c.sos!==false&&digits(c.phone)),m=S.medical;
+    $("#sos-in").innerHTML=`<div class="rh" style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3 id="sos-title">SOS</h3><button class="m-close" style="position:static" aria-label="Close">×</button></div>
+      <a class="big red" href="tel:112"><span>Call 112<br><small>All emergencies in India</small></span><span>📞</span></a>
+      <div class="row2"><a class="big" style="flex:1" href="tel:108"><span>108<br><small>Ambulance</small></span></a><a class="big" style="flex:1" href="tel:1033"><span>1033<br><small>Highway help</small></span></a></div>
+      <div class="medcard"><b>Your location</b>${f?`<span class="loc">${f.lat}, ${f.lon}</span><small>±${f.acc} m · ${mins(Date.now()-f.at)} ago. Read this out on the phone.</small>`:`<span>Getting your location…</span>`}</div>
+      ${cs.map(c=>`<div class="row2"><a class="big" style="flex:1" href="sms:${esc(digits(c.phone))}?&body=${esc(encodeURIComponent(tx))}"><span>Text ${esc(c.name)}<br><small>SOS with location</small></span></a><a class="big" style="flex:1" href="https://wa.me/${esc(digits(c.phone).replace(/^\+/,""))}?text=${esc(encodeURIComponent(tx))}" target="_blank" rel="noopener"><span>WhatsApp<br><small>${esc(c.name)}</small></span></a><a class="lk call" href="tel:${esc(digits(c.phone))}">Call</a></div>`).join("")||`<p class="note" style="color:var(--on-bright)">Add emergency contacts in Ride Safe → Family updates.</p>`}
+      ${navigator.share?`<button class="btn ghost" id="sos-share">Share SOS with any app…</button>`:""}
+      <div class="medcard"><b>Medical ID</b><span>${esc(S.profile.name||"Rider")}${m.blood?" · Blood group "+esc(m.blood):""}</span>${m.allergies?`<span>Allergies: ${esc(m.allergies)}</span>`:""}${m.meds?`<span>Conditions: ${esc(m.meds)}</span>`:""}${m.insurance?`<span>Insurance: ${esc(m.insurance)}</span>`:""}${m.notes?`<span>${esc(m.notes)}</span>`:""}</div>`;
+  };
+  go();if(typeof sosDlg.showModal==="function")sosDlg.showModal();else sosDlg.setAttribute("open","");
+  if(!fix()||Date.now()-S.lastFix.at>120e3)locate(()=>{if(sosDlg.open)go()});
+}
+sosDlg.addEventListener("click",e=>{if(e.target===sosDlg||e.target.closest(".m-close"))sosDlg.close();
+  if(e.target.id==="sos-share")navigator.share({text:sosText()}).catch(()=>{})});
+$("#sosfab").addEventListener("click",openSos);
+
+// ---- events (one delegated handler for the whole tab)
+const V=$("#v-safe");
+V.addEventListener("change",e=>{
+  const el=e.target,p=el.dataset.f;
+  if(p){let v=el.type==="checkbox"?el.checked:el.type==="number"?parseFloat(el.value):el.value;if(el.type==="number"&&!isFinite(v))return;
+    if(el.tagName==="SELECT"&&/^\d+$/.test(v))v=+v;setP(S,p,v);
+    if(p==="bike.model"){const b=BIKES.find(x=>x[0]===v);if(b){S.bike.tank=b[2];S.bike.kmpl=b[3];if(S.fuel.litres>b[2])S.fuel.litres=b[2]}}
+    if(p.startsWith("bike.")||p==="ride.avg"||p==="rem.fuelAlerts"){S.fuel.warn={};saveS();renderFuel()}
+    if(p==="ride.gps"){saveS();if(S.ride.on)gps(v);renderRide()}
+    if(p==="ride.wake"){saveS();if(S.ride.on)wake(v)}
+    if(p.startsWith("rem.water")){saveS();if(S.ride.on)S.ride.nextWater=Date.now()+waterEvery()*60e3;renderWater();schedNative()}
+    if(p.startsWith("rem.rest")){saveS();if(S.ride.on)S.ride.nextRest=Date.now()+(+S.rem.rest.every||120)*60e3;schedNative()}
+    if(p.startsWith("rem.checkin")){if(p==="rem.checkin.time")S.rem.checkin.last="";}
+    if(p.startsWith("share.")||p==="profile.name"){saveS();renderFam()}
+    saveS();renderRideLive();return}
+  if(el.id==="fu-since"){const v=parseFloat(el.value);if(isFinite(v)&&v>=0){S.fuel.since=v;S.fuel.warn={};saveS();renderFuel()}}
+  if(el.dataset.sosc!=null){S.contacts[+el.dataset.sosc].sos=el.checked;saveS()}
+});
+V.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.id==="rd-go"){S.ride.on?endRide():startRide()}
+  else if(b.id==="rd-perm")Notify.ask().then(()=>{renderRide();if(Notify.state()==="granted")toast("Alerts on","You'll get water, break and fuel reminders.")});
+  else if(b.dataset.fill){const t=+S.bike.tank||13;setFuel(b.dataset.fill==="r"?(+S.bike.reserve||2):t*+b.dataset.fill)}
+  else if(b.dataset.water)addWater(+b.dataset.water);
+  else if(b.dataset.rmc!=null){S.contacts.splice(+b.dataset.rmc,1);saveS();renderFam();renderSos()}
+  else if(b.id==="fam-loc")locate(renderFam);
+  else if(b.id==="fam-share")navigator.share({text:progressText(S.share.withLoc)}).catch(()=>{});
+  else if(b.hasAttribute("data-sos"))openSos();
+  else if(b.id==="wx-here"){if(!("geolocation" in navigator))return;$("#wx-out").innerHTML=`<p class="note">Finding you…</p>`;locate(()=>getWx(S.lastFix.lat,S.lastFix.lon,"your location"))}
+  else if(b.id==="wx-next"){const c=ctx(),i=c.nx<0?c.here:c.nx,g=geoOf(c.t,i);if(g)getWx(g[0],g[1],c.t.stops[i].n)}
+});
+V.addEventListener("submit",e=>{if(e.target.id!=="fam-add")return;e.preventDefault();const f=e.target;
+  const c={id:"c"+Date.now().toString(36),name:f.n.value.trim().slice(0,60),phone:f.p.value.trim().slice(0,24),rel:f.r.value.trim().slice(0,40),sos:true,updates:true};
+  if(!digits(c.phone))return;S.contacts.push(c);saveS();renderFam();renderSos();toast("Added "+c.name,"They'll be in your family updates and SOS.",[],4000)});
+if(S.ride.on){gps(S.ride.gps);if(S.ride.wake)wake(true)}
+setInterval(tick,5000);
+
+
+renderTrips();renderStops();renderFood();renderTrack();renderSafe();
+const tab=store.get("rebd-tab","plan");if(["plan","track","safe","stops","food","season","budget"].includes(tab))show(tab);
 if(window.REBD_STANDALONE)$("#install").hidden=false;
 })();
 </script>
