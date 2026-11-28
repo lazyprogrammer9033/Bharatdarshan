@@ -12,6 +12,18 @@
 <script>window.REBD_STANDALONE=true;
 try{const m={name:"RE Bharat Darshan",short_name:"RE India",start_url:".",display:"standalone",background_color:"#ffffff",theme_color:"#12A150",icons:[{src:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMkExNTAiLz48Y2lyY2xlIGN4PSIxOSIgY3k9IjQyIiByPSI5IiBmaWxsPSIjRkZDOTI4IiBzdHJva2U9IiMwQjJBMjIiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDIiIHI9IjkiIGZpbGw9IiNGRkM5MjgiIHN0cm9rZT0iIzBCMkEyMiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE5IDQyIEwyOCAyNiBINDAgTDQ1IDQyIE0yOCAyNiBMMjQgMTggSDE4IE00MCAyNiBMNDYgMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=",sizes:"any",type:"image/svg+xml"}]};
 const l=document.createElement("link");l.rel="manifest";l.href="data:application/manifest+json,"+encodeURIComponent(JSON.stringify(m));document.head.appendChild(l)}catch(e){}</script>
+<script>
+// Sign-in (Firebase). Paste your Firebase web app config below: Firebase console, Project settings, Your apps, Web app, SDK setup and configuration, Config.
+// While apiKey is empty the app works exactly as before, with no login screen.
+window.REBD_FIREBASE={apiKey:"",authDomain:"",projectId:"",storageBucket:"",messagingSenderId:"",appId:""};
+window.REBD_AUTH_ON=!!(window.REBD_FIREBASE.apiKey&&window.REBD_FIREBASE.projectId);
+// Every saved setting that belongs to the rider. These sync to their account; anything else stays on this device.
+window.REBD_SYNC={keys:["rebd-done","rebd-mytrips","rebd-progress","rebd-active","rebd-budget","rebd-safety"],
+  meta(){try{const m=JSON.parse(localStorage.getItem("rebd-sync")||"{}");m.t=m.t||{};m.h=m.h||{};return m}catch(e){return{t:{},h:{}}}},
+  saveMeta(m){try{localStorage.setItem("rebd-sync",JSON.stringify(m))}catch(e){}},
+  touch(k){if(!window.REBD_AUTH_ON||!this.keys.includes(k))return;const m=this.meta();m.t[k]=Date.now();this.saveMeta(m);this.onTouch&&this.onTouch(k)}};
+try{if(REBD_AUTH_ON&&!localStorage.getItem("rebd-owner"))document.documentElement.classList.add("gated")}catch(e){}
+</script>
 <title>RE Bharat Darshan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -392,6 +404,48 @@ li.is-done .tcard{background:color-mix(in srgb,var(--best-t) 60%,var(--surface))
 details.more{border-top:1.5px dashed var(--hair);padding-top:8px}
 details.more>summary{cursor:pointer;font-weight:700;font-size:14px;min-height:36px;display:flex;align-items:center}
 details.more>div{display:grid;gap:10px;padding-top:8px}
+/* sign-in gate and account */
+.gate{position:fixed;inset:0;z-index:60;background:var(--bg);overflow:auto;display:none;
+  padding:max(24px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+html.gated .gate{display:grid;place-items:center}
+html.gated body{overflow:hidden}
+.g-card{width:min(440px,100%);border:2px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow) var(--green);padding:24px 20px;display:grid;gap:16px;
+  background:radial-gradient(28% 22% at 100% 0%,color-mix(in srgb,var(--yellow) 50%,transparent) 0 60%,transparent 61%),var(--surface)}
+.g-card h2{font-size:30px}
+.g-card>p{color:var(--muted)}
+.g-btns{display:grid;gap:10px}
+.g-btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:50px;border:2px solid var(--on-bright);border-radius:999px;font-weight:700;font-size:16px;cursor:pointer;background:#fff;color:#0B2A22;box-shadow:0 4px 0 var(--on-bright);padding:0 18px}
+.g-btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--on-bright)}
+.g-btn.apple{background:#000;color:#fff;border-color:#000}
+.g-btn.phone{background:var(--yellow);box-shadow:0 4px 0 var(--yellow-deep)}
+.g-btn[disabled],.g-btn[aria-busy="true"]{opacity:.6;cursor:progress}
+.g-btn svg{flex:none}
+.g-or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:600}
+.g-or::before,.g-or::after{content:"";flex:1;border-top:1.5px solid var(--hair)}
+.g-form{display:grid;gap:10px}
+.g-row{display:flex;gap:8px}
+.g-form label{font-size:13px;font-weight:700}
+.g-form select,.g-form input{font:inherit;font-size:17px;min-height:50px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0 12px;min-width:0}
+.g-form select{flex:none;width:7.2em}
+.g-form input{flex:1;width:100%}
+.g-form input.code{letter-spacing:.4em;text-align:center;font-variant-numeric:tabular-nums}
+.g-link{background:none;border:0;padding:4px 0;font-weight:700;color:var(--ink);text-decoration:underline;cursor:pointer;justify-self:start}
+.g-msg{font-size:14px;font-weight:600;min-height:1.4em}
+.g-msg.err{color:#C4271C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .g-msg.err{color:#FF8A80}}
+:root[data-theme="dark"] .g-msg.err{color:#FF8A80}
+.g-fine{font-size:12px;color:var(--muted)}
+.hend{display:flex;align-items:center;gap:10px;min-width:0}
+.acct{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:var(--blue);color:#0B2A22;font-family:var(--f-head);font-weight:700;font-size:18px;cursor:pointer;display:grid;place-items:center;overflow:hidden;padding:0}
+.acct img{width:100%;height:100%;object-fit:cover}
+.a-rows{display:grid;gap:8px}
+.a-rows div{display:flex;justify-content:space-between;gap:12px;border-bottom:1.5px solid var(--hair);padding-bottom:8px;font-size:14px}
+.a-rows dt{color:var(--muted);font-weight:600}
+.a-rows dd{margin:0;font-weight:600;text-align:right;overflow-wrap:anywhere}
+.btn.danger{background:#fff;color:#C4271C;border-color:#C4271C;box-shadow:none}
+.syncbar{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;width:min(420px,calc(100vw - 32px));
+  border:2px solid var(--on-bright);border-radius:18px;background:var(--blue);color:#0B2A22;padding:12px 14px;display:flex;align-items:center;gap:12px;font-weight:600;font-size:14px;box-shadow:0 4px 0 var(--on-bright)}
+.syncbar .btn{flex:none;background:#fff;box-shadow:none}
 @media (max-width:440px){.prog{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -534,6 +588,59 @@ details.more>div{display:grid;gap:10px;padding-top:8px}
 <dialog class="sheet" id="sos" aria-labelledby="sos-title"><div class="in" id="sos-in"></div></dialog>
 <button class="sosfab" id="sosfab" hidden aria-label="Open SOS emergency screen">SOS</button>
 <div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="g-title">
+  <div class="g-card">
+    <svg width="56" height="56" viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="#12A150" stroke="#0B2A22" stroke-width="3"/>
+      <circle cx="19" cy="42" r="9" fill="#FFC928" stroke="#0B2A22" stroke-width="3"/>
+      <circle cx="45" cy="42" r="9" fill="#FFC928" stroke="#0B2A22" stroke-width="3"/>
+      <path d="M19 42 L28 26 H40 L45 42 M28 26 L24 18 H18 M40 26 L46 20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2 id="g-title">Sign in to start riding</h2>
+    <p>Your trips, progress and Ride Safe settings are saved to your account, so they're there on every phone you use.</p>
+    <div id="g-pick" class="g-btns">
+      <button class="g-btn" id="g-google" type="button" disabled>
+        <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+        Continue with Google</button>
+      <button class="g-btn apple" id="g-apple" type="button" disabled>
+        <svg width="18" height="20" viewBox="0 0 17 20" aria-hidden="true"><path fill="currentColor" d="M14.1 10.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9C3.6 4.8 2 5.8 1.1 7.3c-1.8 3.2-.5 7.9 1.3 10.5.9 1.3 1.9 2.7 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.6 1-1.5 1.4-2.9 1.4-3-.1 0-2.7-1-2.7-4.2zM11.6 3c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
+        Continue with Apple</button>
+      <div class="g-or">or</div>
+      <button class="g-btn phone" id="g-phone" type="button" disabled>Use my phone number</button>
+    </div>
+    <form class="g-form" id="g-num" hidden autocomplete="on">
+      <label for="g-tel">Your mobile number</label>
+      <div class="g-row">
+        <select id="g-cc" aria-label="Country code">
+          <option value="+91">🇮🇳 +91</option><option value="+1">🇨🇦 +1</option><option value="+44">🇬🇧 +44</option>
+          <option value="+61">🇦🇺 +61</option><option value="+971">🇦🇪 +971</option><option value="+65">🇸🇬 +65</option><option value="+49">🇩🇪 +49</option>
+        </select>
+        <input id="g-tel" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="98765 43210" required>
+      </div>
+      <button class="g-btn phone" id="g-send" type="submit">Text me a code</button>
+      <button class="g-link" type="button" data-g-back>Back to other ways to sign in</button>
+    </form>
+    <form class="g-form" id="g-otp" hidden>
+      <label for="g-code">Enter the 6-digit code we sent to <span id="g-to"></span></label>
+      <input id="g-code" class="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="6" required>
+      <button class="g-btn phone" id="g-verify" type="submit">Sign in</button>
+      <button class="g-link" type="button" data-g-back>Use a different number</button>
+    </form>
+    <p class="g-msg" id="g-msg" aria-live="polite">Getting sign-in ready…</p>
+    <p class="g-fine">We only use your sign-in to keep your trips safe and in sync. We never post anything for you.</p>
+    <div id="g-recaptcha"></div>
+  </div>
+</div>
+<dialog id="acct-dlg" aria-labelledby="a-title"><div>
+  <div class="m-head" style="background:#E0F2FF"><h3 id="a-title">Your account</h3><p>Your trips and settings sync to this account.</p>
+    <button class="m-close" type="button" aria-label="Close" data-a-close>×</button></div>
+  <div class="m-body">
+    <dl class="a-rows" id="a-rows"></dl>
+    <p class="note" id="a-sync"></p>
+    <div class="m-actions"><button class="btn" type="button" id="a-out">Sign out</button><button class="btn danger" type="button" id="a-del">Delete my account</button></div>
+    <p class="g-msg" id="a-msg" aria-live="polite"></p>
+  </div></div></dialog>
+<div class="syncbar" id="syncbar" hidden role="status"><span>Your trips changed on another device.</span><button class="btn" type="button" onclick="location.reload()">Refresh</button></div>
 
 
 <script>
@@ -697,7 +804,7 @@ const FOOD = [
 
 (function(){
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}try{window.REBD_SYNC&&REBD_SYNC.touch(k)}catch(e){}}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const isYl=c=>c==="#FFC928";
 let done=new Set(store.get("rebd-done",[]));
@@ -1546,6 +1653,130 @@ setInterval(tick,5000);
 renderTrips();renderStops();renderFood();renderTrack();renderSafe();
 const tab=store.get("rebd-tab","plan");if(["plan","track","safe","stops","food","season","budget"].includes(tab))show(tab);
 if(window.REBD_STANDALONE)$("#install").hidden=false;
+})();
+</script>
+<script>
+// Sign-in gate and account sync. Does nothing until window.REBD_FIREBASE has a config (top of the file).
+// Local-first: the app always reads and writes localStorage. Each synced key is mirrored to Firestore at
+// users/{uid}/state/{key} = {v: JSON string, t: last-change time, d: device}. Newest change wins per key.
+(async function(){
+if(!window.REBD_AUTH_ON)return;
+const SDK="https://www.gstatic.com/firebasejs/12.19.0/";
+const $=s=>document.querySelector(s), html=document.documentElement, SY=window.REBD_SYNC, KEYS=SY.keys;
+const gmsg=(t,err)=>{const m=$("#g-msg");m.textContent=t||"";m.classList.toggle("err",!!err)};
+const gate=on=>html.classList.toggle("gated",on);
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+let dev=ls.get("rebd-device");if(!dev){dev="d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);ls.set("rebd-device",dev)}
+let touched=false;["pointerdown","keydown"].forEach(e=>addEventListener(e,()=>{touched=true},{once:true,capture:true}));
+const t0=Date.now();
+
+let A,F,app,auth,db;
+try{[app,A,F]=await Promise.all([import(SDK+"firebase-app.js"),import(SDK+"firebase-auth.js"),import(SDK+"firebase-firestore.js")])}
+catch(e){gmsg(navigator.onLine?"Couldn't load sign-in. Check your connection and reopen the app.":"You're offline. Connect to the internet to sign in the first time.",true);return}
+try{
+  app=app.initializeApp(window.REBD_FIREBASE);auth=A.getAuth(app);auth.useDeviceLanguage();
+  try{db=F.initializeFirestore(app,{localCache:F.persistentLocalCache({tabManager:F.persistentMultipleTabManager()})})}catch(e){db=F.getFirestore(app)}
+}catch(e){gmsg("Sign-in isn't set up correctly yet. Check the Firebase config at the top of the app.",true);console.error(e);return}
+
+// ---- sync ----
+// Ride Safe keeps live ride state (GPS, fuel left, weather) on the device it's riding with.
+const LOCAL_SAFETY=["ride","lastFix","wx","fuel"];
+const hash=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return s.length+":"+h.toString(36)};
+function payload(k){const raw=ls.get(k);if(raw==null)return null;if(k!=="rebd-safety")return raw;
+  try{const o=JSON.parse(raw);LOCAL_SAFETY.forEach(f=>delete o[f]);return JSON.stringify(o)}catch(e){return raw}}
+function apply(k,v){if(k==="rebd-safety"){try{const o=JSON.parse(v),cur=JSON.parse(ls.get(k)||"{}");LOCAL_SAFETY.forEach(f=>{if(cur[f]!==undefined)o[f]=cur[f]});v=JSON.stringify(o)}catch(e){}}ls.set(k,v)}
+let uid=null,timer=null;
+function push(k,m){const v=payload(k);if(v==null||!uid)return;const h=hash(v);if(m.h[k]===h)return;
+  m.h[k]=h;const t=m.t[k]||Date.now();m.t[k]=t;
+  F.setDoc(F.doc(db,"users",uid,"state",k),{v,t,d:dev}).catch(e=>{console.warn("sync",k,e);const mm=SY.meta();delete mm.h[k];SY.saveMeta(mm)})}
+function flush(){clearTimeout(timer);timer=null;if(!uid)return;const m=SY.meta();KEYS.forEach(k=>push(k,m));SY.saveMeta(m)}
+SY.onTouch=()=>{if(uid&&!timer)timer=setTimeout(flush,4000)};
+addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")flush()});
+addEventListener("pagehide",flush);
+function wipeLocal(){KEYS.forEach(k=>ls.del(k));ls.del("rebd-sync");ls.del("rebd-owner")}
+async function pull(){const snap=await F.getDocs(F.collection(db,"users",uid,"state"));const r={};snap.forEach(d=>{r[d.id]=d.data()});
+  const m=SY.meta();let changed=false;
+  KEYS.forEach(k=>{const rv=r[k],lt=m.t[k]||0,has=ls.get(k)!=null;
+    if(rv&&typeof rv.v==="string"&&(!has||(+rv.t||0)>lt)){if(payload(k)!==rv.v){apply(k,rv.v);changed=true}m.t[k]=+rv.t||0;m.h[k]=hash(rv.v)}
+    else if(has)push(k,m)});
+  SY.saveMeta(m);return changed}
+
+// ---- account UI ----
+const name=u=>u.displayName||u.email||u.phoneNumber||"Rider";
+function acctBtn(u){let b=$("#acct");if(!b){b=document.createElement("button");b.id="acct";b.className="acct";b.type="button";
+    const p=$("#prog"),w=document.createElement("div");w.className="hend";p.replaceWith(w);w.append(p,b);b.onclick=openAcct}
+  b.setAttribute("aria-label","Your account: "+name(u));b.textContent="";
+  if(u.photoURL){const i=new Image();i.alt="";i.referrerPolicy="no-referrer";i.src=u.photoURL;i.onerror=()=>{b.textContent=name(u).trim()[0].toUpperCase()};b.append(i)}
+  else b.textContent=(name(u).trim()[0]||"R").toUpperCase()}
+const via=u=>(u.providerData||[]).map(p=>({"google.com":"Google","apple.com":"Apple","phone":"Phone number"})[p.providerId]||p.providerId).join(", ");
+function openAcct(){const u=auth.currentUser;if(!u)return;const e=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  $("#a-rows").innerHTML=[["Name",u.displayName],["Email",u.email],["Phone",u.phoneNumber],["Signed in with",via(u)]].filter(r=>r[1]).map(r=>`<div><dt>${r[0]}</dt><dd>${e(r[1])}</dd></div>`).join("");
+  $("#a-sync").textContent=navigator.onLine?"Everything you change is saved on this phone first, then backed up to your account.":"You're offline. Changes are saved on this phone and will back up when you're online.";
+  $("#a-msg").textContent="";delArm=false;$("#a-del").textContent="Delete my account";$("#acct-dlg").showModal()}
+$("#acct-dlg").addEventListener("click",e=>{if(e.target.closest("[data-a-close]")||e.target.id==="acct-dlg")$("#acct-dlg").close()});
+$("#a-out").onclick=async()=>{$("#a-msg").textContent="Saving your trips…";flush();
+  try{await Promise.race([F.waitForPendingWrites(db),new Promise(r=>setTimeout(r,4000))])}catch(e){}
+  await A.signOut(auth).catch(()=>{});wipeLocal();location.reload()};
+let delArm=false;
+$("#a-del").onclick=async()=>{const b=$("#a-del"),msg=$("#a-msg");
+  if(!delArm){delArm=true;b.textContent="Tap again to delete everything";msg.textContent="This removes your account and all saved trips and progress, on every device. It can't be undone.";return}
+  b.disabled=true;msg.textContent="Deleting…";const u=auth.currentUser;
+  try{const snap=await F.getDocs(F.collection(db,"users",u.uid,"state"));await Promise.all(snap.docs.map(d=>F.deleteDoc(d.ref)));
+    await F.deleteDoc(F.doc(db,"users",u.uid));await A.deleteUser(u);uid=null;wipeLocal();location.reload()}
+  catch(e){b.disabled=false;delArm=false;b.textContent="Delete my account";
+    msg.textContent=e&&e.code==="auth/requires-recent-login"?"For your safety, sign out, sign in again, then delete straight away.":"Couldn't delete right now. Check your connection and try again."}};
+
+// ---- sign in ----
+const ERR={"auth/invalid-phone-number":"That phone number doesn't look right. Check the country code and number.",
+  "auth/missing-phone-number":"Enter your mobile number.","auth/too-many-requests":"Too many tries. Wait a few minutes and try again.",
+  "auth/invalid-verification-code":"That code isn't right. Check the text message and try again.","auth/code-expired":"That code has expired. Go back and send a new one.",
+  "auth/network-request-failed":"No internet connection. Connect and try again.","auth/unauthorized-domain":"This website isn't on the sign-in allow list yet (Firebase, Authentication, Settings, Authorized domains).",
+  "auth/operation-not-allowed":"This sign-in method isn't switched on yet.","auth/account-exists-with-different-credential":"You already have an account with this email. Sign in the way you did before.",
+  "auth/quota-exceeded":"Text messages are paused for today. Try Google or Apple instead.","auth/captcha-check-failed":"The security check failed. Try again.",
+  "auth/user-disabled":"This account has been switched off. Contact support."};
+const errText=e=>ERR[e&&e.code]||"Something went wrong signing in. Try again.";
+const QUIET=["auth/popup-closed-by-user","auth/cancelled-popup-request","auth/user-cancelled"];
+function step(s){$("#g-pick").hidden=s!=="pick";$("#g-num").hidden=s!=="num";$("#g-otp").hidden=s!=="otp";gmsg("")}
+async function oauth(p,btn){btn.setAttribute("aria-busy","true");gmsg("Opening sign-in…");
+  try{await A.signInWithPopup(auth,p)}
+  catch(e){if(["auth/popup-blocked","auth/operation-not-supported-in-this-environment"].includes(e.code)){await A.signInWithRedirect(auth,p);return}
+    gmsg(QUIET.includes(e.code)?"":errText(e),!QUIET.includes(e.code))}
+  finally{btn.removeAttribute("aria-busy")}}
+$("#g-google").onclick=e=>{const p=new A.GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});oauth(p,e.currentTarget)};
+$("#g-apple").onclick=e=>{const p=new A.OAuthProvider("apple.com");p.addScope("email");p.addScope("name");oauth(p,e.currentTarget)};
+$("#g-phone").onclick=()=>{step("num");$("#g-tel").focus()};
+document.querySelectorAll("[data-g-back]").forEach(b=>b.onclick=()=>step($("#g-otp").hidden?"pick":"num"));
+let rv=null,conf=null;
+const resetRv=()=>{try{rv&&rv.clear()}catch(e){}rv=null;$("#g-recaptcha").innerHTML=""};
+$("#g-num").onsubmit=async e=>{e.preventDefault();const btn=$("#g-send"),cc=$("#g-cc").value;
+  let n=$("#g-tel").value.replace(/[^\d+]/g,"");if(n.startsWith("+"))n="+"+n.slice(1).replace(/\D/g,"");else n=cc+n.replace(/^0+/,"");
+  if(n.replace(/\D/g,"").length<8){gmsg(ERR["auth/invalid-phone-number"],true);return}
+  btn.disabled=true;gmsg("Sending your code…");
+  try{rv=rv||new A.RecaptchaVerifier(auth,"g-recaptcha",{size:"invisible"});conf=await A.signInWithPhoneNumber(auth,n,rv);
+    $("#g-to").textContent=n;step("otp");$("#g-code").value="";$("#g-code").focus();gmsg("Code sent. It can take a minute to arrive.")}
+  catch(err){resetRv();gmsg(errText(err),true)}finally{btn.disabled=false}};
+$("#g-otp").onsubmit=async e=>{e.preventDefault();const c=$("#g-code").value.replace(/\D/g,"");if(c.length<6||!conf){gmsg("Enter all 6 digits.",true);return}
+  const btn=$("#g-verify");btn.disabled=true;gmsg("Checking…");
+  try{await conf.confirm(c)}catch(err){gmsg(errText(err),true)}finally{btn.disabled=false}};
+$("#g-code").addEventListener("input",e=>{if(e.target.value.replace(/\D/g,"").length===6)$("#g-otp").requestSubmit()});
+A.getRedirectResult(auth).catch(e=>{if(!QUIET.includes(e.code))gmsg(errText(e),true)});
+
+// ---- auth state ----
+A.onAuthStateChanged(auth,async u=>{
+  if(!u){uid=null;resetRv();step("pick");["#g-google","#g-apple","#g-phone"].forEach(s=>$(s).disabled=false);gate(true);
+    const b=$("#acct");if(b)b.hidden=true;return}
+  const owner=ls.get("rebd-owner"),first=owner!==u.uid;
+  if(owner&&owner!==u.uid)wipeLocal(); // someone else used this phone before: never show their trips
+  uid=u.uid;window.REBD_USER={uid:u.uid,name:u.displayName||"",email:u.email||"",phone:u.phoneNumber||""};
+  acctBtn(u);$("#acct").hidden=false;
+  F.setDoc(F.doc(db,"users",u.uid),{name:u.displayName||"",email:u.email||"",phone:u.phoneNumber||"",via:via(u),
+    createdAt:u.metadata.creationTime||"",lastSeen:F.serverTimestamp()},{merge:true}).catch(()=>{});
+  if(first){gmsg("Getting your trips…");let changed=false;
+    try{changed=await pull()}catch(e){console.warn("pull",e)}
+    ls.set("rebd-owner",u.uid);if(changed||owner){location.reload();return}gate(false);return}
+  gate(false);
+  try{if(await pull()){if(!touched&&Date.now()-t0<8000)location.reload();else $("#syncbar").hidden=false}}catch(e){console.warn("pull",e)}
+});
 })();
 </script>
 
